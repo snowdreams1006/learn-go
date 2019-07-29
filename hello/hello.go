@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/snowdreams1006/learn-go/strings"
+)
 
 func main() {
-	fmt.Printf("Hello, world.\n")
+	fmt.Printf(strings.Reverse("Hello,Go!"))
 }
-
