@@ -48,3 +48,11 @@ func TestExchange(t *testing.T) {
 	b = temp
 	t.Log(a, b)
 }
+
+func TestConst(t *testing.T) {
+	const pi = 3.14
+	t.Log(pi)
+
+	//pi = 2.828
+	//t.Log(pi)
+}
