@@ -72,7 +72,7 @@ func TestConstForIota(t *testing.T) {
 	t.Log(Mon, Tue, Wed, Thu, Fri, Sat, Sun)
 
 	var days [7]int
-	for i := 0; i < 7; i++ {
+	for i := 0; i < len(days); i++ {
 		days[i] = 1 + i
 	}
 	// [1 2 3 4 5 6 7]
@@ -85,6 +85,13 @@ func TestConstForIota(t *testing.T) {
 	)
 	// 0001 0010 0100 即 1 2 4
 	t.Log(Readable, Writing, Executable)
+
+	var access [3]int
+	for i := 0; i < len(access); i++ {
+		access[i] = 1 << uint(i)
+	}
+	// [1 2 4]
+	t.Log(access)
 
 	// 0111 即 7,表示可读,可写,可执行
 	accessCode := 7
@@ -113,4 +120,49 @@ func TestConstForIota(t *testing.T) {
 	// 62.9 KB (64,411 字节)
 	size := 64411.0
 	t.Log(size, size/Kb)
+
+	const (
+		// iota=0 const=1+0=1 iota=0+1=1
+		first = 1 + iota
+
+		// iota=1 const=1+1=2 iota=1+1=2
+		second
+
+		// iota=2 const=2+2=4 iota=2+1=3
+		third = 2 + iota
+
+		// iota=3 const=2+3=5 iota=3+1=4
+		forth
+
+		// iota=4 const=2*4=8 iota=4+1=5
+		fifth = 2 * iota
+
+		// iota=5 const=2*5=10 iota=5+1=6
+		sixth
+
+		// iota=6 const=6 iota=6+1=7
+		seventh = iota
+	)
+	// 1 2 4 5 8 10 6
+	t.Log(first, second, third, forth, fifth, sixth, seventh)
+
+	var rank [7]int
+	for i := 0; i < len(rank); i++ {
+		if i < 2 {
+			rank[i] = 1 + i
+		} else if i < 4 {
+			rank[i] = 2 + i
+		} else if i < 6 {
+			rank[i] = 2 * i
+		} else {
+			rank[i] = i
+		}
+	}
+	// [1 2 3 4 5 6 7]
+	t.Log(rank)
+
+	const currentIota = iota
+
+	// 0
+	t.Log(currentIota)
 }
