@@ -49,6 +49,28 @@ func TestExchange(t *testing.T) {
 	t.Log(a, b)
 }
 
+func TestVar(t *testing.T) {
+	var a int = 1
+	var b = 2
+	c := a + b
+	t.Log(a, b, c)
+
+	var (
+		a1 int = 10
+		a2 int = 11
+	)
+	t.Log(a1, a2)
+
+	var (
+		a3 = 20
+		a4 = 21
+	)
+	t.Log(a3, a4)
+
+	var a5, a6 = 30, 31
+	t.Log(a5, a6)
+}
+
 func TestConst(t *testing.T) {
 	const pi = 3.14
 	t.Log(pi)
