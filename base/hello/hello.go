@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/snowdreams1006/learn-go/strings"
+	"github.com/snowdreams1006/learn-go/base/strings"
 )
 
 func main() {

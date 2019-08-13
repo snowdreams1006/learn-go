@@ -34,6 +34,38 @@ func TestFib(t *testing.T) {
 		b = temp + b
 	}
 	fmt.Println()
+
+	//package main
+	//
+	//import "fmt"
+	//
+	//// fib returns a function that returns
+	//// successive Fibonacci numbers.
+	//func fib() func() int {
+	//	a, b := 0, 1
+	//	return func() int {
+	//		a, b = b, a+b
+	//		return a
+	//	}
+	//}
+	//
+	//func main() {
+	//	f := fib()
+	//	// Function calls are evaluated left-to-right.
+	//	fmt.Println(f(), f(), f(), f(), f())
+	//}
+}
+
+func TestFibSimplify(t *testing.T) {
+	a, b := 0, 1
+
+	for i := 0; i < 6; i++ {
+		fmt.Print(" ", b)
+
+		a, b = b, a+b
+	}
+
+	fmt.Println()
 }
 
 func TestExchange(t *testing.T) {

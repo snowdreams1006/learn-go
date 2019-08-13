@@ -1,6 +1,8 @@
 package strings
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestReverse(t *testing.T) {
 	cases := []struct {
