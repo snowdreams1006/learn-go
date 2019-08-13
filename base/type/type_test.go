@@ -26,3 +26,14 @@ func TestPointer(t *testing.T) {
 	t.Log(a, aPoi)
 	t.Logf("%T %T", a, aPoi)
 }
+
+func TestString(t *testing.T){
+	var s string
+	t.Log(len(s))
+
+	if s == "" {
+		t.Log("空字符串",s)
+	}else{
+		t.Log("非空字符串",s)
+	}
+}
