@@ -1,6 +1,7 @@
 package process
 
 import (
+	"io/ioutil"
 	"runtime"
 	"testing"
 )
@@ -33,6 +34,25 @@ func TestIfCondition(t *testing.T) {
 	}
 }
 
+func TestIfConditionMultiReturnValue(t *testing.T) {
+	const filename = "test.txt"
+	content, err := ioutil.ReadFile(filename)
+	if err != nil {
+		t.Log(err)
+	} else {
+		t.Logf("%s\n", content)
+	}
+}
+
+func TestIfConditionMultiReturnValueShorter(t *testing.T) {
+	const filename = "test.txt"
+	if content, err := ioutil.ReadFile(filename); err != nil {
+		t.Log(err)
+	} else {
+		t.Logf("%s\n", content)
+	}
+}
+
 func TestSwitchCondition(t *testing.T) {
 	switch os := runtime.GOOS; os {
 	case "darwin":
@@ -44,6 +64,36 @@ func TestSwitchCondition(t *testing.T) {
 	default:
 		t.Log(os)
 	}
+}
+
+func evalBySwitchOperator(a, b int, op string) int {
+	var result int
+	switch op {
+	case "+":
+		result = a + b
+	case "-":
+		result = a - b
+	case "*":
+		result = a * b
+	case "/":
+		result = a / b
+	default:
+		panic("unsupported operator:" + op)
+	}
+	return result
+}
+
+func TestEvalBySwitchOperator(t *testing.T) {
+	// 3
+	t.Log(evalBySwitchOperator(1, 2, "+"))
+	// -1
+	t.Log(evalBySwitchOperator(1, 2, "-"))
+	// 2
+	t.Log(evalBySwitchOperator(1, 2, "*"))
+	// 0
+	t.Log(evalBySwitchOperator(1, 2, "/"))
+	// unsupported operator:% [recovered]
+	t.Log(evalBySwitchOperator(1, 2, "%"))
 }
 
 func TestSwitchMultiCase(t *testing.T) {
