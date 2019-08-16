@@ -1,25 +1,14 @@
 package process
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
+	"os"
 	"runtime"
+	"strconv"
 	"testing"
 )
-
-func TestForLoop(t *testing.T) {
-	for i := 0; i < 10; i++ {
-		t.Log(i)
-	}
-}
-
-func TestWhileLoop(t *testing.T) {
-	i := 0
-	for i < 5 {
-		i++
-		t.Log(i)
-	}
-}
 
 func TestIfCondition(t *testing.T) {
 	for i := 0; i < 10; i++ {
@@ -114,7 +103,7 @@ func gradeBySwitchOperator(score int) string {
 	return result
 }
 
-func TestGradeBySwitchOperator(t *testing.T){
+func TestGradeBySwitchOperator(t *testing.T) {
 	// F F C C B B A A
 	t.Log(
 		gradeBySwitchOperator(0),
@@ -153,4 +142,56 @@ func TestSwitchCaseCondition(t *testing.T) {
 			t.Log("default", i)
 		}
 	}
+}
+
+func TestForLoop(t *testing.T) {
+	sum := 0
+	for i := 1; i <= 100; i++ {
+		sum += i
+	}
+	// 1+2+3+...+99+100=5050
+	t.Log(sum)
+}
+
+func convert2Binary(n int) string {
+	result := ""
+	for ; n > 0; n /= 2 {
+		lsb := n % 2
+		result = strconv.Itoa(lsb) + result
+	}
+	return result
+}
+
+func TestConvert2Binary(t *testing.T) {
+	// 1 100 101 1101
+	t.Log(
+		convert2Binary(1),
+		convert2Binary(4),
+		convert2Binary(5),
+		convert2Binary(13),
+	)
+}
+
+func TestWhileLoopByForLoop(t *testing.T) {
+	i := 0
+	for i < 5 {
+		i++
+		t.Log(i)
+	}
+}
+
+func printFile(filename string) {
+	if file, err := os.Open(filename); err != nil {
+		panic(err)
+	} else {
+		scanner := bufio.NewScanner(file)
+		for scanner.Scan() {
+			fmt.Println(scanner.Text())
+		}
+	}
+}
+
+func TestPrintFile(t *testing.T){
+	const filename = "test.txt"
+	printFile(filename)
 }
