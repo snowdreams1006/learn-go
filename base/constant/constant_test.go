@@ -39,9 +39,12 @@ func TestConstant2EnumShorter(t *testing.T) {
 		python
 		javascript
 	)
+
 	// 0 1 3 4
 	t.Log(java, golang,python,javascript)
+}
 
+func TestConstantIota(t *testing.T) {
 	const (
 		B = 1 << (10 * iota)
 		Kb
@@ -50,6 +53,7 @@ func TestConstant2EnumShorter(t *testing.T) {
 		Tb
 		Pb
 	)
+
 	// 1 1024 1048576 1073741824 1099511627776 1125899906842624
 	t.Log(B, Kb, Mb, Gb, Tb, Pb)
 }
