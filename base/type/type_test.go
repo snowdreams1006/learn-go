@@ -56,6 +56,52 @@ func TestPointer(t *testing.T) {
 
 	t.Log(a, aPoi)
 	t.Logf("%T %T", a, aPoi)
+
+	var b int = 2
+	var pb *int = &b
+	*pb = 3
+
+	// 3
+	t.Log(b)
+}
+
+func swapByVal(a, b int) {
+	a, b = b, a
+}
+
+func TestSwapByVal(t *testing.T) {
+	a, b := 3, 4
+
+	swapByVal(a, b)
+
+	// 3 4
+	t.Log(a, b)
+}
+
+func swapByRef(a, b *int) {
+	*a, *b = *b, *a
+}
+
+func TestSwapByRef(t *testing.T) {
+	a, b := 3, 4
+
+	swapByRef(&a, &b)
+
+	// 4 3
+	t.Log(a, b)
+}
+
+func swap(a, b int) (int, int) {
+	return b, a
+}
+
+func TestSwap(t *testing.T) {
+	a, b := 3, 4
+
+	a, b = swap(a, b)
+
+	// 4 3
+	t.Log(a, b)
 }
 
 func TestString(t *testing.T) {
