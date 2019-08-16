@@ -1,6 +1,28 @@
 package _type
 
-import "testing"
+import (
+	"math"
+	"math/cmplx"
+	"testing"
+)
+
+func TestComplex(t *testing.T) {
+	c := 3 + 4i
+
+	// 5
+	t.Log(cmplx.Abs(c))
+}
+
+func TestEuler(t *testing.T) {
+	// (0+1.2246467991473515e-16i)
+	t.Log(cmplx.Pow(math.E, 1i*math.Pi) + 1)
+
+	// (0+1.2246467991473515e-16i)
+	t.Log(cmplx.Exp(1i*math.Pi) + 1)
+
+	// (0.000+0.000i)
+	t.Logf("%.3f",cmplx.Exp(1i*math.Pi)+1)
+}
 
 func TestImplicitTypeConvert(t *testing.T) {
 	type MyInt64 int64
