@@ -2,9 +2,26 @@ package _type
 
 import "testing"
 
-type MyInt64 int64
+func TestVarZeroValue(t *testing.T) {
+	var a int
+	var s string
+
+	// 0
+	t.Log(a, s)
+	// 0 ""
+	t.Logf("%d %q", a, s)
+}
+
+func TestVarInitialValue(t *testing.T){
+	var a,b int = 1,2
+	var s = "hello Go"
+
+	t.Log(a,b,s)
+}
 
 func TestImplicitTypeConvert(t *testing.T) {
+	type MyInt64 int64
+
 	var a int = 1
 	var b int64
 
