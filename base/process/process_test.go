@@ -1,6 +1,7 @@
 package process
 
 import (
+	"fmt"
 	"io/ioutil"
 	"runtime"
 	"testing"
@@ -93,7 +94,39 @@ func TestEvalBySwitchOperator(t *testing.T) {
 	// 0
 	t.Log(evalBySwitchOperator(1, 2, "/"))
 	// unsupported operator:% [recovered]
-	t.Log(evalBySwitchOperator(1, 2, "%"))
+	//t.Log(evalBySwitchOperator(1, 2, "%"))
+}
+
+func gradeBySwitchOperator(score int) string {
+	result := ""
+	switch {
+	case score < 0 || score > 100:
+		panic(fmt.Sprintf("Wrong score: %d", score))
+	case score < 60:
+		result = "F"
+	case score < 80:
+		result = "C"
+	case score < 90:
+		result = "B"
+	case score <= 100:
+		result = "A"
+	}
+	return result
+}
+
+func TestGradeBySwitchOperator(t *testing.T){
+	// F F C C B B A A
+	t.Log(
+		gradeBySwitchOperator(0),
+		gradeBySwitchOperator(59),
+		gradeBySwitchOperator(60),
+		gradeBySwitchOperator(79),
+		gradeBySwitchOperator(80),
+		gradeBySwitchOperator(89),
+		gradeBySwitchOperator(99),
+		gradeBySwitchOperator(100),
+		//gradeBySwitchOperator(1000),
+	)
 }
 
 func TestSwitchMultiCase(t *testing.T) {
