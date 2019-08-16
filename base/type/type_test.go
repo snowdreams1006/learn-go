@@ -21,7 +21,16 @@ func TestEuler(t *testing.T) {
 	t.Log(cmplx.Exp(1i*math.Pi) + 1)
 
 	// (0.000+0.000i)
-	t.Logf("%.3f",cmplx.Exp(1i*math.Pi)+1)
+	t.Logf("%.3f", cmplx.Exp(1i*math.Pi)+1)
+}
+
+func TestExplicitTypeConvert(t *testing.T) {
+	var a, b int = 3, 4
+	var c int
+	c = int(math.Sqrt(float64(a*a + b*b)))
+
+	// 3 4 5
+	t.Log(a, b, c)
 }
 
 func TestImplicitTypeConvert(t *testing.T) {
