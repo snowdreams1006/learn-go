@@ -191,7 +191,17 @@ func printFile(filename string) {
 	}
 }
 
-func TestPrintFile(t *testing.T){
+func TestPrintFile(t *testing.T) {
 	const filename = "test.txt"
 	printFile(filename)
+}
+
+func forever() {
+	for {
+		fmt.Println("hello go")
+	}
+}
+
+func TestForever(t *testing.T) {
+	forever()
 }
