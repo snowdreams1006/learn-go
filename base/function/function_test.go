@@ -31,7 +31,7 @@ func TestEval(t *testing.T) {
 		eval(1, 2, "-"),
 		eval(1, 2, "*"),
 		eval(1, 2, "/"),
-		eval(1, 2, "%"),
+		//eval(1, 2, "%"),
 	)
 }
 
