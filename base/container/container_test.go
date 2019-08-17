@@ -70,7 +70,7 @@ func printArray(arr [5]int) {
 	}
 }
 
-func TestPrintArray(t *testing.T){
+func TestPrintArray(t *testing.T) {
 	var arr1 [3]int
 	arr2 := [5]int{1, 2, 3, 4, 5}
 	arr3 := [...]int{2, 4, 6, 8, 10}
@@ -88,7 +88,7 @@ func TestPrintArray(t *testing.T){
 	printArray(arr3)
 
 	// [1 2 3 4 5] [2 4 6 8 10]
-	t.Log(arr2,arr3)
+	t.Log(arr2, arr3)
 }
 
 func printArrayByPointer(arr *[5]int) {
@@ -98,7 +98,7 @@ func printArrayByPointer(arr *[5]int) {
 	}
 }
 
-func TestPrintArrayByPointer(t *testing.T){
+func TestPrintArrayByPointer(t *testing.T) {
 	var arr1 [3]int
 	arr2 := [5]int{1, 2, 3, 4, 5}
 	arr3 := [...]int{2, 4, 6, 8, 10}
@@ -113,5 +113,74 @@ func TestPrintArrayByPointer(t *testing.T){
 	printArrayByPointer(&arr3)
 
 	// [666 2 3 4 5] [666 4 6 8 10]
-	t.Log(arr2,arr3)
+	t.Log(arr2, arr3)
+}
+
+func TestSlice(t *testing.T) {
+	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	// arr[2:6] =  [2 3 4 5]
+	t.Log("arr[2:6] = ", arr[2:6])
+	// arr[:6] =  [0 1 2 3 4 5]
+	t.Log("arr[:6] = ", arr[:6])
+	// arr[2:] =  [2 3 4 5 6 7 8 9]
+	t.Log("arr[2:] = ", arr[2:])
+	// arr[:] =  [0 1 2 3 4 5 6 7 8 9]
+	t.Log("arr[:] = ", arr[:])
+}
+
+func updateSlice(s []int) {
+	s[0] = 666
+}
+
+func TestUpdateSlice(t *testing.T) {
+	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	s1 := arr[2:6]
+	// s1 =  [2 3 4 5]
+	t.Log("s1 = ", s1)
+
+	s2 := arr[:6]
+	// s2 =  [0 1 2 3 4 5]
+	t.Log("s2 = ", s2)
+
+	updateSlice(s1)
+	// s1 =  [666 3 4 5]
+	t.Log("s1 = ", s1)
+	// arr =  [0 1 666 3 4 5 6 7 8 9]
+	t.Log("arr = ", arr)
+
+	updateSlice(s2)
+	// s2 =  [666 1 666 3 4 5]
+	t.Log("s2 = ", s2)
+	// arr =  [666 1 666 3 4 5 6 7 8 9]
+	t.Log("arr = ", arr)
+}
+
+func TestReSlice(t *testing.T) {
+	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	s1 := arr[2:6]
+	// s1 =  [2 3 4 5]
+	t.Log("s1 = ", s1)
+
+	s1 = s1[2:]
+	// s1 =  [4 5]
+	t.Log("s1 = ", s1)
+
+	s1 = s1[:6]
+	// s1 =  [4 5 6 7 8 9]
+	t.Log("s1 = ", s1)
+}
+
+func TestSliceOutOfBound(t *testing.T) {
+	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7}
+
+	s1 := arr[2:6]
+	// s1 =  [2 3 4 5]
+	t.Log("s1 = ", s1)
+
+	s2 := s1[3:5]
+	// s2 =  [5 6]
+	t.Log("s2 = ", s2)
 }
