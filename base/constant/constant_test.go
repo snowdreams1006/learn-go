@@ -57,3 +57,17 @@ func TestConstantIota(t *testing.T) {
 	// 1 1024 1048576 1073741824 1099511627776 1125899906842624
 	t.Log(B, Kb, Mb, Gb, Tb, Pb)
 }
+
+func TestConstantIotaBitCalculate(t *testing.T){
+	const (
+		Readable = 1 << iota
+		Writable
+		Executable
+	)
+	// 0001 0010 0100 即 1 2 4
+	t.Log(Readable, Writable, Executable)
+
+	// 0111 即 7,表示可读,可写,可执行
+	accessCode := 7
+	t.Log(accessCode&Readable == Readable, accessCode&Writable == Writable, accessCode&Executable == Executable)
+}

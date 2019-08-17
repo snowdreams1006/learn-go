@@ -41,6 +41,9 @@ func TestIfConditionMultiReturnValueShorter(t *testing.T) {
 	} else {
 		t.Logf("%s\n", content)
 	}
+
+	// undefined: content
+	//t.Logf("%s\n", content)
 }
 
 func TestSwitchCondition(t *testing.T) {
