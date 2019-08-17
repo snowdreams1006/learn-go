@@ -183,4 +183,24 @@ func TestSliceOutOfBound(t *testing.T) {
 	s2 := s1[3:5]
 	// s2 =  [5 6]
 	t.Log("s2 = ", s2)
+
+	// index out of range
+	//t.Log("s1[4] = ", s1[4])
+}
+
+func TestSliceDetail(t *testing.T) {
+	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7}
+	// arr = [0 1 2 3 4 5 6 7], len(arr) = 8, cap(arr) = 8
+	t.Logf("arr = %v, len(arr) = %d, cap(arr) = %d", arr,len(arr),cap(arr))
+
+	s1 := arr[2:6]
+	// s1 = [2 3 4 5], len(s1) = 4, cap(s1) = 6
+	t.Logf("s1 = %v, len(s1) = %d, cap(s1) = %d", s1,len(s1),cap(s1))
+
+	s2 := s1[3:5]
+	// s2 = [5 6], len(s2) = 2, cap(s2) = 3
+	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2,len(s2),cap(s2))
+
+	// slice bounds out of range
+	//t.Log(s1[3:7])
 }
