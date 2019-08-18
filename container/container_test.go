@@ -414,5 +414,72 @@ func TestMapGetItem(t *testing.T) {
 	// map[id:1 score:100]
 	t.Log(m2)
 	// zero value is 0
-	t.Log(m2["name"])
+	t.Log(m2["sco"])
+
+	sco, ok := m2["sco"]
+
+	// 0 false
+	t.Log(sco, ok)
+
+	score, ok := m2["score"]
+
+	// 100 true
+	t.Log(score, ok)
+
+	if id, ok := m2["id"]; ok {
+		t.Log(id)
+	} else {
+		t.Log("key does not exist ")
+	}
+}
+
+func TestMapDeleteItem(t *testing.T) {
+	m := map[string]string{
+		"name": "snowdreams1006",
+		"site": "https://snowdreams1006.github.io",
+	}
+
+	// map[name:snowdreams1006 site:https://snowdreams1006.github.io]
+	t.Log(m)
+
+	delete(m, "name")
+
+	// map[site:https://snowdreams1006.github.io]
+	t.Log(m)
+
+	delete(m, "id")
+
+	// map[site:https://snowdreams1006.github.io]
+	t.Log(m)
+}
+
+func lengthOfLongestSubstring(s string) int {
+	lastOccurred := make(map[byte]int)
+	start, maxLength := 0, 0
+
+	for i, ch := range []byte(s) {
+		if lastI, ok := lastOccurred[ch]; ok && lastI >= start {
+			start = lastI + 1
+		}
+		if i-start+1 > maxLength {
+			maxLength = i - start + 1
+		}
+		lastOccurred[ch] = i
+	}
+
+	return maxLength
+}
+
+func TestLengthOfLongestSubstring(t *testing.T) {
+	// 3 1 3 0 1 7 11 6
+	t.Log(
+		lengthOfLongestSubstring("abcabcbb"),
+		lengthOfLongestSubstring("bbbbb"),
+		lengthOfLongestSubstring("pwwkew"),
+		lengthOfLongestSubstring(""),
+		lengthOfLongestSubstring("a"),
+		lengthOfLongestSubstring("abcdefg"),
+		lengthOfLongestSubstring("雪之梦技术驿站"),
+		lengthOfLongestSubstring("一零零六"),
+	)
 }
