@@ -291,7 +291,7 @@ func TestCopySlice(t *testing.T) {
 	s1 := []int{1, 3, 5, 7, 9}
 	s2 := make([]int, 10, 32)
 
-	copy(s2,s1)
+	copy(s2, s1)
 
 	// s2 = [1 3 5 7 9 0 0 0 0 0], len(s2) = 10, cap(s2) = 32
 	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
@@ -301,12 +301,12 @@ func TestDeleteSlice(t *testing.T) {
 	s1 := []int{1, 3, 5, 7, 9}
 	s2 := make([]int, 10, 32)
 
-	copy(s2,s1)
+	copy(s2, s1)
 
 	// s2 = [1 3 5 7 9 0 0 0 0 0], len(s2) = 10, cap(s2) = 32
 	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
 
-	s2 = append(s2[:3],s2[4:]...)
+	s2 = append(s2[:3], s2[4:]...)
 
 	// s2 = [1 3 5 9 0 0 0 0 0], len(s2) = 9, cap(s2) = 32
 	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
@@ -316,7 +316,7 @@ func TestPopSlice(t *testing.T) {
 	s1 := []int{1, 3, 5, 7, 9}
 	s2 := make([]int, 10, 32)
 
-	copy(s2,s1)
+	copy(s2, s1)
 
 	// s2 = [1 3 5 7 9 0 0 0 0 0], len(s2) = 10, cap(s2) = 32
 	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
@@ -336,4 +336,83 @@ func TestPopSlice(t *testing.T) {
 	t.Logf("tail = %v", tail)
 	// s2 = [3 5 7 9 0 0 0 0], len(s2) = 8, cap(s2) = 31
 	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
+}
+
+func TestMap(t *testing.T) {
+	m := map[string]string{
+		"name": "snowdreams1006",
+		"site": "https://snowdreams1006.github.io",
+	}
+
+	// map[name:snowdreams1006 site:https://snowdreams1006.github.io]
+	t.Log(m)
+}
+
+func TestMapByMake(t *testing.T) {
+	// empty map
+	m1 := make(map[string]int)
+
+	// map[] false
+	t.Log(m1, m1 == nil)
+
+	// nil
+	var m2 map[string]int
+
+	// map[] true
+	t.Log(m2, m2 == nil)
+}
+
+func TestMapTraverse(t *testing.T) {
+	m := map[string]string{
+		"name": "snowdreams1006",
+		"site": "https://snowdreams1006.github.io",
+	}
+
+	// map[name:snowdreams1006 site:https://snowdreams1006.github.io]
+	t.Log(m)
+
+	for k, v := range m {
+		t.Log(k, v)
+	}
+
+	t.Log()
+
+	for k := range m {
+		t.Log(k)
+	}
+
+	t.Log()
+
+	for _, v := range m {
+		t.Log(v)
+	}
+}
+
+func TestMapGetItem(t *testing.T) {
+	m := map[string]string{
+		"name": "snowdreams1006",
+		"site": "https://snowdreams1006.github.io",
+	}
+
+	// map[name:snowdreams1006 site:https://snowdreams1006.github.io]
+	t.Log(m)
+
+	name := m["name"]
+
+	// snowdreams1006
+	t.Log(name)
+
+	author := m["author"]
+
+	// zero value is empty
+	t.Log(author)
+
+	m2 := map[string]int{
+		"id":    1,
+		"score": 100,
+	}
+	// map[id:1 score:100]
+	t.Log(m2)
+	// zero value is 0
+	t.Log(m2["name"])
 }
