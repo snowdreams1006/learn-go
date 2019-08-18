@@ -117,8 +117,10 @@ func TestPrintArrayByPointer(t *testing.T) {
 	t.Log(arr2, arr3)
 }
 
-func TestSlice(t *testing.T) {
+func TestSliceFromArray(t *testing.T) {
 	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	// arr =  [0 1 2 3 4 5 6 7 8 9]
+	t.Log("arr = ", arr)
 
 	// arr[2:6] =  [2 3 4 5]
 	t.Log("arr[2:6] = ", arr[2:6])
@@ -128,6 +130,26 @@ func TestSlice(t *testing.T) {
 	t.Log("arr[2:] = ", arr[2:])
 	// arr[:] =  [0 1 2 3 4 5 6 7 8 9]
 	t.Log("arr[:] = ", arr[:])
+}
+
+func TestSliceInit(t *testing.T) {
+	var s1 [5]int
+	// [0 0 0 0 0]
+	t.Log(s1)
+
+	var s2 []int
+	// []
+	t.Log(s2, len(s2))
+}
+
+func TestSliceInitValue(t *testing.T) {
+	var s1 = [5]int{1, 3, 5, 7, 9}
+	// [1 3 5 7 9]
+	t.Log(s1)
+
+	var s2 = []int{1, 3, 5, 7, 9}
+	// [1 3 5 7 9]
+	t.Log(s2)
 }
 
 func updateSlice(s []int) {
@@ -237,8 +259,8 @@ func TestSliceAppend(t *testing.T) {
 
 func TestNewSlice(t *testing.T) {
 	var s []int
-	// []
-	t.Log(s)
+	// [] true
+	t.Log(s, s == nil)
 
 	for i := 0; i < 10; i++ {
 		s = append(s, i)
