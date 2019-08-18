@@ -152,12 +152,33 @@ func TestSliceInitValue(t *testing.T) {
 	t.Log(s2)
 }
 
+func TestSliceCompare(t *testing.T) {
+	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	// arr =  [0 1 2 3 4 5 6 7 8 9]
+	t.Log("arr = ", arr)
+
+	s1 := arr[2:6]
+	// s1 =  [2 3 4 5]
+	t.Log("s1 = ", s1)
+
+	s2 := arr[2:6]
+	// s1 =  [2 3 4 5]
+	t.Log("s2 = ", s2)
+
+	//// invalid operation: s1 == s2 (slice can only be compared to nil)
+	//t.Log(s1 == s2)
+}
+
 func updateSlice(s []int) {
 	s[0] = 666
 }
 
 func TestUpdateSlice(t *testing.T) {
 	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	// arr =  [0 1 2 3 4 5 6 7 8 9]
+	t.Log("arr = ", arr)
 
 	s1 := arr[2:6]
 	// s1 =  [2 3 4 5]
@@ -200,15 +221,20 @@ func TestSliceOutOfBound(t *testing.T) {
 	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7}
 
 	s1 := arr[2:6]
-	// s1 =  [2 3 4 5]
-	t.Log("s1 = ", s1)
+	// s1 = [2 3 4 5], len(s1) = 4, cap(s1) = 6
+	t.Logf("s1 = %v, len(s1) = %d, cap(s1) = %d", s1, len(s1), cap(s1))
 
 	s2 := s1[3:5]
-	// s2 =  [5 6]
-	t.Log("s2 = ", s2)
+	// s2 = [5 6], len(s2) = 2, cap(s2) = 3
+	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
 
+	t.Log(s1[3])
 	// index out of range
-	//t.Log("s1[4] = ", s1[4])
+	//t.Log(s1[4])
+
+	t.Log(s1[3:6])
+	// slice bounds out of range
+	//t.Log(s1[3:7])
 }
 
 func TestSliceDetail(t *testing.T) {
@@ -271,7 +297,7 @@ func TestNewSlice(t *testing.T) {
 }
 
 func printSlice(s []int) {
-	fmt.Printf("len(s) = %d, cap(s) = %d\n", len(s), cap(s))
+	fmt.Printf("s = %v, len(s) = %d, cap(s) = %d\n", s, len(s), cap(s))
 }
 
 func TestSliceAutoLonger(t *testing.T) {
@@ -279,14 +305,35 @@ func TestSliceAutoLonger(t *testing.T) {
 	// []
 	t.Log(s)
 
-	for i := 0; i < 100; i++ {
-		printSlice(s)
-
+	for i := 0; i < 10; i++ {
 		s = append(s, i)
+
+		printSlice(s)
 	}
 
 	// [0 1 2 3 ...,98,99]
 	t.Log(s)
+
+	for i := 0; i < 10; i++ {
+		s = s[1:]
+
+		printSlice(s)
+	}
+
+	// [0 1 2 3 ...,98,99]
+	t.Log(s)
+}
+
+func TestMakeSlice(t *testing.T) {
+	s1 := make([]int,10)
+
+	// s1 = [0 0 0 0 0 0 0 0 0 0], len(s1) = 10, cap(s1) = 10
+	t.Logf("s1 = %v, len(s1) = %d, cap(s1) = %d", s1, len(s1), cap(s1))
+
+	s2 := make([]int, 10, 32)
+
+	// s2 = [0 0 0 0 0 0 0 0 0 0], len(s2) = 10, cap(s2) = 32
+	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
 }
 
 func TestNewSliceInitialValue(t *testing.T) {
@@ -311,13 +358,20 @@ func TestNewSliceInitialLengthAndCapacity(t *testing.T) {
 }
 
 func TestCopySlice(t *testing.T) {
-	s1 := []int{1, 3, 5, 7, 9}
-	s2 := make([]int, 10, 32)
+	var s1 = []int{1, 3, 5, 7, 9}
+	var s2 = make([]int, 10, 32)
 
 	copy(s2, s1)
 
 	// s2 = [1 3 5 7 9 0 0 0 0 0], len(s2) = 10, cap(s2) = 32
 	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
+
+	var s3 []int
+
+	copy(s3, s1)
+
+	// s3 = [], len(s3) = 0, cap(s3) = 0
+	t.Logf("s3 = %v, len(s3) = %d, cap(s3) = %d", s3, len(s3), cap(s3))
 }
 
 func TestDeleteSlice(t *testing.T) {
@@ -383,6 +437,14 @@ func TestMapByMake(t *testing.T) {
 
 	// map[] true
 	t.Log(m2, m2 == nil)
+
+	// [0 0 0 0 0] false
+	a1 := make([]int,5)
+	t.Log(a1, a1 == nil)
+
+	// [] true
+	var a2 []int
+	t.Log(a2, a2 == nil)
 }
 
 func TestMapTraverse(t *testing.T) {
