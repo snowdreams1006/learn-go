@@ -555,3 +555,36 @@ func TestLengthOfLongestSubstringInternationalVersion(t *testing.T) {
 		lengthOfLongestSubstringInternationalVersion("黑化肥挥发发灰会花飞灰化肥挥发发黑会飞花"),
 	)
 }
+
+func TestMapWithFunValue(t *testing.T) {
+	m := map[int]func(op int) int{}
+
+	m[1] = func(op int) int {
+		return op
+	}
+	m[2] = func(op int) int {
+		return op * op
+	}
+	m[3] = func(op int) int {
+		return op * op * op
+	}
+
+	// 1 4 27
+	t.Log(m[1](1), m[2](2), m[3](3))
+}
+
+func TestMapForSet(t *testing.T) {
+	mySet := map[int]bool{}
+
+	mySet[1] = true
+
+	n := 3
+
+	if mySet[n] {
+		t.Log("update", mySet[n])
+	} else {
+		t.Log("add", mySet[n])
+	}
+
+	delete(mySet, 1)
+}
