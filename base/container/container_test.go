@@ -286,3 +286,54 @@ func TestNewSliceInitialLengthAndCapacity(t *testing.T) {
 	// s = [0 0 0 0 0 0 0 0 0 0], len(s) = 10, cap(s) = 32
 	t.Logf("s = %v, len(s) = %d, cap(s) = %d", s, len(s), cap(s))
 }
+
+func TestCopySlice(t *testing.T) {
+	s1 := []int{1, 3, 5, 7, 9}
+	s2 := make([]int, 10, 32)
+
+	copy(s2,s1)
+
+	// s2 = [1 3 5 7 9 0 0 0 0 0], len(s2) = 10, cap(s2) = 32
+	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
+}
+
+func TestDeleteSlice(t *testing.T) {
+	s1 := []int{1, 3, 5, 7, 9}
+	s2 := make([]int, 10, 32)
+
+	copy(s2,s1)
+
+	// s2 = [1 3 5 7 9 0 0 0 0 0], len(s2) = 10, cap(s2) = 32
+	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
+
+	s2 = append(s2[:3],s2[4:]...)
+
+	// s2 = [1 3 5 9 0 0 0 0 0], len(s2) = 9, cap(s2) = 32
+	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
+}
+
+func TestPopSlice(t *testing.T) {
+	s1 := []int{1, 3, 5, 7, 9}
+	s2 := make([]int, 10, 32)
+
+	copy(s2,s1)
+
+	// s2 = [1 3 5 7 9 0 0 0 0 0], len(s2) = 10, cap(s2) = 32
+	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
+
+	front := s2[0]
+	s2 = s2[1:]
+
+	// front = 1
+	t.Logf("front = %v", front)
+	// s2 = [3 5 7 9 0 0 0 0 0], len(s2) = 9, cap(s2) = 31
+	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
+
+	tail := s2[len(s2)-1]
+	s2 = s2[:len(s2)-1]
+
+	// tail = 0
+	t.Logf("tail = %v", tail)
+	// s2 = [3 5 7 9 0 0 0 0], len(s2) = 8, cap(s2) = 31
+	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
+}
