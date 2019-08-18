@@ -3,6 +3,7 @@ package container
 import (
 	"fmt"
 	"testing"
+	"unicode/utf8"
 )
 
 func TestArray(t *testing.T) {
@@ -481,5 +482,76 @@ func TestLengthOfLongestSubstring(t *testing.T) {
 		lengthOfLongestSubstring("abcdefg"),
 		lengthOfLongestSubstring("雪之梦技术驿站"),
 		lengthOfLongestSubstring("一零零六"),
+	)
+}
+
+func TestString2Rune(t *testing.T) {
+	s := "hello,雪之梦技术驿站"
+
+	//  hello,雪之梦技术驿站 27
+	t.Log(s, len(s))
+
+	// 68 65 6C 6C 6F 2C E9 9B AA E4 B9 8B E6 A2 A6 E6 8A 80 E6 9C AF E9 A9 BF E7 AB 99
+	for _, b := range []byte(s) {
+		fmt.Printf("%X ", b)
+	}
+	fmt.Println()
+
+	// ch is rune,utf-8 解码再转 unicode 编码
+	for i, ch := range s {
+		fmt.Printf("(%d %X) ", i, ch)
+	}
+	fmt.Println()
+
+	// 13
+	t.Log(utf8.RuneCountInString(s))
+
+	bytes := []byte(s)
+
+	// h e l l o , 雪 之 梦 技 术 驿 站
+	for len(bytes) > 0 {
+		ch, size := utf8.DecodeRune(bytes)
+		bytes = bytes[size:]
+
+		fmt.Printf("%c ", ch)
+	}
+	fmt.Println()
+
+	// (0 h) (1 e) (2 l) (3 l) (4 o) (5 ,) (6 雪) (7 之) (8 梦) (9 技) (10 术) (11 驿) (12 站)
+	for i, ch := range []rune(s) {
+		fmt.Printf("(%d %c) ", i, ch)
+	}
+	fmt.Println()
+}
+
+func lengthOfLongestSubstringInternationalVersion(s string) int {
+	lastOccurred := make(map[rune]int)
+	start, maxLength := 0, 0
+
+	for i, ch := range []rune(s) {
+		if lastI, ok := lastOccurred[ch]; ok && lastI >= start {
+			start = lastI + 1
+		}
+		if i-start+1 > maxLength {
+			maxLength = i - start + 1
+		}
+		lastOccurred[ch] = i
+	}
+
+	return maxLength
+}
+
+func TestLengthOfLongestSubstringInternationalVersion(t *testing.T) {
+	// 3 1 3 0 1 7 7 2 8
+	t.Log(
+		lengthOfLongestSubstringInternationalVersion("abcabcbb"),
+		lengthOfLongestSubstringInternationalVersion("bbbbb"),
+		lengthOfLongestSubstringInternationalVersion("pwwkew"),
+		lengthOfLongestSubstringInternationalVersion(""),
+		lengthOfLongestSubstringInternationalVersion("a"),
+		lengthOfLongestSubstringInternationalVersion("abcdefg"),
+		lengthOfLongestSubstringInternationalVersion("雪之梦技术驿站"),
+		lengthOfLongestSubstringInternationalVersion("一零零六"),
+		lengthOfLongestSubstringInternationalVersion("黑化肥挥发发灰会花飞灰化肥挥发发黑会飞花"),
 	)
 }
