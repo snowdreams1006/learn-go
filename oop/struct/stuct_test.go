@@ -1,4 +1,4 @@
-package encapsulate
+package _struct
 
 import (
 	"fmt"
