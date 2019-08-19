@@ -3,9 +3,11 @@ package function
 import (
 	"fmt"
 	"math"
+	"math/rand"
 	"reflect"
 	"runtime"
 	"testing"
+	"time"
 )
 
 func eval(a, b int, op string) int {
@@ -120,3 +122,40 @@ func TestSum(t *testing.T) {
 	// 15
 	t.Log(sum(1, 2, 3, 4, 5))
 }
+
+func returnMultiValues() (int, int) {
+	return rand.Intn(10), rand.Intn(10)
+}
+
+func TestReturnMultiValues(t *testing.T) {
+	a, b := returnMultiValues()
+
+	t.Log(a, b)
+}
+
+func timeSpend(inner func(op int) int) func(op int) int {
+	return func(n int) int {
+		start := time.Now()
+
+		ret := inner(n)
+
+		fmt.Println("time spend : ", time.Since(start).Seconds())
+
+		return ret
+	}
+}
+
+func slowFunc(op int) int {
+
+	time.Sleep(time.Second * 1)
+
+	return op
+}
+
+func TestSlowFuncTimeSpend(t *testing.T){
+
+	slowFuncTimeSpend := timeSpend(slowFunc)
+
+	t.Log(slowFuncTimeSpend(10))
+}
+
