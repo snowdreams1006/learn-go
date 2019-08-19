@@ -152,10 +152,19 @@ func slowFunc(op int) int {
 	return op
 }
 
-func TestSlowFuncTimeSpend(t *testing.T){
+func TestSlowFuncTimeSpend(t *testing.T) {
 
 	slowFuncTimeSpend := timeSpend(slowFunc)
 
 	t.Log(slowFuncTimeSpend(10))
 }
 
+func TestDefer(t *testing.T) {
+	defer func() {
+		t.Log("Clear resource")
+	}()
+
+	t.Log("Started")
+
+	panic("Fatal error")
+}
