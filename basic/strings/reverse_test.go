@@ -6,7 +6,7 @@ import (
 
 func TestReverse(t *testing.T) {
 	cases := []struct {
-		input,expect string
+		input, expect string
 	}{
 		{"Hello, world", "dlrow ,olleH"},
 		{"Hello, 世界", "界世 ,olleH"},
@@ -19,3 +19,4 @@ func TestReverse(t *testing.T) {
 		}
 	}
 }
+

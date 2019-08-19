@@ -325,7 +325,7 @@ func TestSliceAutoLonger(t *testing.T) {
 }
 
 func TestMakeSlice(t *testing.T) {
-	s1 := make([]int,10)
+	s1 := make([]int, 10)
 
 	// s1 = [0 0 0 0 0 0 0 0 0 0], len(s1) = 10, cap(s1) = 10
 	t.Logf("s1 = %v, len(s1) = %d, cap(s1) = %d", s1, len(s1), cap(s1))
@@ -439,7 +439,7 @@ func TestMapByMake(t *testing.T) {
 	t.Log(m2, m2 == nil)
 
 	// [0 0 0 0 0] false
-	a1 := make([]int,5)
+	a1 := make([]int, 5)
 	t.Log(a1, a1 == nil)
 
 	// [] true
@@ -671,4 +671,111 @@ func TestMapForSet(t *testing.T) {
 	}
 
 	delete(mySet, 1)
+}
+
+func TestArrayAndSlice(t *testing.T) {
+	var arr1 [3]int
+	var arr2 []int
+
+	// [0 0 0] []
+	t.Log(arr1, arr2)
+}
+
+func TestArrayAndSliceByUpdate(t *testing.T) {
+	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	// arr =  [0 1 2 3 4 5 6 7 8 9]
+	t.Log("arr = ", arr)
+
+	s := arr[2:6]
+
+	// before update s = [2 3 4 5], arr = [0 1 2 3 4 5 6 7 8 9]
+	t.Logf("before update s = %v, arr = %v", s, arr)
+
+	s[0] = 666
+
+	// after update s = [666 3 4 5], arr = [0 1 666 3 4 5 6 7 8 9]
+	t.Logf("after update s = %v, arr = %v", s, arr)
+}
+
+func TestArrayAndSliceIncreasing(t *testing.T) {
+	var s []int
+
+	fmt.Println("add new item to slice")
+
+	for i := 0; i < 10; i++ {
+		s = append(s, i)
+
+		fmt.Printf("s = %v, len(s) = %d, cap(s) = %d\n", s, len(s), cap(s))
+	}
+
+	fmt.Println("remove item from slice")
+
+	for i := 0; i < 10; i++ {
+		s = s[1:]
+
+		fmt.Printf("s = %v, len(s) = %d, cap(s) = %d\n", s, len(s), cap(s))
+	}
+}
+
+func TestArrayAndSliceBound(t *testing.T) {
+	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	s1 := arr[5:8]
+
+	// s1[0] = 5, s1[2] = 7
+	t.Logf("s1[0] = %d, s1[%d] = %d", s1[0], len(s1)-1, s1[len(s1)-1])
+	// s1 = [5 6 7], len(s1) = 3, cap(s1) = 5
+	t.Logf("s1 = %v, len(s1) = %d, cap(s1) = %d", s1, len(s1), cap(s1))
+
+	s2 := s1[3:5]
+
+	// s2[0] = 8, s2[1] = 9
+	t.Logf("s2[0] = %d, s2[%d] = %d", s2[0], len(s2)-1, s2[len(s2)-1])
+	// s2 = [8 9], len(s2) = 2, cap(s2) = 2
+	t.Logf("s2 = %v, len(s2) = %d, cap(s2) = %d", s2, len(s2), cap(s2))
+}
+
+func TestMapAndSet(t *testing.T) {
+	m := map[string]string{
+		"name": "snowdreams1006",
+		"site": "https://snowdreams1006.github.io",
+		"lang": "go",
+	}
+
+	// https://snowdreams1006.github.io
+	if site, ok := m["site"]; ok {
+		t.Log(site)
+	} else {
+		t.Log("site does not exist ")
+	}
+
+	s := map[string]bool{
+		"name": true,
+		"site": true,
+		"lang": true,
+	}
+
+	// Pay attention to snowdreams1006
+	if _, ok := m["isFollower"]; ok {
+		t.Log("Have an eye on snowdreams1006")
+	} else {
+		s["isFollower"] = true
+		t.Log("Pay attention to snowdreams1006")
+	}
+}
+
+func TestMapAndSetByDelete(t *testing.T) {
+	m := map[string]string{
+		"name": "snowdreams1006",
+		"site": "https://snowdreams1006.github.io",
+		"lang": "go",
+	}
+
+	delete(m, "lang")
+
+	// delete lang successfully
+	if _,ok := m["lang"];!ok{
+		t.Log("delete lang successfully")
+	}
 }
