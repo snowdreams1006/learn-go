@@ -2,6 +2,7 @@ package _struct
 
 import (
 	"fmt"
+	"os"
 	"testing"
 	"unsafe"
 )
@@ -69,4 +70,23 @@ func TestToStringValue(t *testing.T) {
 	fmt.Printf("Name address is %x\n", unsafe.Pointer(&e.Name))
 
 	t.Log(e.toStringValue())
+}
+
+type point struct {
+	i, j int
+}
+
+var dir []point = []point{
+	{-1, 0},
+	{0, -1},
+	{1, 0},
+	{0, 1},
+}
+
+func TestPoint(t *testing.T){
+	if file,err := os.Open("container/maza/maze.in");err != nil{
+		panic(err)
+	}else{
+		t.Log(file)
+	}
 }
