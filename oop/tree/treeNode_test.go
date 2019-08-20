@@ -92,7 +92,7 @@ func TestTreeNodeSetValue(t *testing.T) {
 
 func (node *treeNode) setValueWithNil(value int) {
 	if node == nil {
-		fmt.Println("Setting value to nil node")
+		fmt.Println("Setting Value to nil node")
 		return
 	}
 	node.value = value
