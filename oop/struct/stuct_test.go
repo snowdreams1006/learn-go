@@ -188,7 +188,7 @@ func TestMyDynamicArray(t *testing.T) {
 
 	fmt.Println(myDynamicArray.Print())
 
-	myDynamicArray.Set(6,666)
+	myDynamicArray.Set(6, 666)
 
 	fmt.Println(myDynamicArray.Print())
 
@@ -223,4 +223,33 @@ func TestMyBool(t *testing.T) {
 
 	// true
 	t.Log(myBool)
+}
+
+func TestNewMyDynamicArray(t *testing.T) {
+	var myDynamicArray = MyDynamicArray{
+		ptr: &[10]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+		len: 10,
+		cap: 10,
+	}
+	myDynamicArray = MyDynamicArray{
+		&[10]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
+		10,
+		10,
+	}
+	t.Log(myDynamicArray)
+	t.Logf("%[1]T %[1]v", myDynamicArray)
+
+	var myDynamicArray2 = new(MyDynamicArray)
+	myDynamicArray2.ptr = &[10]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	myDynamicArray2.len = 10
+	myDynamicArray2.cap = 10
+
+	t.Log(myDynamicArray2)
+
+	t.Logf("%[1]T %[1]v", myDynamicArray2)
+
+	test := "snowdreams1006"
+	// string snowdreams1006
+	t.Logf("%T %v", test, test)
+	t.Logf("%[1]T %[1]v", test)
 }
