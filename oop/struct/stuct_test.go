@@ -35,14 +35,19 @@ func TestCreateEmployee(t *testing.T) {
 	t.Logf("%[1]T %[1]v", e2)
 }
 
-func (e Employee) toString() string {
+func (e *Employee) toString() string {
+	fmt.Printf("Name address is %x\n", unsafe.Pointer(&e.Name))
+
 	return fmt.Sprintf("ID:%s-Name:%s-Age:%d", e.Id, e.Name, e.Age)
 }
 
 func TestToString(t *testing.T) {
 	e := Employee{"0", "Bob", 20}
 
+	fmt.Printf("Name address is %x\n", unsafe.Pointer(&e.Name))
+
 	t.Log(e.toString())
+	t.Log((&e).toString())
 }
 
 func (e *Employee) toStringPointer() string {
@@ -61,7 +66,6 @@ func TestToStringPointer(t *testing.T) {
 
 func (e Employee) toStringValue() string {
 	fmt.Printf("Name address is %x\n", unsafe.Pointer(&e.Name))
-
 	return fmt.Sprintf("ID:%s-Name:%s-Age:%d", e.Id, e.Name, e.Age)
 }
 
