@@ -195,3 +195,32 @@ func TestMyDynamicArray(t *testing.T) {
 	fmt.Println(myDynamicArray.Get(6))
 	fmt.Println(myDynamicArray.IsEmpty())
 }
+
+type MyArray [10]int
+
+func TestMyArray(t *testing.T) {
+	var myArr MyArray
+
+	// [0 0 0 0 0 0 0 0 0 0]
+	t.Log(myArr)
+
+	myArr[0] = 1
+	myArr[9] = 9
+
+	// [1 0 0 0 0 0 0 0 0 9]
+	t.Log(myArr)
+}
+
+type MyBool bool
+
+func TestMyBool(t *testing.T) {
+	var myBool MyBool
+
+	// false
+	t.Log(myBool)
+
+	myBool = true
+
+	// true
+	t.Log(myBool)
+}
