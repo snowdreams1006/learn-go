@@ -14,4 +14,7 @@ func TestQueue_Push(t *testing.T) {
 	t.Log(q.IsEmpty())
 	t.Log(q.Pop())
 	t.Log(q.IsEmpty())
+
+	//q.Push("abc")
+	t.Log(q.Pop())
 }
