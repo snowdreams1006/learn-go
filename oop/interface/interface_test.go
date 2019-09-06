@@ -57,3 +57,39 @@ func TestDoSomethingBySwitch(t *testing.T) {
 	doSomethingBySwitch("10")
 	doSomethingBySwitch(10.0)
 }
+
+type Pet interface {
+	ActingCute()
+}
+
+type Cat struct {
+}
+
+func (c *Cat) ActingCute() {
+	fmt.Println("喵星人喵喵喵来卖萌")
+}
+
+type Dog struct {
+
+}
+
+func (d *Dog) ActingCute() {
+	fmt.Println("汪星人汪汪汪来卖萌")
+}
+
+func SendGift(p Pet) {
+	p.ActingCute()
+}
+
+func TestActingCute(t *testing.T) {
+	var p Pet
+	p = new(Cat)
+
+	// 喵星人喵喵喵来卖萌
+	SendGift(p)
+
+	p = new(Dog)
+
+	// 汪星人汪汪汪来卖萌
+	SendGift(p)
+}
