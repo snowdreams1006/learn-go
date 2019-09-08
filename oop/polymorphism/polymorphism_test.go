@@ -76,15 +76,55 @@ func TestEqualType(t *testing.T) {
 	var t2 Equaler = new(T2)
 	var t3 Equaler = new(T3)
 
-	t.Logf("%[1]T %[1]v\n",t2)
-	t.Logf("%[1]T %[1]v\n",t3)
-	t.Logf("%[1]T %[1]v %v\n",t2,t2.Equal(t3))
+	t.Logf("%[1]T %[1]v\n", t2)
+	t.Logf("%[1]T %[1]v\n", t3)
+	t.Logf("%[1]T %[1]v %v\n", t2, t2.Equal(t3))
 }
 
 func TestInterfaceTypeDeduce(t *testing.T) {
 	var t2 Equaler = new(T2)
 	var t3 Equaler = new(T3)
 
-	t.Logf("%[1]T %[1]v %[2]T %[2]v\n",t2,t2.(*T2))
-	t.Logf("%[1]T %[1]v %[2]T %[2]v\n",t3,t3.(*T3))
+	t.Logf("%[1]T %[1]v %[2]T %[2]v\n", t2, t2.(*T2))
+	t.Logf("%[1]T %[1]v %[2]T %[2]v\n", t3, t3.(*T3))
+
+	v2, ok2 := t2.(*T2)
+	t.Logf("%[1]T %[1]v %v\n", v2, ok2)
+
+	v3, ok3 := t2.(*T3)
+	t.Logf("%[1]T %[1]v %v\n", v3, ok3)
+}
+
+type EmptyInterface interface {
+}
+
+func TestEmptyInterface(t *testing.T) {
+	var _ Programmer = new(GoProgrammer)
+	var _ EmptyInterface = new(GoProgrammer)
+	var p EmptyInterface = new(GoProgrammer)
+
+	v, ok := p.(GoProgrammer)
+	t.Logf("%[1]T %[1]v %v\n", v, ok)
+}
+
+func TestEmptyInterfaceTypeDeduce(t *testing.T) {
+	var _ Programmer = new(GoProgrammer)
+	var _ EmptyInterface = new(GoProgrammer)
+	var p EmptyInterface = new(GoProgrammer)
+
+	v, ok := p.(GoProgrammer)
+	t.Logf("%[1]T %[1]v %v\n", v, ok)
+
+	switch v := p.(type) {
+	case int:
+		t.Log("int", v)
+	case string:
+		t.Log("string", v)
+	case Programmer:
+		t.Log("Programmer", v)
+	case EmptyInterface:
+		t.Log("EmptyInterface", v)
+	default:
+		t.Log("unknown", v)
+	}
 }
