@@ -12,17 +12,27 @@ type Programmer interface {
 }
 
 type GoProgrammer struct {
+	name string
 }
 
 func (g *GoProgrammer) WriteHelloWord() Code {
 	return "fmt.Println(\"Hello World!\")"
 }
 
+func (g GoProgrammer) PrintName()  {
+	fmt.Println(g.name)
+}
+
 type JavaProgrammer struct {
+	name string
 }
 
 func (j *JavaProgrammer) WriteHelloWord() Code {
 	return "System.out.Println(\"Hello World!\")"
+}
+
+func (j JavaProgrammer) PrintName()  {
+	fmt.Println(j.name)
 }
 
 func writeFirstProgram(p Programmer) {
@@ -46,6 +56,24 @@ type MyProgrammer interface {
 func TestInterfaceType(t *testing.T) {
 	var _ Programmer = new(GoProgrammer)
 	//var _ MyProgrammer = new(JavaProgrammer)
+}
+
+func interfaceContent(p Programmer) {
+	fmt.Printf("%[1]T %[1]v\n", p)
+}
+
+func TestInterfaceContent(t *testing.T) {
+	var gp Programmer = &GoProgrammer{
+		name:"Go",
+	}
+	var jp Programmer = &JavaProgrammer{
+		name:"Java",
+	}
+
+	// *polymorphism.GoProgrammer &{Go}
+	interfaceContent(gp)
+	// *polymorphism.JavaProgrammer &{Java}
+	interfaceContent(jp)
 }
 
 type Equaler interface {
