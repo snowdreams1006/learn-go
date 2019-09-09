@@ -108,14 +108,15 @@ func TestEmptyInterface(t *testing.T) {
 }
 
 func TestEmptyInterfaceTypeDeduce(t *testing.T) {
-	var _ Programmer = new(GoProgrammer)
-	var _ EmptyInterface = new(GoProgrammer)
-	var p EmptyInterface = new(GoProgrammer)
+	var gpe EmptyInterface = new(GoProgrammer)
 
-	v, ok := p.(GoProgrammer)
+	v, ok := gpe.(Programmer)
 	t.Logf("%[1]T %[1]v %v\n", v, ok)
 
-	switch v := p.(type) {
+	v, ok = gpe.(*GoProgrammer)
+	t.Logf("%[1]T %[1]v %v\n", v, ok)
+
+	switch v := gpe.(type) {
 	case int:
 		t.Log("int", v)
 	case string:
