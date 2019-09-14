@@ -34,14 +34,6 @@ func printFileContents(reader io.Reader) {
 	}
 }
 
-func fib() intGen {
-	a, b := 0, 1
-	return func() int {
-		a, b = b, a+b
-		return a
-	}
-}
-
 type intGen func() int
 
 func (g intGen) Read(p []byte) (n int, err error) {
@@ -54,7 +46,17 @@ func (g intGen) Read(p []byte) (n int, err error) {
 	return strings.NewReader(s).Read(p)
 }
 
+func fib() intGen {
+	a, b := 0, 1
+	return func() int {
+		a, b = b, a+b
+		return a
+	}
+}
+
 func TestIntGenRead(t *testing.T) {
 	f := fib()
 	printFileContents(f)
 }
+
+
