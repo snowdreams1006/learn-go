@@ -129,3 +129,29 @@ func TestEvalWithFunctionalStyle(t *testing.T) {
 	}
 }
 
+type generateIntFunc func(base ...int) (int, error)
+
+func evalWithObjectiveStyle(a, b int, op generateIntFunc) generateIntFunc {
+	return func(base ...int) (i int, e error) {
+		return op(a, b)
+	}
+}
+
+func TestEvalWithObjectiveStyle(t *testing.T) {
+	ef := evalWithObjectiveStyle(5, 2, func(base ...int) (int,error) {
+		result := 0
+		for i := range base {
+			result += base[i]
+		}
+		return result,nil
+	})
+
+	time.Sleep(time.Second * 1)
+
+	// Success: 25
+	if result, err := ef(); err != nil {
+		t.Log("Error:", err)
+	} else {
+		t.Log("Success:", result)
+	}
+}
