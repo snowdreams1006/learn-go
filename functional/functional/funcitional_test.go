@@ -148,7 +148,34 @@ func TestEvalWithObjectiveStyle(t *testing.T) {
 
 	time.Sleep(time.Second * 1)
 
-	// Success: 25
+	// Success: 7
+	if result, err := ef(); err != nil {
+		t.Log("Error:", err)
+	} else {
+		t.Log("Success:", result)
+	}
+}
+
+func (g generateIntFunc) String() string {
+	r,_ := g()
+	return fmt.Sprint(r)
+}
+
+func TestEvalWithInterfaceStyle(t *testing.T) {
+	ef := evalWithObjectiveStyle(5, 2, func(base ...int) (int,error) {
+		result := 0
+		for i := range base {
+			result += base[i]
+		}
+		return result,nil
+	})
+
+	time.Sleep(time.Second * 1)
+
+	// String: 7
+	t.Log("String:", ef.String())
+
+	// Success: 7
 	if result, err := ef(); err != nil {
 		t.Log("Error:", err)
 	} else {
