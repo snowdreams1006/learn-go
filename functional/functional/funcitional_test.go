@@ -2,7 +2,9 @@ package functional
 
 import (
 	"fmt"
+	"math"
 	"testing"
+	"time"
 )
 
 func eval(a, b int, op string) int {
@@ -103,3 +105,27 @@ func TestEvalWithApplyStyle(t *testing.T) {
 		t.Log("Success:", result)
 	}
 }
+
+func evalWithFunctionalStyle(a, b int, op func(int, int) (int, error)) func() (int, error) {
+	return func() (int, error) {
+		return op(a, b)
+	}
+}
+
+func pow(a, b int) (int, error) {
+	return int(math.Pow(float64(a), float64(b))),nil
+}
+
+func TestEvalWithFunctionalStyle(t *testing.T) {
+	ef := evalWithFunctionalStyle(5, 2, pow)
+
+	time.Sleep(time.Second * 1)
+
+	// Success: 25
+	if result, err := ef(); err != nil {
+		t.Log("Error:", err)
+	} else {
+		t.Log("Success:", result)
+	}
+}
+
