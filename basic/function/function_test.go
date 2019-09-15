@@ -28,6 +28,7 @@ func eval(a, b int, op string) int {
 }
 
 func TestEval(t *testing.T) {
+	// 3 -1 2 0 unsupported operator: %
 	t.Log(
 		eval(1, 2, "+"),
 		eval(1, 2, "-"),
