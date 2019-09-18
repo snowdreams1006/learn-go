@@ -6,6 +6,7 @@ import (
 	"io"
 	"strings"
 	"testing"
+	"time"
 )
 
 // 1 1 2 3 5 8 13 21 34 55
@@ -57,6 +58,73 @@ func fib() intGen {
 func TestIntGenRead(t *testing.T) {
 	f := fib()
 	printFileContents(f)
+}
+
+func autoIncrease() func() int {
+	i := 0
+	return func() int {
+		i++
+		return i
+	}
+}
+
+func TestAutoIncrease(t *testing.T) {
+	a := autoIncrease()
+
+	// 1 2 3
+	t.Log(a(), a(), a())
+}
+
+func timeSpend(fn func()) func() {
+	return func() {
+		start := time.Now()
+
+		fn()
+
+		fmt.Println("time spend : ", time.Since(start).Seconds())
+	}
+}
+
+func slowFunc() {
+	time.Sleep(time.Second * 1)
+
+	fmt.Println("I am slowFunc")
+}
+
+func TestSlowFuncTimeSpend(t *testing.T) {
+	slowFuncTimeSpend := timeSpend(slowFunc)
+
+	slowFuncTimeSpend()
+}
+
+func count() []int {
+	var arr []int
+	for i := 1; i <= 3; i++ {
+		arr = append(arr, i)
+	}
+	return arr
+}
+
+func TestCount(t *testing.T) {
+	for _, c := range count() {
+		t.Log(c)
+	}
+}
+
+func countByClosure() []func() int {
+	var arr []func() int
+	for i := 1; i <= 3; i++ {
+		arr = append(arr, func() int {
+			return i
+		})
+	}
+	return arr
+}
+
+func TestCountByClosure(t *testing.T) {
+	for _, c := range countByClosure() {
+		t.Log(c())
+	}
 }
 
 

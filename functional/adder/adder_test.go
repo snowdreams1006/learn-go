@@ -1,9 +1,7 @@
 package adder
 
 import (
-	"fmt"
 	"testing"
-	"time"
 )
 
 func adder() func(int) int {
@@ -38,41 +36,4 @@ func TestMAdder(t *testing.T) {
 
 		t.Logf("0+...+%d=%d", i, s)
 	}
-}
-
-func autoIncrease() func() int {
-	i := 0
-	return func() int {
-		i++
-		return i
-	}
-}
-
-func TestAutoIncrease(t *testing.T) {
-	a := autoIncrease()
-
-	// 1 2 3
-	t.Log(a(),a(),a())
-}
-
-func timeSpend(fn func()) func() {
-	return func()  {
-		start := time.Now()
-
-		fn()
-
-		fmt.Println("time spend : ", time.Since(start).Seconds())
-	}
-}
-
-func slowFunc() {
-	time.Sleep(time.Second * 1)
-
-	fmt.Println("I am slowFunc")
-}
-
-func TestSlowFuncTimeSpend(t *testing.T) {
-	slowFuncTimeSpend := timeSpend(slowFunc)
-
-	slowFuncTimeSpend()
 }
