@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"math"
 	"strings"
 	"testing"
 	"time"
@@ -106,6 +107,7 @@ func count() []int {
 }
 
 func TestCount(t *testing.T) {
+	// 1 2 3
 	for _, c := range count() {
 		t.Log(c)
 	}
@@ -122,6 +124,7 @@ func countByClosureButWrong() []func() int {
 }
 
 func TestCountByClosure(t *testing.T) {
+	// 4 4 4
 	for _, c := range countByClosureButWrong() {
 		t.Log(c())
 	}
@@ -140,7 +143,55 @@ func countByClosureWithOk() []func() int {
 }
 
 func TestCountByClosureWithOk(t *testing.T) {
+	// 1 2 3
 	for _, c := range countByClosureWithOk() {
 		t.Log(c())
+	}
+}
+
+func evalWithFunctionalStyle(a, b int, op func(int, int) (int, error)) func() (int, error) {
+	return func() (int, error) {
+		return op(a, b)
+	}
+}
+
+func pow(a, b int) (int, error) {
+	return int(math.Pow(float64(a), float64(b))),nil
+}
+
+func TestEvalWithFunctionalStyle(t *testing.T) {
+	ef := evalWithFunctionalStyle(5, 2, pow)
+
+	// Success: 25
+	if result, err := ef(); err != nil {
+		t.Log("Error:", err)
+	} else {
+		t.Log("Success:", result)
+	}
+}
+
+func powWithClosure(a int) func(b int)(int, error) {
+	return func(b  int) (int, error) {
+		return int(math.Pow(float64(a), float64(b))),nil
+	}
+}
+
+func TestPowWithClosure(t *testing.T) {
+	pow5 := powWithClosure(5)
+
+	// Success: 25
+	if result, err := pow5(2); err != nil {
+		t.Log("Error:", err)
+	} else {
+		t.Log("Success:", result)
+	}
+
+	pow2 := powWithClosure(2)
+
+	// Success: 32
+	if result, err := pow2(5); err != nil {
+		t.Log("Error:", err)
+	} else {
+		t.Log("Success:", result)
 	}
 }
