@@ -111,7 +111,7 @@ func TestCount(t *testing.T) {
 	}
 }
 
-func countByClosure() []func() int {
+func countByClosureButWrong() []func() int {
 	var arr []func() int
 	for i := 1; i <= 3; i++ {
 		arr = append(arr, func() int {
@@ -122,9 +122,25 @@ func countByClosure() []func() int {
 }
 
 func TestCountByClosure(t *testing.T) {
-	for _, c := range countByClosure() {
+	for _, c := range countByClosureButWrong() {
 		t.Log(c())
 	}
 }
 
+func countByClosureWithOk() []func() int {
+	var arr []func() int
+	for i := 1; i <= 3; i++ {
+		func(n int) {
+			arr = append(arr, func() int {
+				return n
+			})
+		}(i)
+	}
+	return arr
+}
 
+func TestCountByClosureWithOk(t *testing.T) {
+	for _, c := range countByClosureWithOk() {
+		t.Log(c())
+	}
+}
