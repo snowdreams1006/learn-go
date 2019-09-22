@@ -64,7 +64,7 @@ func TestIntGenRead(t *testing.T) {
 func autoIncrease() func() int {
 	i := 0
 	return func() int {
-		i++
+		i = i + 1
 		return i
 	}
 }
@@ -135,6 +135,8 @@ func countByClosureWithOk() []func() int {
 	for i := 1; i <= 3; i++ {
 		func(n int) {
 			arr = append(arr, func() int {
+				fmt.Println("countByClosureWithOk : ", i)
+
 				return n
 			})
 		}(i)
@@ -156,7 +158,7 @@ func evalWithFunctionalStyle(a, b int, op func(int, int) (int, error)) func() (i
 }
 
 func pow(a, b int) (int, error) {
-	return int(math.Pow(float64(a), float64(b))),nil
+	return int(math.Pow(float64(a), float64(b))), nil
 }
 
 func TestEvalWithFunctionalStyle(t *testing.T) {
@@ -170,9 +172,9 @@ func TestEvalWithFunctionalStyle(t *testing.T) {
 	}
 }
 
-func powWithClosure(a int) func(b int)(int, error) {
-	return func(b  int) (int, error) {
-		return int(math.Pow(float64(a), float64(b))),nil
+func powWithClosure(a int) func(b int) (int, error) {
+	return func(b int) (int, error) {
+		return int(math.Pow(float64(a), float64(b))), nil
 	}
 }
 
@@ -197,6 +199,7 @@ func TestPowWithClosure(t *testing.T) {
 }
 
 var a, b = 0, 1
+
 func fibonacciWithoutClosure() int {
 	a, b = b, a+b
 	return a
