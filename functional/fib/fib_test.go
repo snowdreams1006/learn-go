@@ -95,6 +95,8 @@ func slowFunc() {
 func TestSlowFuncTimeSpend(t *testing.T) {
 	slowFuncTimeSpend := timeSpend(slowFunc)
 
+	// I am slowFunc
+	// time spend :  1.002530902
 	slowFuncTimeSpend()
 }
 
