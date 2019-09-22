@@ -195,3 +195,28 @@ func TestPowWithClosure(t *testing.T) {
 		t.Log("Success:", result)
 	}
 }
+
+var a, b = 0, 1
+func fibonacciWithoutClosure() int {
+	a, b = b, a+b
+	return a
+}
+
+// 1 1 2 3 5 8 13 21 34 55
+func TestFibonacciWithoutClosure(t *testing.T) {
+	for i := 0; i < 10; i++ {
+		fmt.Print(fibonacciWithoutClosure(), " ")
+	}
+	fmt.Println()
+}
+
+//func fibonacciDeduction() func() int {
+//	a, b := 0, 1
+//
+//	func fibonacciGenerator() int {
+//		a, b = b, a+b
+//		return a
+//	}
+//
+//	return fibonacciGenerator
+//}
