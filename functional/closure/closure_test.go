@@ -16,6 +16,7 @@ func fibonacci() func() int {
 	}
 }
 
+// 1 1 2 3 5 8 13 21 34 55
 func TestFibonacci(t *testing.T) {
 	f := fibonacci()
 	for i := 0; i < 10; i++ {
@@ -24,3 +25,58 @@ func TestFibonacci(t *testing.T) {
 	fmt.Println()
 }
 
+func autoIncrease() func() int {
+	i := 0
+	return func() int {
+		i = i + 1
+		return i
+	}
+}
+
+func TestAutoIncrease(t *testing.T) {
+	a := autoIncrease()
+
+	// 1 2 3
+	t.Log(a(), a(), a())
+
+	b := autoIncrease()
+
+	// 1 2 3
+	t.Log(b(), b(), b())
+}
+
+func countByClosureButWrong() []func() int {
+	var arr []func() int
+	for i := 1; i <= 3; i++ {
+		arr = append(arr, func() int {
+			return i
+		})
+	}
+	return arr
+}
+
+func TestCountByClosure(t *testing.T) {
+	// 4 4 4
+	for _, c := range countByClosureButWrong() {
+		t.Log(c())
+	}
+}
+
+func countByClosureWithOk() []func() int {
+	var arr []func() int
+	for i := 1; i <= 3; i++ {
+		func(n int) {
+			arr = append(arr, func() int {
+				return n
+			})
+		}(i)
+	}
+	return arr
+}
+
+func TestCountByClosureWithOk(t *testing.T) {
+	// 1 2 3
+	for _, c := range countByClosureWithOk() {
+		t.Log(c())
+	}
+}
