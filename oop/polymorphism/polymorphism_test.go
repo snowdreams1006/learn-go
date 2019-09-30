@@ -19,7 +19,7 @@ func (g *GoProgrammer) WriteHelloWord() Code {
 	return "fmt.Println(\"Hello World!\")"
 }
 
-func (g GoProgrammer) PrintName()  {
+func (g GoProgrammer) PrintName() {
 	fmt.Println(g.name)
 }
 
@@ -31,7 +31,7 @@ func (j *JavaProgrammer) WriteHelloWord() Code {
 	return "System.out.Println(\"Hello World!\")"
 }
 
-func (j JavaProgrammer) PrintName()  {
+func (j JavaProgrammer) PrintName() {
 	fmt.Println(j.name)
 }
 
@@ -64,16 +64,32 @@ func interfaceContent(p Programmer) {
 
 func TestInterfaceContent(t *testing.T) {
 	var gp Programmer = &GoProgrammer{
-		name:"Go",
+		name: "Go",
 	}
 	var jp Programmer = &JavaProgrammer{
-		name:"Java",
+		name: "Java",
 	}
 
 	// *polymorphism.GoProgrammer &{Go}
 	interfaceContent(gp)
 	// *polymorphism.JavaProgrammer &{Java}
 	interfaceContent(jp)
+}
+
+func TestInterfaceTypeImplMethod(t *testing.T) {
+	var gp Programmer = &GoProgrammer{
+		name: "Go",
+	}
+
+	// *polymorphism.GoProgrammer &{Go}
+	fmt.Printf("%[1]T %[1]v\n", gp)
+
+	if v, ok := gp.(*GoProgrammer); ok {
+		// Go
+		v.PrintName()
+	} else {
+		fmt.Println("gp is not *GoProgrammer")
+	}
 }
 
 type Equaler interface {
@@ -156,4 +172,32 @@ func TestEmptyInterfaceTypeDeduce(t *testing.T) {
 	default:
 		t.Log("unknown", v)
 	}
+}
+
+func emptyInterfaceParam(p interface{}) {
+	fmt.Printf("%[1]T %[1]v", p)
+
+	switch v := p.(type) {
+	case int:
+		fmt.Println("int", v)
+	case string:
+		fmt.Println("string", v)
+	case Programmer:
+		fmt.Println("Programmer", v)
+	case EmptyInterface:
+		fmt.Println("EmptyInterface", v)
+	default:
+		fmt.Println("unknown", v)
+	}
+}
+
+func TestEmptyInterfaceParam(t *testing.T) {
+	var gp Programmer = new(GoProgrammer)
+	var ge EmptyInterface = new(GoProgrammer)
+
+	// *polymorphism.GoProgrammer &{}Programmer &{}
+	emptyInterfaceParam(gp)
+
+	// *polymorphism.GoProgrammer &{}Programmer &{}
+	emptyInterfaceParam(ge)
 }
