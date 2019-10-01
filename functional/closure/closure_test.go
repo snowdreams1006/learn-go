@@ -48,7 +48,7 @@ func TestFibonacci(t *testing.T) {
 func autoIncrease() func() int {
 	i := 0
 	return func() int {
-		i = i + 1
+		i++
 		return i
 	}
 }
@@ -65,17 +65,41 @@ func TestAutoIncrease(t *testing.T) {
 	t.Log(b(), b(), b())
 }
 
+func fightWithHorse() func() int {
+	horseShowTime := 0
+	return func() int {
+		horseShowTime++
+
+		fmt.Printf("(%d)祖国需要我,我就提枪上马立即战斗!\n", horseShowTime)
+
+		return horseShowTime
+	}
+}
+
+func TestFightWithHorse(t *testing.T) {
+	f := fightWithHorse()
+
+	// 1 2 3
+	t.Log(f(), f(), f())
+}
+
 func countByClosureButWrong() []func() int {
 	var arr []func() int
 	for i := 1; i <= 3; i++ {
+		n := i
+
+		fmt.Printf("for i=%d n=%d \n", i,n)
+
 		arr = append(arr, func() int {
-			return i
+			fmt.Printf("append i=%d n=%d\n", i, n)
+
+			return n
 		})
 	}
 	return arr
 }
 
-func TestCountByClosure(t *testing.T) {
+func TestCountByClosureButWrong(t *testing.T) {
 	// 4 4 4
 	for _, c := range countByClosureButWrong() {
 		t.Log(c())
@@ -85,8 +109,12 @@ func TestCountByClosure(t *testing.T) {
 func countByClosureWithOk() []func() int {
 	var arr []func() int
 	for i := 1; i <= 3; i++ {
+		fmt.Printf("for i=%d \n", i)
+
 		func(n int) {
 			arr = append(arr, func() int {
+				fmt.Printf("append n=%d \n", n)
+
 				return n
 			})
 		}(i)
