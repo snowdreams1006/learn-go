@@ -8,6 +8,26 @@ import (
 // 1 1 2 3 5 8 13 21 34 55
 //     a b
 //       a b
+func fibonacciByNormal() {
+	a, b := 0, 1
+
+	for i := 0; i < 10; i++ {
+		a, b = b, a+b
+
+		fmt.Print(a, " ")
+	}
+
+	fmt.Println()
+}
+
+// 1 1 2 3 5 8 13 21 34 55
+func TestFibonacciByNormal(t *testing.T) {
+	fibonacciByNormal()
+}
+
+// 1 1 2 3 5 8 13 21 34 55
+//     a b
+//       a b
 func fibonacci() func() int {
 	a, b := 0, 1
 	return func() int {
