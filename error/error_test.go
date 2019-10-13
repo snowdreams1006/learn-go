@@ -128,6 +128,7 @@ func TestWriteFileErrorWithoutPanic(t *testing.T) {
 func TestWriteFileErrorWithoutPanicAndExactError(t *testing.T) {
 	// occur error with  'open fib.txt: file exists',「雪之梦技术驿站」: 故意报错演示异常信息,一般应该捕获而不是直接抛出panic,后续程序可以执行!
 	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
+		// operate = open,path = fib.txt,err = file exists,「雪之梦技术驿站」: 断言已知 error 进行针对性处理,否则处理原则同上.
 		if pathErr, ok := err.(*os.PathError); !ok {
 			panic(err)
 		} else {
@@ -145,6 +146,6 @@ func TestWriteFileErrorWithoutPanicAndExactError(t *testing.T) {
 		}
 	}
 
-	//「雪之梦技术驿站」: 一般应该捕获而不是直接抛出panic,后续程序可以执行!
-	t.Log("「雪之梦技术驿站」: 一般应该捕获而不是直接抛出panic,后续程序可以执行!")
+	//「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则处理原则同上.
+	t.Log("「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则处理原则同上.")
 }
