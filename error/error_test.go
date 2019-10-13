@@ -2,6 +2,7 @@ package error
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
 	"os"
 	"testing"
@@ -76,6 +77,7 @@ func TestWriteFileWithDefer(t *testing.T) {
 func TestCalculateWithDefer(t *testing.T) {
 	//「雪之梦技术驿站」: 参与在defer语言时计算
 	for i := 0; i < 10; i++ {
+		// 5 4 3 2 1 0
 		defer t.Log(i)
 
 		if i == 5 {
@@ -85,7 +87,7 @@ func TestCalculateWithDefer(t *testing.T) {
 }
 
 func TestWriteFileErrorWithPanic(t *testing.T) {
-	// panic: open fib.txt: file exists,「雪之梦技术驿站」: 故意报错演示异常信息,panic 报错后程序已崩溃,后续程序不再执行!
+	// 「雪之梦技术驿站」: 故意报错演示异常信息,panic 报错后程序已崩溃,后续程序不再执行!
 	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
 		// panic: open fib.txt: file exists
 		panic(err)
@@ -106,8 +108,9 @@ func TestWriteFileErrorWithPanic(t *testing.T) {
 }
 
 func TestWriteFileErrorWithoutPanic(t *testing.T) {
-	// occur error with  'open fib.txt: file exists',「雪之梦技术驿站」: 故意报错演示异常信息,一般应该捕获而不是直接抛出panic,后续程序可以执行!
+	// 「雪之梦技术驿站」: 故意报错演示异常信息,一般应该捕获而不是直接抛出panic,后续程序可以执行!
 	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
+		// occur error with  'open fib.txt: file exists'
 		t.Logf("occur error with  '%s'", err.Error())
 	} else {
 		defer file.Close()
@@ -126,9 +129,9 @@ func TestWriteFileErrorWithoutPanic(t *testing.T) {
 }
 
 func TestWriteFileErrorWithoutPanicAndExactError(t *testing.T) {
-	// occur error with  'open fib.txt: file exists',「雪之梦技术驿站」: 故意报错演示异常信息,一般应该捕获而不是直接抛出panic,后续程序可以执行!
+	// 「雪之梦技术驿站」: 故意报错演示异常信息,断言已知 error 进行针对性处理,无法处理时直接 panic 或者捕获错误信息.
 	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
-		// operate = open,path = fib.txt,err = file exists,「雪之梦技术驿站」: 断言已知 error 进行针对性处理,否则处理原则同上.
+		// operate = open,path = fib.txt,err = file exists
 		if pathErr, ok := err.(*os.PathError); !ok {
 			panic(err)
 		} else {
@@ -146,6 +149,33 @@ func TestWriteFileErrorWithoutPanicAndExactError(t *testing.T) {
 		}
 	}
 
-	//「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则处理原则同上.
-	t.Log("「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则处理原则同上.")
+	//「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.
+	t.Log("「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.")
+}
+
+func TestWriteFileErrorWithoutPanicAndCustomError(t *testing.T) {
+	// 「雪之梦技术驿站」: 故意报错演示异常信息,断言已知 error 进行针对性处理,无法处理时直接 panic 或者捕获错误信息.
+	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
+		err = errors.New("「雪之梦技术驿站」: 自定义 error 错误信息")
+
+		//「雪之梦技术驿站」: 自定义 error 错误信息
+		if pathErr, ok := err.(*os.PathError); !ok {
+			panic(err)
+		} else {
+			t.Logf("operate = %s,path = %s,err = %s", pathErr.Op, pathErr.Path, pathErr.Err)
+		}
+	} else {
+		defer file.Close()
+
+		writer := bufio.NewWriter(file)
+		defer writer.Flush()
+
+		f := fibonacciWithClosure()
+		for i := 0; i < 10; i++ {
+			fmt.Fprintln(writer, f())
+		}
+	}
+
+	//「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.
+	t.Log("「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.")
 }
