@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"testing"
 )
 
@@ -25,7 +26,7 @@ func TestPanicWithPanic(t *testing.T) {
 		if err, ok := r.(error); ok {
 			t.Logf("Error occurred : %s", err.Error())
 		}else{
-			panic(r)
+			panic(fmt.Sprintf("I dont't know what to do :%v",r))
 		}
 	}()
 
