@@ -1,13 +1,27 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strings"
 )
 
+type userError string
+
+func(e userErr) Error() string{
+	return e.Message()
+}
+
+const prefix = "/list/"
+
 func handler(writer http.ResponseWriter, request *http.Request) error {
+	if strings.Index(request.URL.Path, prefix) != 0 {
+		return errors.New("path must be start with " + prefix)
+	}
+
 	path := request.URL.Path[len("/list/"):]
 
 	if file, err := os.Open(path); err != nil {
@@ -32,8 +46,21 @@ type appHandler func(writer http.ResponseWriter, request *http.Request) error
 
 func errWrapper(handler appHandler) func(writer http.ResponseWriter, request *http.Request) {
 	return func(writer http.ResponseWriter, request *http.Request) {
+		defer func() {
+			if r := recover(); r != nil {
+				fmt.Printf("Recover panic : %v", r)
+
+				http.Error(writer, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+			}
+		}()
+
 		if err := handler(writer, request); err != nil {
 			fmt.Printf("Error handling request with %s", err.Error())
+
+			if userErr, ok := err.(userError); ok {
+				http.Error(writer, userErr.Message(), http.StatusBadRequest)
+				return
+			}
 
 			code := http.StatusOK
 			switch {
@@ -49,8 +76,13 @@ func errWrapper(handler appHandler) func(writer http.ResponseWriter, request *ht
 	}
 }
 
+type userError interface {
+	error
+	Message() string
+}
+
 func main() {
-	http.HandleFunc("/list/", errWrapper(handler))
+	http.HandleFunc("/", errWrapper(handler))
 
 	if err := http.ListenAndServe(":8888", nil); err != nil {
 		panic(nil)
