@@ -179,3 +179,18 @@ func TestWriteFileErrorWithoutPanicAndCustomError(t *testing.T) {
 	//「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.
 	t.Log("「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.")
 }
+
+func GetFibonacci(n int) []int {
+	fibList := []int{1, 1}
+
+	for i := 2; i < n; i++ {
+		fibList = append(fibList, fibList[i-2]+fibList[i-1])
+	}
+
+	return fibList
+}
+
+func TestGetFibonacci(t *testing.T) {
+	// 「雪之梦技术驿站」: 故意报错演示异常信息,断言已知 error 进行针对性处理,无法处理时直接 panic 或者捕获错误信息.
+	t.Log(GetFibonacci(10))
+}

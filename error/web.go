@@ -9,12 +9,6 @@ import (
 	"strings"
 )
 
-type userError string
-
-func(e userErr) Error() string{
-	return e.Message()
-}
-
 const prefix = "/list/"
 
 func handler(writer http.ResponseWriter, request *http.Request) error {
