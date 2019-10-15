@@ -160,51 +160,49 @@ func deferFuncOrderWhenReturnDemo() (result int) {
 
 func TestDeferFuncOrderWhenReturnDemo(t *testing.T) {
 	// 「雪之梦技术驿站」: 注意 defer 延迟函数中可能会访问并修改结果变量,最终结果是42并不是6.
-	t.Log(" 「雪之梦技术驿站」: 注意 defer 延迟函数中可能会访问并修改结果变量,最终结果是42并不是6..")
+	t.Log(" 「雪之梦技术驿站」: 注意 defer 延迟函数中可能会访问并修改结果变量,最终结果是42并不是6.")
 
 	// 42
 	t.Log(deferFuncOrderWhenReturnDemo())
 }
 
-
-func f111() (result int) {
-	func() {
-		result++
-	}()
-	return 0
-}
-
-func TestF111(t *testing.T) {
-	// 0
-	t.Log(f111())
-}
-
-func f2() (r int) {
+func deferFuncWithRedundantVarWhenReturn() (r int) {
 	t := 5
 	defer func() {
-		t = t + 5
+		t += 5
 	}()
 	return t
 }
 
-func TestF2(t *testing.T) {
+func TestDeferFuncWithRedundantVarWhenReturn(t *testing.T) {
+	// 「雪之梦技术驿站」: defer 延迟函数修改过的变量并不一定是结果变量哟!
+	t.Log(" 「雪之梦技术驿站」: defer 延迟函数修改过的变量并不一定是结果变量哟!")
+
 	// 5
-	t.Log(f2())
+	t.Log(deferFuncWithRedundantVarWhenReturn())
 }
 
-func f22() (r int) {
+func deferFuncWithRedundantVarWhenReturnExplain() (r int) {
 	t := 5
-	r = t //赋值指令
-	func() { //defer被插入到赋值与返回之间执行，这个例子中返回值r没被修改过
+
+	// 1.结果变量赋值语句
+	r = t
+	func() {
 		t = t + 5
 	}()
-	return //空的return指令
+
+	// 2.直接返回
+	return
 }
 
-func TestF22(t *testing.T) {
+func TestDeferFuncWithRedundantVarWhenReturnExplain(t *testing.T) {
+	// 「雪之梦技术驿站」: defer 延迟函数修改过的变量并不一定是结果变量哟!
+	t.Log(" 「雪之梦技术驿站」: defer 延迟函数修改过的变量并不一定是结果变量哟!")
+
 	// 5
-	t.Log(f22())
+	t.Log(deferFuncWithRedundantVarWhenReturnExplain())
 }
+
 
 func f222() (r int) {
 	t := 5
