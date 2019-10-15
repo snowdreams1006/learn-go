@@ -72,26 +72,56 @@ func TestFuncWithMultipleDeferAndPanic(t *testing.T) {
 
 func noDeferFuncOrderWhenReturn() (result int) {
 	func() {
-		// before : result = 0
+		// 1. before : result = 0
 		fmt.Printf("before : result = %v\n", result)
 
 		result++
 
-		// after : result = 1
+		// 2. after : result = 1
 		fmt.Printf("after : result = %v\n", result)
 	}()
 
-	// return : result = 1
+	// 3. return : result = 1
+	fmt.Printf("return : result = %v\n", result)
+
+	return 0
+}
+
+func TestNoDeferFuncOrderWhenReturn(t *testing.T) {
+	// 「雪之梦技术驿站」: 普通函数顺序执行,结果很明显,不需要解释.
+	t.Log(" 「雪之梦技术驿站」: 普通函数顺序执行,结果很明显,不需要解释.")
+
+	// 4. result = 0
+	result := noDeferFuncOrderWhenReturn()
+	t.Logf("result = %v", result)
+}
+
+func deferFuncOrderWhenReturn() (result int) {
+	defer func() {
+		// 2. before : result = 0
+		fmt.Printf("before : result = %v\n", result)
+
+		result++
+
+		// 3. after : result = 1
+		fmt.Printf("after : result = %v\n", result)
+	}()
+
+	// 1. return : result = 0
 	fmt.Printf("return : result = %v\n", result)
 
 	return 0
 }
 
 func TestDeferFuncOrderWhenReturn(t *testing.T) {
-	// result = 0
-	result := noDeferFuncOrderWhenReturn()
+	// 「雪之梦技术驿站」: 包围函数具有显式返回语句时,延迟函数defer在结果参数赋值之后且在函数返回之前执行
+	t.Log(" 「雪之梦技术驿站」: 普通函数顺序执行,结果很明显,不需要解释.")
+
+	// 4. result = 1
+	result := deferFuncOrderWhenReturn()
 	t.Logf("result = %v", result)
 }
+
 
 func f11() (result int) {
 	result = 0 //return语句不是一条原子调用，return xxx其实是赋值＋ret指令
