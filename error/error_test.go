@@ -70,198 +70,27 @@ func TestFuncWithMultipleDeferAndPanic(t *testing.T) {
 	t.Log(4)
 }
 
-func fibonacciWithClosure() func() int {
-	a, b := 0, 1
-	return func() int {
-		a, b = b, a+b
-		return a
-	}
-}
+func noDeferFuncOrderWhenReturn() (result int) {
+	func() {
+		// before : result = 0
+		fmt.Printf("before : result = %v\n", result)
 
-func TestWriteFileWithDefer(t *testing.T) {
-	// 「雪之梦技术驿站」: 其实不用关心 defer 调用顺序,成对操作时记得defer结束即可!
-	t.Log(" 「雪之梦技术驿站」: 其实不用关心 defer 调用顺序,成对操作时记得defer结束即可!")
-
-	// 「雪之梦技术驿站」: 有始有终,打开过文件要及时关闭,defer 让我们操作变得有始有终!
-	if file, err := os.Create("fib.txt"); err != nil {
-		panic(err)
-	} else {
-		defer file.Close()
-
-		// 「雪之梦技术驿站」: bufio 暂存内存要刷新到文件,defer 帮助我们及时进行资源管理,出入成双!
-		writer := bufio.NewWriter(file)
-		defer writer.Flush()
-
-		f := fibonacciWithClosure()
-		for i := 0; i < 10; i++ {
-			fmt.Fprintln(writer, f())
-		}
-	}
-}
-
-func TestCalculateWithDefer(t *testing.T) {
-	//「雪之梦技术驿站」: 参与在defer语言时计算
-	for i := 0; i < 10; i++ {
-		// 5 4 3 2 1 0
-		defer t.Log(i)
-
-		if i == 5 {
-			panic("「雪之梦技术驿站」: 参与在defer语言时计算")
-		}
-	}
-}
-
-func TestWriteFileErrorWithPanic(t *testing.T) {
-	// 「雪之梦技术驿站」: 故意报错演示异常信息,panic 报错后程序已崩溃,后续程序不再执行!
-	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
-		// panic: open fib.txt: file exists
-		panic(err)
-	} else {
-		defer file.Close()
-
-		writer := bufio.NewWriter(file)
-		defer writer.Flush()
-
-		f := fibonacciWithClosure()
-		for i := 0; i < 10; i++ {
-			fmt.Fprintln(writer, f())
-		}
-	}
-
-	//「雪之梦技术驿站」: panic 报错后程序已崩溃,后续程序不再执行!
-	t.Log("「雪之梦技术驿站」: panic 报错后程序已崩溃,后续程序不再执行!")
-}
-
-func TestWriteFileErrorWithoutPanic(t *testing.T) {
-	// 「雪之梦技术驿站」: 故意报错演示异常信息,一般应该捕获而不是直接抛出panic,后续程序可以执行!
-	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
-		// occur error with  'open fib.txt: file exists'
-		t.Logf("occur error with  '%s'", err.Error())
-	} else {
-		defer file.Close()
-
-		writer := bufio.NewWriter(file)
-		defer writer.Flush()
-
-		f := fibonacciWithClosure()
-		for i := 0; i < 10; i++ {
-			fmt.Fprintln(writer, f())
-		}
-	}
-
-	//「雪之梦技术驿站」: 一般应该捕获而不是直接抛出panic,后续程序可以执行!
-	t.Log("「雪之梦技术驿站」: 一般应该捕获而不是直接抛出panic,后续程序可以执行!")
-}
-
-func TestWriteFileErrorWithoutPanicAndExactError(t *testing.T) {
-	// 「雪之梦技术驿站」: 故意报错演示异常信息,断言已知 error 进行针对性处理,无法处理时直接 panic 或者捕获错误信息.
-	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
-		// operate = open,path = fib.txt,err = file exists
-		if pathErr, ok := err.(*os.PathError); !ok {
-			panic(err)
-		} else {
-			t.Logf("operate = %s,path = %s,err = %s", pathErr.Op, pathErr.Path, pathErr.Err)
-		}
-	} else {
-		defer file.Close()
-
-		writer := bufio.NewWriter(file)
-		defer writer.Flush()
-
-		f := fibonacciWithClosure()
-		for i := 0; i < 10; i++ {
-			fmt.Fprintln(writer, f())
-		}
-	}
-
-	//「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.
-	t.Log("「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.")
-}
-
-func TestWriteFileErrorWithoutPanicAndCustomError(t *testing.T) {
-	// 「雪之梦技术驿站」: 故意报错演示异常信息,断言已知 error 进行针对性处理,无法处理时直接 panic 或者捕获错误信息.
-	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
-		err = errors.New("「雪之梦技术驿站」: 自定义 error 错误信息")
-
-		//「雪之梦技术驿站」: 自定义 error 错误信息
-		if pathErr, ok := err.(*os.PathError); !ok {
-			panic(err)
-		} else {
-			t.Logf("operate = %s,path = %s,err = %s", pathErr.Op, pathErr.Path, pathErr.Err)
-		}
-	} else {
-		defer file.Close()
-
-		writer := bufio.NewWriter(file)
-		defer writer.Flush()
-
-		f := fibonacciWithClosure()
-		for i := 0; i < 10; i++ {
-			fmt.Fprintln(writer, f())
-		}
-	}
-
-	//「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.
-	t.Log("「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.")
-}
-
-func GetFibonacci(n int) ([]int, error) {
-	if n < 2 || n > 100 {
-		return nil, errors.New("n should be in [0,100]")
-	}
-	fibList := []int{1, 1}
-
-	for i := 2; i < n; i++ {
-		fibList = append(fibList, fibList[i-2]+fibList[i-1])
-	}
-
-	return fibList, nil
-}
-
-func TestGetFibonacci(t *testing.T) {
-	if fib, err := GetFibonacci(10); err != nil {
-		t.Error(err)
-	} else {
-		t.Log(fib)
-	}
-}
-
-func TestPanicVxExit1(t *testing.T) {
-	t.Log("start")
-	os.Exit(-1)
-}
-
-func TestPanicVxExit2(t *testing.T) {
-	defer func() {
-		t.Log("finally")
-	}()
-
-	t.Log("start")
-	panic(errors.New("something wrong"))
-	os.Exit(-1)
-}
-
-func TestPanicVxExit3(t *testing.T) {
-	defer func() {
-		if err := recover(); err != nil {
-			t.Logf("recover from %v", err)
-		}
-	}()
-
-	t.Log("start")
-	panic(errors.New("something wrong"))
-}
-
-func f1() (result int) {
-	defer func() {
 		result++
+
+		// after : result = 1
+		fmt.Printf("after : result = %v\n", result)
 	}()
+
+	// return : result = 1
+	fmt.Printf("return : result = %v\n", result)
+
 	return 0
 }
 
-func TestF1(t *testing.T) {
-	// 1
-	t.Log(f1())
+func TestDeferFuncOrderWhenReturn(t *testing.T) {
+	// result = 0
+	result := noDeferFuncOrderWhenReturn()
+	t.Logf("result = %v", result)
 }
 
 func f11() (result int) {
@@ -385,4 +214,186 @@ func f() (result int) {
 func TestF(t *testing.T) {
 	// 1
 	t.Log(f())
+}
+
+func fibonacciWithClosure() func() int {
+	a, b := 0, 1
+	return func() int {
+		a, b = b, a+b
+		return a
+	}
+}
+
+func TestWriteFileWithDefer(t *testing.T) {
+	// 「雪之梦技术驿站」: 其实不用关心 defer 调用顺序,成对操作时记得defer结束即可!
+	t.Log(" 「雪之梦技术驿站」: 其实不用关心 defer 调用顺序,成对操作时记得defer结束即可!")
+
+	// 「雪之梦技术驿站」: 有始有终,打开过文件要及时关闭,defer 让我们操作变得有始有终!
+	if file, err := os.Create("fib.txt"); err != nil {
+		panic(err)
+	} else {
+		defer file.Close()
+
+		// 「雪之梦技术驿站」: bufio 暂存内存要刷新到文件,defer 帮助我们及时进行资源管理,出入成双!
+		writer := bufio.NewWriter(file)
+		defer writer.Flush()
+
+		f := fibonacciWithClosure()
+		for i := 0; i < 10; i++ {
+			fmt.Fprintln(writer, f())
+		}
+	}
+}
+
+func TestCalculateWithDefer(t *testing.T) {
+	//「雪之梦技术驿站」: 参与在defer语言时计算
+	for i := 0; i < 10; i++ {
+		// 5 4 3 2 1 0
+		defer t.Log(i)
+
+		if i == 5 {
+			panic("「雪之梦技术驿站」: 参与在defer语言时计算")
+		}
+	}
+}
+
+func TestWriteFileErrorWithPanic(t *testing.T) {
+	//「雪之梦技术驿站」: panic 报错后程序已崩溃,后续程序不再执行!
+	t.Log("「雪之梦技术驿站」: panic 报错后程序已崩溃,后续程序不再执行!")
+
+	// 「雪之梦技术驿站」: 故意报错演示异常信息,panic 报错后程序已崩溃,后续程序不再执行!
+	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
+		// panic: open fib.txt: file exists
+		panic(err)
+	} else {
+		defer file.Close()
+
+		writer := bufio.NewWriter(file)
+		defer writer.Flush()
+
+		f := fibonacciWithClosure()
+		for i := 0; i < 10; i++ {
+			fmt.Fprintln(writer, f())
+		}
+	}
+}
+
+func TestWriteFileErrorWithoutPanic(t *testing.T) {
+	//「雪之梦技术驿站」: 一般应该捕获而不是直接抛出panic,后续程序可以执行!
+	t.Log("「雪之梦技术驿站」: 一般应该捕获而不是直接抛出panic,后续程序可以执行!")
+
+	// 「雪之梦技术驿站」: 故意报错演示异常信息,一般应该捕获而不是直接抛出panic,后续程序可以执行!
+	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
+		// occur error with  'open fib.txt: file exists'
+		t.Logf("occur error with  '%s'", err.Error())
+	} else {
+		defer file.Close()
+
+		writer := bufio.NewWriter(file)
+		defer writer.Flush()
+
+		f := fibonacciWithClosure()
+		for i := 0; i < 10; i++ {
+			fmt.Fprintln(writer, f())
+		}
+	}
+}
+
+func TestWriteFileErrorWithoutPanicAndExactError(t *testing.T) {
+	//「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.
+	t.Log("「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.")
+
+	// 「雪之梦技术驿站」: 故意报错演示异常信息,断言已知 error 进行针对性处理,无法处理时直接 panic 或者捕获错误信息.
+	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
+		// operate = open,path = fib.txt,err = file exists
+		if pathErr, ok := err.(*os.PathError); !ok {
+			panic(err)
+		} else {
+			t.Logf("operate = %s,path = %s,err = %s", pathErr.Op, pathErr.Path, pathErr.Err)
+		}
+	} else {
+		defer file.Close()
+
+		writer := bufio.NewWriter(file)
+		defer writer.Flush()
+
+		f := fibonacciWithClosure()
+		for i := 0; i < 10; i++ {
+			fmt.Fprintln(writer, f())
+		}
+	}
+}
+
+func TestWriteFileErrorWithoutPanicAndCustomError(t *testing.T) {
+	//「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.
+	t.Log("「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.")
+
+	// 「雪之梦技术驿站」: 故意报错演示异常信息,断言已知 error 进行针对性处理,无法处理时直接 panic 或者捕获错误信息.
+	if file, err := os.OpenFile("fib.txt", os.O_EXCL|os.O_CREATE, 0666); err != nil {
+		err = errors.New("「雪之梦技术驿站」: 自定义 error 错误信息")
+
+		//「雪之梦技术驿站」: 自定义 error 错误信息
+		if pathErr, ok := err.(*os.PathError); !ok {
+			panic(err)
+		} else {
+			t.Logf("operate = %s,path = %s,err = %s", pathErr.Op, pathErr.Path, pathErr.Err)
+		}
+	} else {
+		defer file.Close()
+
+		writer := bufio.NewWriter(file)
+		defer writer.Flush()
+
+		f := fibonacciWithClosure()
+		for i := 0; i < 10; i++ {
+			fmt.Fprintln(writer, f())
+		}
+	}
+}
+
+func GetFibonacci(n int) ([]int, error) {
+	if n < 2 || n > 100 {
+		return nil, errors.New("n should be in [0,100]")
+	}
+	fibList := []int{1, 1}
+
+	for i := 2; i < n; i++ {
+		fibList = append(fibList, fibList[i-2]+fibList[i-1])
+	}
+
+	return fibList, nil
+}
+
+func TestGetFibonacci(t *testing.T) {
+	if fib, err := GetFibonacci(10); err != nil {
+		t.Error(err)
+	} else {
+		t.Log(fib)
+	}
+}
+
+func TestPanicVxExit1(t *testing.T) {
+	t.Log("start")
+	os.Exit(-1)
+}
+
+func TestPanicVxExit2(t *testing.T) {
+	defer func() {
+		t.Log("finally")
+	}()
+
+	t.Log("start")
+	panic(errors.New("something wrong"))
+	os.Exit(-1)
+}
+
+func TestPanicVxExit3(t *testing.T) {
+	defer func() {
+		if err := recover(); err != nil {
+			t.Logf("recover from %v", err)
+		}
+	}()
+
+	t.Log("start")
+	panic(errors.New("something wrong"))
 }
