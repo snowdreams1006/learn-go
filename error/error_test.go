@@ -9,22 +9,41 @@ import (
 )
 
 func TestFuncWithoutDefer(t *testing.T) {
-	// 1 2,「雪之梦技术驿站」: 正常顺序
+	// 「雪之梦技术驿站」: 正常顺序
+	t.Log("「雪之梦技术驿站」: 正常顺序")
+
+	// 1 2
 	t.Log(1)
 	t.Log(2)
 }
 
 func TestFuncWithDefer(t *testing.T) {
-	// 2 1,「雪之梦技术驿站」: 正常顺序执行完毕后才执行 defer 代码
+	// 「雪之梦技术驿站」: 正常顺序执行完毕后才执行 defer 代码
+	t.Log(" 「雪之梦技术驿站」: 正常顺序执行完毕后才执行 defer 代码")
+
+	// 2 1
 	defer t.Log(1)
 	t.Log(2)
 }
 
 func TestFuncWithMultipleDefer(t *testing.T) {
-	// 3 2 1,「雪之梦技术驿站」: 猜测 defer 底层实现数据结构可能是栈,先进后出.
+	// 「雪之梦技术驿站」: 猜测 defer 底层实现数据结构可能是栈,先进后出.
+	t.Log(" 「雪之梦技术驿站」: 猜测 defer 底层实现数据结构可能是栈,先进后出.")
+
+	// 3 2 1
 	defer t.Log(1)
 	defer t.Log(2)
 	t.Log(3)
+}
+
+func TestFuncWithMultipleDeferOrder(t *testing.T) {
+	// 「雪之梦技术驿站」: defer 底层实现数据结构类似于栈结构,依次倒叙执行多个 defer 语句
+	t.Log(" 「雪之梦技术驿站」: defer 底层实现数据结构类似于栈结构,依次倒叙执行多个 defer 语句")
+
+	// 2 3 1
+	defer t.Log(1)
+	t.Log(2)
+	defer t.Log(3)
 }
 
 func TestFuncWithMultipleDeferAndReturn(t *testing.T) {
@@ -240,7 +259,7 @@ func TestF1(t *testing.T) {
 }
 
 func f11() (result int) {
-	result = 0  //return语句不是一条原子调用，return xxx其实是赋值＋ret指令
+	result = 0 //return语句不是一条原子调用，return xxx其实是赋值＋ret指令
 	func() { //defer被插入到return之前执行，也就是赋返回值和ret指令之间
 		result++
 	}()
@@ -250,6 +269,18 @@ func f11() (result int) {
 func TestF11(t *testing.T) {
 	// 1
 	t.Log(f11())
+}
+
+func f111() (result int) {
+	func() {
+		result++
+	}()
+	return 0
+}
+
+func TestF111(t *testing.T) {
+	// 0
+	t.Log(f111())
 }
 
 func f2() (r int) {
@@ -268,15 +299,28 @@ func TestF2(t *testing.T) {
 func f22() (r int) {
 	t := 5
 	r = t //赋值指令
-	func() {        //defer被插入到赋值与返回之间执行，这个例子中返回值r没被修改过
+	func() { //defer被插入到赋值与返回之间执行，这个例子中返回值r没被修改过
 		t = t + 5
 	}()
-	return        //空的return指令
+	return //空的return指令
 }
 
 func TestF22(t *testing.T) {
 	// 5
 	t.Log(f22())
+}
+
+func f222() (r int) {
+	t := 5
+	func() {
+		t = t + 5
+	}()
+	return t
+}
+
+func TestF222(t *testing.T) {
+	// 10
+	t.Log(f222())
 }
 
 func f3() (r int) {
@@ -292,14 +336,47 @@ func TestF3(t *testing.T) {
 }
 
 func f33() (r int) {
-	r = 1  //给返回值赋值
-	func(r int) {        //这里改的r是传值传进去的r，不会改变要返回的那个r值
+	r = 1 //给返回值赋值
+	func(r int) { //这里改的r是传值传进去的r，不会改变要返回的那个r值
 		r = r + 5
 	}(r)
-	return        //空的return
+	return //空的return
 }
 
 func TestF33(t *testing.T) {
 	// 1
 	t.Log(f33())
+}
+
+func f333() (r int) {
+	func(r int) {
+		r = r + 5
+	}(r)
+	return 1
+}
+
+func TestF333(t *testing.T) {
+	// 1
+	t.Log(f3())
+}
+
+// f returns 42
+func f() (result int) {
+	defer func() {
+		fmt.Println("before ", result)
+
+		// result is accessed after it was set to 6 by the return statement
+		result *= 7
+
+		fmt.Println("after ", result)
+	}()
+
+	fmt.Println("return ", result)
+
+	return 6
+}
+
+func TestF(t *testing.T) {
+	// 1
+	t.Log(f())
 }
