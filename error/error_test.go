@@ -114,27 +114,58 @@ func deferFuncOrderWhenReturn() (result int) {
 }
 
 func TestDeferFuncOrderWhenReturn(t *testing.T) {
-	// 「雪之梦技术驿站」: 包围函数具有显式返回语句时,延迟函数defer在结果参数赋值之后且在函数返回之前执行
-	t.Log(" 「雪之梦技术驿站」: 普通函数顺序执行,结果很明显,不需要解释.")
+	// 「雪之梦技术驿站」: 包围函数具有显式返回语句时,延迟函数defer在结果参数赋值之后且在函数返回之前执行.
+	t.Log(" 「雪之梦技术驿站」: 包围函数具有显式返回语句时,延迟函数defer在结果参数赋值之后且在函数返回之前执行.")
 
 	// 4. result = 1
 	result := deferFuncOrderWhenReturn()
 	t.Logf("result = %v", result)
 }
 
+func deferFuncOrderWhenReturnExplain() (result int) {
+	result = 0
 
-func f11() (result int) {
-	result = 0 //return语句不是一条原子调用，return xxx其实是赋值＋ret指令
-	func() { //defer被插入到return之前执行，也就是赋返回值和ret指令之间
+	func() {
+		// 1. before : result = 0
+		fmt.Printf("before : result = %v\n", result)
+
 		result++
+
+		// 2. after : result = 1
+		fmt.Printf("after : result = %v\n", result)
 	}()
+
+	// 3. return : result = 0
+	fmt.Printf("return : result = %v\n", result)
+
 	return
 }
 
-func TestF11(t *testing.T) {
-	// 1
-	t.Log(f11())
+func TestDeferFuncOrderWhenReturnExplain(t *testing.T) {
+	// 「雪之梦技术驿站」: defer 延迟函数中的包围函数具有显式返回语句时,return result 并不是原子操作,整个函数被划分为三部分,首先赋值结果变量,接着执行延迟函数,最后执行return.
+	t.Log(" 「雪之梦技术驿站」: defer 延迟函数中的包围函数具有显式返回语句时,return result 并不是原子操作,整个函数被划分为三部分,首先赋值结果变量,接着执行延迟函数,最后执行return.")
+
+	// 4. result = 1
+	result := deferFuncOrderWhenReturnExplain()
+	t.Logf("result = %v", result)
 }
+
+func deferFuncOrderWhenReturnDemo() (result int) {
+	defer func() {
+		// result is accessed after it was set to 6 by the return statement
+		result *= 7
+	}()
+	return 6
+}
+
+func TestDeferFuncOrderWhenReturnDemo(t *testing.T) {
+	// 「雪之梦技术驿站」: 注意 defer 延迟函数中可能会访问并修改结果变量,最终结果是42并不是6.
+	t.Log(" 「雪之梦技术驿站」: 注意 defer 延迟函数中可能会访问并修改结果变量,最终结果是42并不是6..")
+
+	// 42
+	t.Log(deferFuncOrderWhenReturnDemo())
+}
+
 
 func f111() (result int) {
 	func() {
