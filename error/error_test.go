@@ -47,7 +47,10 @@ func TestFuncWithMultipleDeferOrder(t *testing.T) {
 }
 
 func TestFuncWithMultipleDeferAndReturn(t *testing.T) {
-	// 3 2 1,「雪之梦技术驿站」: defer 在于保证无论正常代码如何执行,该逻辑代码也一定会执行!
+	// 「雪之梦技术驿站」: defer 延迟函数会在包围函数正常return之前逆序执行.
+	t.Log(" 「雪之梦技术驿站」: defer 延迟函数会在包围函数正常return之前逆序执行.")
+
+	// 3 2 1
 	defer t.Log(1)
 	defer t.Log(2)
 	t.Log(3)
@@ -56,11 +59,14 @@ func TestFuncWithMultipleDeferAndReturn(t *testing.T) {
 }
 
 func TestFuncWithMultipleDeferAndPanic(t *testing.T) {
-	// 3 2 1,「雪之梦技术驿站」: defer 在于保证无论正常代码如何执行,该逻辑代码也一定会执行!
+	// 「雪之梦技术驿站」: defer 延迟函数会在包围函数panic惊慌失措之前逆序执行.
+	t.Log(" 「雪之梦技术驿站」: defer 延迟函数会在包围函数panic惊慌失措之前逆序执行.")
+
+	// 3 2 1
 	defer t.Log(1)
 	defer t.Log(2)
 	t.Log(3)
-	panic("「雪之梦技术驿站」: defer 在于保证无论正常代码如何执行,该逻辑代码也一定会执行!")
+	panic("「雪之梦技术驿站」: defer 延迟函数会在包围函数panic惊慌失措之前逆序执行.")
 	t.Log(4)
 }
 
