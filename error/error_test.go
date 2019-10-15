@@ -188,7 +188,7 @@ func deferFuncWithRedundantVarWhenReturnExplain() (r int) {
 	// 1.结果变量赋值语句
 	r = t
 	func() {
-		t = t + 5
+		t += 5
 	}()
 
 	// 2.直接返回
@@ -196,83 +196,26 @@ func deferFuncWithRedundantVarWhenReturnExplain() (r int) {
 }
 
 func TestDeferFuncWithRedundantVarWhenReturnExplain(t *testing.T) {
-	// 「雪之梦技术驿站」: defer 延迟函数修改过的变量并不一定是结果变量哟!
-	t.Log(" 「雪之梦技术驿站」: defer 延迟函数修改过的变量并不一定是结果变量哟!")
+	// 「雪之梦技术驿站」: defer 延迟函数修改过的变量不是结果变量并不会受到延迟函数的影响.
+	t.Log(" 「雪之梦技术驿站」: defer 延迟函数修改过的变量不是结果变量并不会受到延迟函数的影响.")
 
 	// 5
 	t.Log(deferFuncWithRedundantVarWhenReturnExplain())
 }
 
-
-func f222() (r int) {
-	t := 5
-	func() {
-		t = t + 5
-	}()
-	return t
-}
-
-func TestF222(t *testing.T) {
-	// 10
-	t.Log(f222())
-}
-
-func f3() (r int) {
+func deferFuncWithClosureWhenReturn() (r int) {
 	defer func(r int) {
-		r = r + 5
+		r += 5
 	}(r)
-	return 1
+	return 5
 }
 
-func TestF3(t *testing.T) {
-	// 1
-	t.Log(f3())
-}
+func TestDeferFuncWithClosureWhenReturn(t *testing.T) {
+	// 「雪之梦技术驿站」: defer 延迟函数变量传递后被修改,最终结果变量也不会受影响,因为是值传递!
+	t.Log(" 「雪之梦技术驿站」: defer 延迟函数变量传递后被修改,最终结果变量也不会受影响,因为是值传递!")
 
-func f33() (r int) {
-	r = 1 //给返回值赋值
-	func(r int) { //这里改的r是传值传进去的r，不会改变要返回的那个r值
-		r = r + 5
-	}(r)
-	return //空的return
-}
-
-func TestF33(t *testing.T) {
-	// 1
-	t.Log(f33())
-}
-
-func f333() (r int) {
-	func(r int) {
-		r = r + 5
-	}(r)
-	return 1
-}
-
-func TestF333(t *testing.T) {
-	// 1
-	t.Log(f3())
-}
-
-// f returns 42
-func f() (result int) {
-	defer func() {
-		fmt.Println("before ", result)
-
-		// result is accessed after it was set to 6 by the return statement
-		result *= 7
-
-		fmt.Println("after ", result)
-	}()
-
-	fmt.Println("return ", result)
-
-	return 6
-}
-
-func TestF(t *testing.T) {
-	// 1
-	t.Log(f())
+	// 5
+	t.Log(deferFuncWithClosureWhenReturn())
 }
 
 func fibonacciWithClosure() func() int {
