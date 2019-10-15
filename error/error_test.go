@@ -79,13 +79,16 @@ func fibonacciWithClosure() func() int {
 }
 
 func TestWriteFileWithDefer(t *testing.T) {
-	//「雪之梦技术驿站」: 有始有终,打开过文件要及时关闭,defer 让我们操作变得有始有终!
+	// 「雪之梦技术驿站」: 其实不用关心 defer 调用顺序,成对操作时记得defer结束即可!
+	t.Log(" 「雪之梦技术驿站」: 其实不用关心 defer 调用顺序,成对操作时记得defer结束即可!")
+
+	// 「雪之梦技术驿站」: 有始有终,打开过文件要及时关闭,defer 让我们操作变得有始有终!
 	if file, err := os.Create("fib.txt"); err != nil {
 		panic(err)
 	} else {
 		defer file.Close()
 
-		//「雪之梦技术驿站」: bufio 暂存内存要刷新到文件,defer 帮助我们及时进行资源管理,出入成双!
+		// 「雪之梦技术驿站」: bufio 暂存内存要刷新到文件,defer 帮助我们及时进行资源管理,出入成双!
 		writer := bufio.NewWriter(file)
 		defer writer.Flush()
 
@@ -93,9 +96,6 @@ func TestWriteFileWithDefer(t *testing.T) {
 		for i := 0; i < 10; i++ {
 			fmt.Fprintln(writer, f())
 		}
-
-		//「雪之梦技术驿站」: 其实不用关心 defer 调用顺序,因为开始是顺序,而结束自然就是逆序.
-		t.Log("「雪之梦技术驿站」: 其实不用关心 defer 调用顺序,因为开始是顺序,而结束自然就是逆序.")
 	}
 }
 
