@@ -1,4 +1,4 @@
-package error
+package main
 
 import (
 	"bufio"
@@ -178,4 +178,51 @@ func TestWriteFileErrorWithoutPanicAndCustomError(t *testing.T) {
 
 	//「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.
 	t.Log("「雪之梦技术驿站」: 明确 error 类型的前提下,可以针对性处理,否则要么捕获错误信息要么直接 panic 错误.")
+}
+
+func GetFibonacci(n int) ([]int, error) {
+	if n < 2 || n > 100 {
+		return nil, errors.New("n should be in [0,100]")
+	}
+	fibList := []int{1, 1}
+
+	for i := 2; i < n; i++ {
+		fibList = append(fibList, fibList[i-2]+fibList[i-1])
+	}
+
+	return fibList, nil
+}
+
+func TestGetFibonacci(t *testing.T) {
+	if fib, err := GetFibonacci(10); err != nil {
+		t.Error(err)
+	} else {
+		t.Log(fib)
+	}
+}
+
+func TestPanicVxExit1(t *testing.T) {
+	t.Log("start")
+	os.Exit(-1)
+}
+
+func TestPanicVxExit2(t *testing.T) {
+	defer func() {
+		t.Log("finally")
+	}()
+
+	t.Log("start")
+	panic(errors.New("something wrong"))
+	os.Exit(-1)
+}
+
+func TestPanicVxExit3(t *testing.T) {
+	defer func() {
+		if err := recover(); err != nil {
+			t.Logf("recover from %v", err)
+		}
+	}()
+
+	t.Log("start")
+	panic(errors.New("something wrong"))
 }
