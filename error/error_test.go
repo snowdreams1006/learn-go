@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
+	"io"
 	"os"
 	"testing"
 )
@@ -245,6 +246,40 @@ func TestWriteFileWithDefer(t *testing.T) {
 			fmt.Fprintln(writer, f())
 		}
 	}
+}
+
+func TestCopyFileWithoutDefer(t *testing.T) {
+	//if srcFile, err := os.Open("fib.txt"); err != nil {
+	//	t.Error(err)
+	//	return
+	//} else {
+	//	if dstFile,err := os.Create("fib.txt.bak");err != nil{
+	//		t.Error(err)
+	//		return
+	//	}else{
+	//		io.Copy(dstFile,srcFile)
+	//
+	//		dstFile.Close()
+	//		srcFile.Close()
+	//	}
+	//}
+
+	srcFile, err := os.Open("fib.txt")
+	if err != nil {
+		t.Error(err)
+		return
+	}
+
+	dstFile, err := os.Create("fib.txt.bak")
+	if err != nil {
+		t.Error(err)
+		return
+	}
+
+	io.Copy(dstFile, srcFile)
+
+	dstFile.Close()
+	srcFile.Close()
 }
 
 func TestCalculateWithDefer(t *testing.T) {
