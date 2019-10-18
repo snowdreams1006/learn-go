@@ -5,7 +5,9 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"os"
+	"sync"
 	"testing"
 )
 
@@ -47,16 +49,42 @@ func TestFuncWithMultipleDeferOrder(t *testing.T) {
 	defer t.Log(3)
 }
 
+func funcWithMultipleDeferAndReturn() {
+	defer fmt.Println(1)
+	defer fmt.Println(2)
+	fmt.Println(3)
+	return
+	fmt.Println(4)
+}
+
 func TestFuncWithMultipleDeferAndReturn(t *testing.T) {
 	// 「雪之梦技术驿站」: defer 延迟函数会在包围函数正常return之前逆序执行.
 	t.Log(" 「雪之梦技术驿站」: defer 延迟函数会在包围函数正常return之前逆序执行.")
 
 	// 3 2 1
-	defer t.Log(1)
-	defer t.Log(2)
-	t.Log(3)
-	return
-	t.Log(4)
+	funcWithMultipleDeferAndReturn()
+}
+
+func funcWithMultipleDeferAndEnd() {
+	defer fmt.Println(1)
+	defer fmt.Println(2)
+	fmt.Println(3)
+}
+
+func TestFuncWithMultipleDeferAndEnd(t *testing.T) {
+	// 「雪之梦技术驿站」: defer 延迟函数会在包围函数到达函数体结尾之前逆序执行.
+	t.Log(" 「雪之梦技术驿站」: defer 延迟函数会在包围函数到达函数体结尾之前逆序执行.")
+
+	// 3 2 1
+	funcWithMultipleDeferAndEnd()
+}
+
+func funcWithMultipleDeferAndPanic() {
+	defer fmt.Println(1)
+	defer fmt.Println(2)
+	fmt.Println(3)
+	panic("panic")
+	fmt.Println(4)
 }
 
 func TestFuncWithMultipleDeferAndPanic(t *testing.T) {
@@ -64,11 +92,24 @@ func TestFuncWithMultipleDeferAndPanic(t *testing.T) {
 	t.Log(" 「雪之梦技术驿站」: defer 延迟函数会在包围函数panic惊慌失措之前逆序执行.")
 
 	// 3 2 1
-	defer t.Log(1)
-	defer t.Log(2)
-	t.Log(3)
-	panic("「雪之梦技术驿站」: defer 延迟函数会在包围函数panic惊慌失措之前逆序执行.")
-	t.Log(4)
+	funcWithMultipleDeferAndPanic()
+}
+
+func readFileWithDefer(filename string) ([]byte, error) {
+	f, err := os.Open(filename)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+	return ioutil.ReadAll(f)
+}
+
+var mu sync.Mutex
+var m = make(map[string]int)
+func lookupWithDefer(key string) int {
+	mu.Lock()
+	defer mu.Unlock()
+	return m[key]
 }
 
 func noDeferFuncOrderWhenReturn() (result int) {
@@ -97,31 +138,52 @@ func TestNoDeferFuncOrderWhenReturn(t *testing.T) {
 	t.Logf("result = %v", result)
 }
 
-func deferFuncOrderWhenReturn() (result int) {
+func deferFuncWithAnonymousReturnValue() int {
+	var retVal int
 	defer func() {
-		// 2. before : result = 0
-		fmt.Printf("before : result = %v\n", result)
-
-		result++
-
-		// 3. after : result = 1
-		fmt.Printf("after : result = %v\n", result)
+		retVal++
 	}()
-
-	// 1. return : result = 0
-	fmt.Printf("return : result = %v\n", result)
-
 	return 0
 }
 
-func TestDeferFuncOrderWhenReturn(t *testing.T) {
-	// 「雪之梦技术驿站」: 包围函数具有显式返回语句时,延迟函数defer在结果参数赋值之后且在函数返回之前执行.
-	t.Log(" 「雪之梦技术驿站」: 包围函数具有显式返回语句时,延迟函数defer在结果参数赋值之后且在函数返回之前执行.")
-
-	// 4. result = 1
-	result := deferFuncOrderWhenReturn()
-	t.Logf("result = %v", result)
+func deferFuncWithNamedReturnValue() (retVal int) {
+	defer func() {
+		retVal++
+	}()
+	return 0
 }
+
+func TestDeferFuncWhenReturn(t *testing.T) {
+	t.Log(deferFuncWithAnonymousReturnValue())
+	t.Log(deferFuncWithNamedReturnValue())
+}
+
+
+//func deferFuncOrderWhenReturn() (result int) {
+//	defer func() {
+//		// 2. before : result = 0
+//		fmt.Printf("before : result = %v\n", result)
+//
+//		result++
+//
+//		// 3. after : result = 1
+//		fmt.Printf("after : result = %v\n", result)
+//	}()
+//
+//	// 1. return : result = 0
+//	fmt.Printf("return : result = %v\n", result)
+//
+//	return 0
+//}
+//
+//func TestDeferFuncOrderWhenReturn(t *testing.T) {
+//	// 「雪之梦技术驿站」: 包围函数具有显式返回语句时,延迟函数defer在结果参数赋值之后且在函数返回之前执行.
+//	t.Log(" 「雪之梦技术驿站」: 包围函数具有显式返回语句时,延迟函数defer在结果参数赋值之后且在函数返回之前执行.")
+//
+//	// 4. result = 1
+//	result := deferFuncOrderWhenReturn()
+//	t.Logf("result = %v", result)
+//}
 
 func deferFuncOrderWhenReturnExplain() (result int) {
 	result = 0
