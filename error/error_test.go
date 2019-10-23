@@ -112,6 +112,19 @@ func lookupWithDefer(key string) int {
 	return m[key]
 }
 
+func funcInvokeWithDefer() {
+	fmt.Println("funcInvokeWithDefer function is called")
+}
+
+func TestFuncInvokeWithDefer(t *testing.T) {
+	// 「雪之梦技术驿站」: defer 语句可以是函数调用.
+	fmt.Println(" 「雪之梦技术驿站」: defer 语句可以是函数调用.")
+
+	defer funcInvokeWithDefer()
+
+	fmt.Println("TestFuncInvokeWithDefer function call has ended")
+}
+
 func noDeferFuncOrderWhenReturn() (result int) {
 	func() {
 		// 1. before : result = 0
@@ -343,6 +356,7 @@ func TestCopyFileWithoutDefer(t *testing.T) {
 	dstFile.Close()
 	srcFile.Close()
 }
+
 
 func TestCalculateWithDefer(t *testing.T) {
 	//「雪之梦技术驿站」: 参与在defer语言时计算
