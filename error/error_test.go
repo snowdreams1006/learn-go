@@ -147,6 +147,31 @@ func TestMethodCallWithDefer(t *testing.T) {
 	fmt.Println("TestMethodCallWithDefer method call has ended")
 }
 
+func TestParenthesizedCallWithDefer(t *testing.T) {
+	// 「雪之梦技术驿站」: defer 语句不可以被括号包裹.
+	fmt.Println(" 「雪之梦技术驿站」: defer 语句不可以被括号包裹.")
+
+	// function must be invoked in defer statement
+	//defer (fmt.Println("it cannot be parenthesized."))
+
+	fmt.Println("TestParenthesizedCallWithDefer statement call has ended")
+}
+
+func TestBuiltinFuncCallWithDefer(t *testing.T) {
+	// 「雪之梦技术驿站」: defer 语句不可以被括号包裹.
+	fmt.Println(" 「雪之梦技术驿站」: defer 语句不可以被括号包裹.")
+
+	arr := new([10]int)
+	arr[4] = 5
+	arr[7] = 8
+
+	// defer discards result of len(arr)
+	defer len(arr)
+	defer println("Calls of built-in functions are restricted as for expression statements.")
+
+	fmt.Println("TestBuiltinFuncCallWithDefer function call has ended")
+}
+
 func noDeferFuncOrderWhenReturn() (result int) {
 	func() {
 		// 1. before : result = 0
