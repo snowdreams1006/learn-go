@@ -112,17 +112,39 @@ func lookupWithDefer(key string) int {
 	return m[key]
 }
 
-func funcInvokeWithDefer() {
+func funcCallWithDefer() {
 	fmt.Println("funcInvokeWithDefer function is called")
 }
 
-func TestFuncInvokeWithDefer(t *testing.T) {
+func TestFuncCallWithDefer(t *testing.T) {
 	// 「雪之梦技术驿站」: defer 语句可以是函数调用.
 	fmt.Println(" 「雪之梦技术驿站」: defer 语句可以是函数调用.")
 
-	defer funcInvokeWithDefer()
+	defer funcCallWithDefer()
 
 	fmt.Println("TestFuncInvokeWithDefer function call has ended")
+}
+
+type Lang struct {
+	name    string
+	website string
+}
+
+func (l *Lang) ToString() {
+	fmt.Printf("Lang:[name = %s,website = %s] \n", l.name, l.website)
+}
+
+func TestMethodCallWithDefer(t *testing.T) {
+	// 「雪之梦技术驿站」: defer 语句也可以是方法调用.
+	fmt.Println(" 「雪之梦技术驿站」: defer 语句也可以是方法调用.")
+
+	var l = new(Lang)
+	l.name = "Go"
+	l.website = "https://snowdreams1006.github.io/go/"
+
+	defer l.ToString()
+
+	fmt.Println("TestMethodCallWithDefer method call has ended")
 }
 
 func noDeferFuncOrderWhenReturn() (result int) {
