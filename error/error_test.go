@@ -9,6 +9,7 @@ import (
 	"os"
 	"sync"
 	"testing"
+	"time"
 )
 
 func TestFuncWithoutDefer(t *testing.T) {
@@ -166,10 +167,54 @@ func TestBuiltinFuncCallWithDefer(t *testing.T) {
 	arr[7] = 8
 
 	// defer discards result of len(arr)
-	defer len(arr)
+	//defer len(arr)
 	defer println("Calls of built-in functions are restricted as for expression statements.")
 
 	fmt.Println("TestBuiltinFuncCallWithDefer function call has ended")
+}
+
+//Each time a "defer" statement executes, **the function value and parameters to the call are evaluated as usual and saved anew but the actual function is not invoked**.
+
+func trace(funcName string) func(){
+	start := time.Now()
+	fmt.Printf("function %s enter\n",funcName)
+	return func(){
+		fmt.Printf("function %s exit (elapsed %s)",funcName,time.Since(start))
+	}
+}
+
+func foo(){
+	defer trace("foo")()
+	time.Sleep(5*time.Second)
+}
+
+func TestFoo(t *testing.T) {
+	foo()
+}
+
+
+func surroundingFuncEvaluatedNotInvoked(init int) int {
+	fmt.Printf("1.init=%d\n",init)
+
+	defer func() {
+		fmt.Printf("2.init=%d\n",init)
+
+		init ++
+
+		fmt.Printf("3.init=%d\n",init)
+	}()
+
+	fmt.Printf("4.init=%d\n",init)
+
+	return init
+}
+
+func TestSurroundingFuncEvaluatedNotInvoked(t *testing.T) {
+	// 「雪之梦技术驿站」: 1 4 2 3
+	fmt.Println(" 「雪之梦技术驿站」: 普通函数顺序执行,结果很明显,不需要解释.")
+
+	retVal := surroundingFuncEvaluatedNotInvoked(0)
+	fmt.Printf("retVal = %d\n", retVal)
 }
 
 func noDeferFuncOrderWhenReturn() (result int) {
