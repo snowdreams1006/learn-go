@@ -219,18 +219,43 @@ func TestDeferWithoutParams(t *testing.T) {
 	deferWithoutParams()
 }
 
-
-func f5() {
+func deferWithValueParams() {
 	x := 10
 	defer func(n int) {
+		// 10
 		fmt.Println(n)
 	}(x)
 	x++
 }
 
+func TestDeferWithValueParams(t *testing.T) {
+	deferWithValueParams()
+}
 
-func TestFooWithoutDefer2(t *testing.T) {
-	fooWithoutDefer()
+func deferWithOuterParams() {
+	x := 10
+	defer func(n int) {
+		// 11
+		fmt.Println(x)
+	}(x)
+	x++
+}
+
+func TestDeferWithOuterParams(t *testing.T) {
+	deferWithOuterParams()
+}
+
+func deferWithReferParams() {
+	x := 10
+	defer func(n *int) {
+		// 11
+		fmt.Println(*n)
+	}(&x)
+	x++
+}
+
+func TestDeferWithReferParams(t *testing.T) {
+	deferWithReferParams()
 }
 
 func test1() (x int) {
