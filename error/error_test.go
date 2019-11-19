@@ -306,6 +306,18 @@ func TestDeferWithExplicitReturnByExplain(t *testing.T) {
 	fmt.Printf("TestDeferWithExplicitReturnByExplain result = %d\n",deferWithExplicitReturnByExplain())
 }
 
+func deferWithNil() func() {
+	return nil
+}
+
+func TestDeferWithNil(t *testing.T) {
+	fmt.Println("begin exec deferWithNil()()")
+
+	defer deferWithNil()()
+
+	fmt.Println("end exec deferWithNil()()")
+}
+
 func f() (r int) {
 	t := 5
 	defer func() {
@@ -459,7 +471,9 @@ func deferFuncWithNamedReturnValue() (retVal int) {
 }
 
 func TestDeferFuncWhenReturn(t *testing.T) {
+	// 0
 	t.Log(deferFuncWithAnonymousReturnValue())
+	// 1
 	t.Log(deferFuncWithNamedReturnValue())
 }
 
