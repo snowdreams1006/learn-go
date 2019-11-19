@@ -258,6 +258,85 @@ func TestDeferWithReferParams(t *testing.T) {
 	deferWithReferParams()
 }
 
+func deferWithExplicitReturn() (result int) {
+	defer func() {
+		// 2. before : result = 10
+		fmt.Printf("before : result = %v\n", result)
+
+		result++
+
+		// 3. after : result = 11
+		fmt.Printf("after : result = %v\n", result)
+	}()
+
+	result = 10
+
+	// 1. return : result = 10
+	fmt.Printf("return : result = %v\n", result)
+
+	return result
+}
+
+func TestDeferWithExplicitReturn(t *testing.T) {
+	// TestDeferWithExplicitReturn result = 11
+	fmt.Printf("TestDeferWithExplicitReturn result = %d\n",deferWithExplicitReturn())
+}
+
+func deferWithExplicitReturnByExplain() (result int) {
+	result = 10
+
+	// 1. return : result = 10
+	fmt.Printf("return : result = %v\n", result)
+
+	func() {
+		// 2. before : result = 10
+		fmt.Printf("before : result = %v\n", result)
+
+		result++
+
+		// 3. after : result = 11
+		fmt.Printf("after : result = %v\n", result)
+	}()
+
+	return
+}
+
+func TestDeferWithExplicitReturnByExplain(t *testing.T) {
+	// TestDeferWithExplicitReturnByExplain result = 11
+	fmt.Printf("TestDeferWithExplicitReturnByExplain result = %d\n",deferWithExplicitReturnByExplain())
+}
+
+func f() (r int) {
+	t := 5
+	defer func() {
+		t = t + 5
+	}()
+	return t
+}
+
+func f2() (r int) {
+	t := 5
+	defer func() {
+		t = t + 5
+	}()
+	return 15
+}
+
+func f3() (r int) {
+	defer func(r int) {
+		r = r + 5
+	}(r)
+	return 1
+}
+
+func Test1(t *testing.T) {
+	// 5
+	fmt.Println(f())
+
+	// 15
+	fmt.Println(f2())
+}
+
 func test1() (x int) {
 	defer fmt.Printf("in defer: x = %d\n", x)
 	x = 7
@@ -383,33 +462,6 @@ func TestDeferFuncWhenReturn(t *testing.T) {
 	t.Log(deferFuncWithAnonymousReturnValue())
 	t.Log(deferFuncWithNamedReturnValue())
 }
-
-
-//func deferFuncOrderWhenReturn() (result int) {
-//	defer func() {
-//		// 2. before : result = 0
-//		fmt.Printf("before : result = %v\n", result)
-//
-//		result++
-//
-//		// 3. after : result = 1
-//		fmt.Printf("after : result = %v\n", result)
-//	}()
-//
-//	// 1. return : result = 0
-//	fmt.Printf("return : result = %v\n", result)
-//
-//	return 0
-//}
-//
-//func TestDeferFuncOrderWhenReturn(t *testing.T) {
-//	// 「雪之梦技术驿站」: 包围函数具有显式返回语句时,延迟函数defer在结果参数赋值之后且在函数返回之前执行.
-//	t.Log(" 「雪之梦技术驿站」: 包围函数具有显式返回语句时,延迟函数defer在结果参数赋值之后且在函数返回之前执行.")
-//
-//	// 4. result = 1
-//	result := deferFuncOrderWhenReturn()
-//	t.Logf("result = %v", result)
-//}
 
 func deferFuncOrderWhenReturnExplain() (result int) {
 	result = 0
