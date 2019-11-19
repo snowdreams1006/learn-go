@@ -173,25 +173,27 @@ func TestBuiltinFuncCallWithDefer(t *testing.T) {
 	fmt.Println("TestBuiltinFuncCallWithDefer function call has ended")
 }
 
-//Each time a "defer" statement executes, **the function value and parameters to the call are evaluated as usual and saved anew but the actual function is not invoked**.
-
 func trace(funcName string) func(){
 	start := time.Now()
-	fmt.Printf("function %s enter\n",funcName)
+	fmt.Printf("function %s enter at %s \n",funcName,start)
+
 	return func(){
-		fmt.Printf("function %s exit (elapsed %s)",funcName,time.Since(start))
+		fmt.Printf("function %s exit at %s(elapsed %s)",funcName,time.Now(),time.Since(start))
 	}
 }
 
 func foo(){
+	fmt.Printf("foo begin at %s \n",time.Now())
+
 	defer trace("foo")()
 	time.Sleep(5*time.Second)
+
+	fmt.Printf("foo end at %s \n",time.Now())
 }
 
 func TestFoo(t *testing.T) {
 	foo()
 }
-
 
 func surroundingFuncEvaluatedNotInvoked(init int) int {
 	fmt.Printf("1.init=%d\n",init)
