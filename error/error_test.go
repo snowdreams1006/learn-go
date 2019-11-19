@@ -195,6 +195,100 @@ func TestFoo(t *testing.T) {
 	foo()
 }
 
+func fooWithoutDefer(){
+	fmt.Printf("foo begin at %s \n",time.Now())
+
+	time.Sleep(5*time.Second)
+
+	fmt.Printf("foo end at %s \n",time.Now())
+
+	trace("foo")()
+}
+
+func TestFooWithoutDefer(t *testing.T) {
+	fooWithoutDefer()
+}
+
+func deferWithoutParams() {
+	// 2 1
+	defer fmt.Println(1)
+	fmt.Println(2)
+}
+
+func TestDeferWithoutParams(t *testing.T) {
+	deferWithoutParams()
+}
+
+
+func f5() {
+	x := 10
+	defer func(n int) {
+		fmt.Println(n)
+	}(x)
+	x++
+}
+
+
+func TestFooWithoutDefer2(t *testing.T) {
+	fooWithoutDefer()
+}
+
+func test1() (x int) {
+	defer fmt.Printf("in defer: x = %d\n", x)
+	x = 7
+	return 9
+}
+
+func TestTest1(t *testing.T) {
+	//in defer: x = 0
+	//in test1: x = 9
+	fmt.Printf("in test1: x = %d\n", test1())
+}
+
+func test2() (x int) {
+	x = 7
+	defer fmt.Printf("in defer: x = %d\n", x)
+	return 9
+}
+
+func TestTest2(t *testing.T) {
+	//in defer: x = 7
+	//in test2: x = 9
+	fmt.Printf("in test2: x = %d\n", test2())
+}
+
+func test3() (x int) {
+	defer func() {
+		fmt.Printf("in defer: x = %d\n", x)
+	}()
+
+	x = 7
+	return 9
+}
+
+func TestTest3(t *testing.T) {
+	//in defer: x = 9
+	//in test3: x = 9
+	fmt.Printf("in test3: x = %d\n", test3())
+}
+
+func test4() (x int) {
+	defer func(n int) {
+		fmt.Printf("in defer x as parameter: x = %d\n", n)
+		fmt.Printf("in defer x after return: x = %d\n", x)
+	}(x)
+
+	x = 7
+	return 9
+}
+
+func TestTest4(t *testing.T) {
+	//in defer x as parameter: x = 0
+	//in defer x after return: x = 9
+	//in test4: x = 9
+	fmt.Printf("in test4: x = %d\n", test4())
+}
+
 func surroundingFuncEvaluatedNotInvoked(init int) int {
 	fmt.Printf("1.init=%d\n",init)
 
