@@ -1,0 +1,3200 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>再谈接口 · 雪之梦技术驿站</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="snowdreams1006">
+        
+        
+    
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+    
+
+        
+    
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../functional/about.html" />
+    
+    
+    <link rel="prev" href="interface.html" />
+    
+
+    <link href="https://snowdreams1006.github.io/rss" title="雪之梦技术驿站" rel="alternate" type="application/rss+xml" />
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"snowdreams1006","repo":"snowdreams1006.github.io","type":"star","size":"small"}]};
+    </script>
+
+    
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    
+    
+    
+    
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-precomposed-152.png">
+    
+    
+        
+    
+    
+        
+    
+
+    
+    <link rel="stylesheet" href="../../gitbook/gitbook-plugin-chart/c3/c3.min.css">
+    <script src="../../gitbook/gitbook-plugin-chart/c3/d3.min.js"></script>
+    <script src="../../gitbook/gitbook-plugin-chart/c3/c3.min.js"></script>
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://snowdreams1006.tech/" target="_blank" class="custom-link">技术博客</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">入门教程</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../markdown/">
+            
+                <a href="../../markdown/">
+            
+                    
+                    markdown 入门教程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../git/">
+            
+                <a href="../../git/">
+            
+                    
+                    git 入门教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../../git/base/about.html">
+            
+                <a href="../../git/base/about.html">
+            
+                    
+                    初识 git
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1.1" data-path="../../git/base/install.html">
+            
+                <a href="../../git/base/install.html">
+            
+                    
+                    安装 git
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.2" data-path="../../git/base/config.html">
+            
+                <a href="../../git/base/config.html">
+            
+                    
+                    配置 git
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../../git/usage/about.html">
+            
+                <a href="../../git/usage/about.html">
+            
+                    
+                    实战 git
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.2.1" data-path="../../git/usage/local-repository.html">
+            
+                <a href="../../git/usage/local-repository.html">
+            
+                    
+                    本地仓库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.2" data-path="../../git/usage/version-manage.html">
+            
+                <a href="../../git/usage/version-manage.html">
+            
+                    
+                    版本管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.3" data-path="../../git/usage/reset.html">
+            
+                <a href="../../git/usage/reset.html">
+            
+                    
+                    回到过去
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.4" data-path="../../git/usage/concept.html">
+            
+                <a href="../../git/usage/concept.html">
+            
+                    
+                    基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.5" data-path="../../git/usage/version-control.html">
+            
+                <a href="../../git/usage/version-control.html">
+            
+                    
+                    版本控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.6" data-path="../../git/usage/checkout-reset.html">
+            
+                <a href="../../git/usage/checkout-reset.html">
+            
+                    
+                    撤销更改
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.7" data-path="../../git/usage/delete.html">
+            
+                <a href="../../git/usage/delete.html">
+            
+                    
+                    删除文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.8" data-path="../../git/usage/remote-repository.html">
+            
+                <a href="../../git/usage/remote-repository.html">
+            
+                    
+                    远程仓库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.9" data-path="../../git/usage/branch-manage.html">
+            
+                <a href="../../git/usage/branch-manage.html">
+            
+                    
+                    分支管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.2.9.1" data-path="../../git/usage/branch-overview.html">
+            
+                <a href="../../git/usage/branch-overview.html">
+            
+                    
+                    分支总览
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.9.2" data-path="../../git/usage/branch-merge-with-conflict.html">
+            
+                <a href="../../git/usage/branch-merge-with-conflict.html">
+            
+                    
+                    冲突合并
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.9.3" data-path="../../git/usage/branch-strategy.html">
+            
+                <a href="../../git/usage/branch-strategy.html">
+            
+                    
+                    分支策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.9.4" data-path="../../git/usage/branch-emergency-fixbug.html">
+            
+                <a href="../../git/usage/branch-emergency-fixbug.html">
+            
+                    
+                    紧急修复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.9.5" data-path="../../git/usage/branch-rebase.html">
+            
+                <a href="../../git/usage/branch-rebase.html">
+            
+                    
+                    变基合并
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.9.6" data-path="../../git/usage/branch-remote.html">
+            
+                <a href="../../git/usage/branch-remote.html">
+            
+                    
+                    协同开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.9.7" data-path="../../git/usage/local-remote-repository.html">
+            
+                <a href="../../git/usage/local-remote-repository.html">
+            
+                    
+                    本地和远程仓库的本质
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.10" data-path="../../git/usage/tag.html">
+            
+                <a href="../../git/usage/tag.html">
+            
+                    
+                    里程碑式标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../../git/custom/about.html">
+            
+                <a href="../../git/custom/about.html">
+            
+                    
+                    私人定制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.3.1" data-path="../../git/custom/ignore.html">
+            
+                <a href="../../git/custom/ignore.html">
+            
+                    
+                    忽略文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.2" data-path="../../git/custom/sync-remote-repo.html">
+            
+                <a href="../../git/custom/sync-remote-repo.html">
+            
+                    
+                    同步推送多Git仓库
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../../git/server/private.html">
+            
+                <a href="../../git/server/private.html">
+            
+                    
+                    搭建私服
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5" data-path="../../git/tools/about.html">
+            
+                <a href="../../git/tools/about.html">
+            
+                    
+                    扩展工具
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.5.1" data-path="../../git/tools/git-bash-command.html">
+            
+                <a href="../../git/tools/git-bash-command.html">
+            
+                    
+                    git bash 常见命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.2" data-path="../../git/tools/git-bash-relationship.html">
+            
+                <a href="../../git/tools/git-bash-relationship.html">
+            
+                    
+                    git bash 朋友圈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.3" data-path="../../git/tools/git-bash-tree.html">
+            
+                <a href="../../git/tools/git-bash-tree.html">
+            
+                    
+                    git bash 竟然没有tree命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.4" data-path="../../git/tools/git-bash-extend-up.html">
+            
+                <a href="../../git/tools/git-bash-extend-up.html">
+            
+                    
+                    git bash 扩展命令(上)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.5" data-path="../../git/tools/git-bash-extend-middle.html">
+            
+                <a href="../../git/tools/git-bash-extend-middle.html">
+            
+                    
+                    git bash 扩展命令(中)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.5.6" data-path="../../git/tools/git-bash-extend-down.html">
+            
+                <a href="../../git/tools/git-bash-extend-down.html">
+            
+                    
+                    git bash 扩展命令(下)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6" data-path="../../git/summary/about.html">
+            
+                <a href="../../git/summary/about.html">
+            
+                    
+                    沙海拾贝
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.6.1" data-path="../../git/summary/common.html">
+            
+                <a href="../../git/summary/common.html">
+            
+                    
+                    知识速查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.6.2" data-path="../../git/summary/cheatsheet-translation.html">
+            
+                <a href="../../git/summary/cheatsheet-translation.html">
+            
+                    
+                    备忘录[译]
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../github/">
+            
+                <a href="../../github/">
+            
+                    
+                    github 入门教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../../github/speedup.html">
+            
+                <a href="../../github/speedup.html">
+            
+                    
+                    github 访问速度太慢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../../github/badge.html">
+            
+                <a href="../../github/badge.html">
+            
+                    
+                    github 徽章从何而来
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../myGitbook/">
+            
+                <a href="../../myGitbook/">
+            
+                    
+                    gitbook 入门教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../../myGitbook/preparation/prepare.html">
+            
+                <a href="../../myGitbook/preparation/prepare.html">
+            
+                    
+                    准备阶段
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1.1" data-path="../../myGitbook/preparation/front-knowledge.html">
+            
+                <a href="../../myGitbook/preparation/front-knowledge.html">
+            
+                    
+                    前置知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.1.2" data-path="../../myGitbook/preparation/environmental-requirements.html">
+            
+                <a href="../../myGitbook/preparation/environmental-requirements.html">
+            
+                    
+                    环境要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../../myGitbook/experience/preview.html">
+            
+                <a href="../../myGitbook/experience/preview.html">
+            
+                    
+                    快速体验
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.2.1" data-path="../../myGitbook/experience/gitbook-cli.html">
+            
+                <a href="../../myGitbook/experience/gitbook-cli.html">
+            
+                    
+                    gitbook-cli 命令行操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2.2" data-path="../../myGitbook/experience/gitbook-editor.html">
+            
+                <a href="../../myGitbook/experience/gitbook-editor.html">
+            
+                    
+                    gitbook-editor 编辑器操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2.3" data-path="../../myGitbook/experience/gitbook-com.html">
+            
+                <a href="../../myGitbook/experience/gitbook-com.html">
+            
+                    
+                    gitbook.com 官网操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../../myGitbook/advance/advance.html">
+            
+                <a href="../../myGitbook/advance/advance.html">
+            
+                    
+                    高级进阶
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.3.1" data-path="../../myGitbook/advance/plugin.html">
+            
+                <a href="../../myGitbook/advance/plugin.html">
+            
+                    
+                    插件介绍
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.3.1.1" data-path="../../myGitbook/advance/plugin-practical.html">
+            
+                <a href="../../myGitbook/advance/plugin-practical.html">
+            
+                    
+                    实用插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3.1.2" data-path="../../myGitbook/advance/plugin-theme.html">
+            
+                <a href="../../myGitbook/advance/plugin-theme.html">
+            
+                    
+                    主题插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3.1.3" data-path="../../myGitbook/advance/plugin-develop.html">
+            
+                <a href="../../myGitbook/advance/plugin-develop.html">
+            
+                    
+                    开发插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3.2" data-path="../../myGitbook/advance/export.html">
+            
+                <a href="../../myGitbook/advance/export.html">
+            
+                    
+                    导出电子书
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3.3" data-path="../../myGitbook/advance/publish.html">
+            
+                <a href="../../myGitbook/advance/publish.html">
+            
+                    
+                    发布电子书
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="../../myGitbook/openwrite/">
+            
+                <a href="../../myGitbook/openwrite/">
+            
+                    
+                    公众号引流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="../../myGitbook/seo/">
+            
+                <a href="../../myGitbook/seo/">
+            
+                    
+                    优化搜索
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.6" data-path="../../myGitbook/issue/">
+            
+                <a href="../../myGitbook/issue/">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.6.1" data-path="../../myGitbook/issue/rm-output-directory.html">
+            
+                <a href="../../myGitbook/issue/rm-output-directory.html">
+            
+                    
+                    热加载失败治标之法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.6.2" data-path="../../myGitbook/issue/modify-default-fold.html">
+            
+                <a href="../../myGitbook/issue/modify-default-fold.html">
+            
+                    
+                    初始化默认折叠效果
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.7" data-path="../../myGitbook/reference/">
+            
+                <a href="../../myGitbook/reference/">
+            
+                    
+                    参考更多
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../../java8/">
+            
+                <a href="../../java8/">
+            
+                    
+                    java8新特性
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="../../java8/lambda.html">
+            
+                <a href="../../java8/lambda.html">
+            
+                    
+                    lambda表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="../../java8/functionInterface.html">
+            
+                <a href="../../java8/functionInterface.html">
+            
+                    
+                    函数式接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">学习笔记</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    go 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../base/about.html">
+            
+                <a href="../base/about.html">
+            
+                    
+                    初识 go
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1.1" data-path="../base/setup.html">
+            
+                <a href="../base/setup.html">
+            
+                    
+                    环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.2" data-path="../base/workspace.html">
+            
+                <a href="../base/workspace.html">
+            
+                    
+                    工作空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.3" data-path="../base/ide.html">
+            
+                <a href="../base/ide.html">
+            
+                    
+                    IDE编辑器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.4" data-path="../base/var-and-const.html">
+            
+                <a href="../base/var-and-const.html">
+            
+                    
+                    你好,Go
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.1.5" data-path="../base/grammar.html">
+            
+                <a href="../base/grammar.html">
+            
+                    
+                    基础语法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../container/about.html">
+            
+                <a href="../container/about.html">
+            
+                    
+                    内建容器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="../container/array.html">
+            
+                <a href="../container/array.html">
+            
+                    
+                    数组切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="../container/map.html">
+            
+                <a href="../container/map.html">
+            
+                    
+                    字典映射
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="about.html">
+            
+                <a href="about.html">
+            
+                    
+                    面向对象
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.3.1" data-path="encapsulation.html">
+            
+                <a href="encapsulation.html">
+            
+                    
+                    再说封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.2" data-path="inheritance.html">
+            
+                <a href="inheritance.html">
+            
+                    
+                    能否继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3.3" data-path="interface.html">
+            
+                <a href="interface.html">
+            
+                    
+                    初识接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.3.4" data-path="interface-type.html">
+            
+                <a href="interface-type.html">
+            
+                    
+                    再谈接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../functional/about.html">
+            
+                <a href="../functional/about.html">
+            
+                    
+                    函数式编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.4.1" data-path="../functional/fib.html">
+            
+                <a href="../functional/fib.html">
+            
+                    
+                    斐波那契数列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4.2" data-path="../functional/closure.html">
+            
+                <a href="../functional/closure.html">
+            
+                    
+                    简要理解闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../error/about.html">
+            
+                <a href="../error/about.html">
+            
+                    
+                    错误管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.5.1" data-path="../error/defer.html">
+            
+                <a href="../error/defer.html">
+            
+                    
+                    延迟函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../issue/faq.html">
+            
+                <a href="../issue/faq.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../../php/">
+            
+                <a href="../../php/">
+            
+                    
+                    php 学习笔记
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../../php/php-setup-environment-mac.html">
+            
+                <a href="../../php/php-setup-environment-mac.html">
+            
+                    
+                    搭建开发环境( mac 版)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../../php/set-timezone-method.html">
+            
+                <a href="../../php/set-timezone-method.html">
+            
+                    
+                    关于时区的那点事
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../../php/datetime-overview.html">
+            
+                <a href="../../php/datetime-overview.html">
+            
+                    
+                    日期时间操作一箩筐
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" >
+            
+                <a target="_blank" href="https://snowdreams1006.github.io/learn-python/">
+            
+                    
+                    python 学习笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../../zero2devops/">
+            
+                <a href="../../zero2devops/">
+            
+                    
+                    从零开始搭建服务器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.4.1" data-path="../../zero2devops/login-and-logout.html">
+            
+                <a href="../../zero2devops/login-and-logout.html">
+            
+                    
+                    从登录服务器开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.2" data-path="../../zero2devops/docker.html">
+            
+                <a href="../../zero2devops/docker.html">
+            
+                    
+                    更加优雅地部署项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.3" data-path="../../zero2devops/docker-get-started.html">
+            
+                <a href="../../zero2devops/docker-get-started.html">
+            
+                    
+                    跟着官方体验 Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.4" data-path="../../zero2devops/docker-example.html">
+            
+                <a href="../../zero2devops/docker-example.html">
+            
+                    
+                    快速尝鲜基于 Docker 部署项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.5" data-path="../../zero2devops/aliyun-oss-static.html">
+            
+                <a href="../../zero2devops/aliyun-oss-static.html">
+            
+                    
+                    利用阿里云 OSS部署静态网站
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.6" data-path="../../zero2devops/nginx-https.html">
+            
+                <a href="../../zero2devops/nginx-https.html">
+            
+                    
+                    免费实现https访问网站
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4.7" data-path="../../zero2devops/webhook.html">
+            
+                <a href="../../zero2devops/webhook.html">
+            
+                    
+                    webhook
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../../devops/">
+            
+                <a href="../../devops/">
+            
+                    
+                    运维部署
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../../devops/docker-env.html">
+            
+                <a href="../../devops/docker-env.html">
+            
+                    
+                    docker 环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.2" data-path="../../devops/docker-ops.html">
+            
+                <a href="../../devops/docker-ops.html">
+            
+                    
+                    docker 操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.3" data-path="../../devops/docker-compose.html">
+            
+                <a href="../../devops/docker-compose.html">
+            
+                    
+                    docker compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.4" data-path="../../devops/docker-nginx.html">
+            
+                <a href="../../devops/docker-nginx.html">
+            
+                    
+                    docker + nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.5" data-path="../../devops/docker-blog.html">
+            
+                <a href="../../devops/docker-blog.html">
+            
+                    
+                    docker + blog
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.6" data-path="../../devops/docker-resume.html">
+            
+                <a href="../../devops/docker-resume.html">
+            
+                    
+                    docker + resume
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.7" data-path="../../devops/docker-gitbook.html">
+            
+                <a href="../../devops/docker-gitbook.html">
+            
+                    
+                    docker + gitbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.8" data-path="../../devops/docker-bark.html">
+            
+                <a href="../../devops/docker-bark.html">
+            
+                    
+                    docker + Bark
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.9" data-path="../../devops/docker-py12306.html">
+            
+                <a href="../../devops/docker-py12306.html">
+            
+                    
+                    docker + py12306
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.10" data-path="../../devops/docker-mojo-Weixin.html">
+            
+                <a href="../../devops/docker-mojo-Weixin.html">
+            
+                    
+                    docker + mojo-Weixin
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.11" data-path="../../devops/docker-wechat-work-message-push-go.html">
+            
+                <a href="../../devops/docker-wechat-work-message-push-go.html">
+            
+                    
+                    docker + wechat-work-message-push-go
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.12" data-path="../../devops/docker-email.html">
+            
+                <a href="../../devops/docker-email.html">
+            
+                    
+                    docker + email
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.13" data-path="../../devops/docker-mysql.html">
+            
+                <a href="../../devops/docker-mysql.html">
+            
+                    
+                    docker + mysql
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.14" data-path="../../devops/docker-springboot.html">
+            
+                <a href="../../devops/docker-springboot.html">
+            
+                    
+                    docker + springboot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.15" data-path="../../devops/docker-redis.html">
+            
+                <a href="../../devops/docker-redis.html">
+            
+                    
+                    docker + redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.16" data-path="../../devops/docker-gogs.html">
+            
+                <a href="../../devops/docker-gogs.html">
+            
+                    
+                    docker + gogs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.17" data-path="../../devops/docker-gitlab.html">
+            
+                <a href="../../devops/docker-gitlab.html">
+            
+                    
+                    docker + gitlab
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.18" data-path="../../devops/docker-gitea.html">
+            
+                <a href="../../devops/docker-gitea.html">
+            
+                    
+                    docker + gitea
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5.19" data-path="../../devops/docker-crawlab.html">
+            
+                <a href="../../devops/docker-crawlab.html">
+            
+                    
+                    docker + crawlab
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../../tools/">
+            
+                <a href="../../tools/">
+            
+                    
+                    工具资源
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1" data-path="../../tools/mac-install-vmware.html">
+            
+                <a href="../../tools/mac-install-vmware.html">
+            
+                    
+                    给 mac 装个 vmware 虚拟机
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1.1" data-path="../../tools/mac-vmware-install-windows.html">
+            
+                <a href="../../tools/mac-vmware-install-windows.html">
+            
+                    
+                    给 mac 虚拟机装个 windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.1.2" data-path="../../tools/mac-vmware-install-centos.html">
+            
+                <a href="../../tools/mac-vmware-install-centos.html">
+            
+                    
+                    给 mac 虚拟机装个 centos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.1.3" data-path="../../tools/mac-vmware-install-ubuntu.html">
+            
+                <a href="../../tools/mac-vmware-install-ubuntu.html">
+            
+                    
+                    给 mac 虚拟机装个 ubuntu
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.2" data-path="../../tools/windows-install-vmware.html">
+            
+                <a href="../../tools/windows-install-vmware.html">
+            
+                    
+                    给 windows 装个 vmware 虚拟机
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.2.1" data-path="../../tools/windows-vmware-install-mac.html">
+            
+                <a href="../../tools/windows-vmware-install-mac.html">
+            
+                    
+                    给 windows 虚拟机装个 mac
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.2.2" data-path="../../tools/windows-vmware-install-windows.html">
+            
+                <a href="../../tools/windows-vmware-install-windows.html">
+            
+                    
+                    给 windows 虚拟机装个 windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.2.3" data-path="../../tools/windows-vmware-install-centos.html">
+            
+                <a href="../../tools/windows-vmware-install-centos.html">
+            
+                    
+                    给 windows 虚拟机装个 centos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.2.4" data-path="../../tools/windows-vmware-install-ubuntu.html">
+            
+                <a href="../../tools/windows-vmware-install-ubuntu.html">
+            
+                    
+                    给 windows 虚拟机装个 ubuntu
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.3" data-path="../../tools/chrome-extend-learn.html">
+            
+                <a href="../../tools/chrome-extend-learn.html">
+            
+                    
+                    学习开发自己的 chrome 插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../../write/">
+            
+                <a href="../../write/">
+            
+                    
+                    如何写作
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.7.1" data-path="../../write/markdownOrRichText.html">
+            
+                <a href="../../write/markdownOrRichText.html">
+            
+                    
+                    markdown 和富文本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7.2" data-path="../../write/markdown2richText.html">
+            
+                <a href="../../write/markdown2richText.html">
+            
+                    
+                    markdown 转富文本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7.3" data-path="../../write/static-semi-manual-with-csv.html">
+            
+                <a href="../../write/static-semi-manual-with-csv.html">
+            
+                    
+                    csv 半手动数据统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7.4" data-path="../../write/static-semi-manual-with-js.html">
+            
+                <a href="../../write/static-semi-manual-with-js.html">
+            
+                    
+                    js 半手动数据统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7.5" data-path="../../write/jianshu-optimize-static.html">
+            
+                <a href="../../write/jianshu-optimize-static.html">
+            
+                    
+                    简述优选文章统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7.6" data-path="../../write/faq.html">
+            
+                <a href="../../write/faq.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">读书观感</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../bigDataWave/">
+            
+                <a href="../../bigDataWave/">
+            
+                    
+                    大数据浪潮之巅:新技术商业制胜之道
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">程序人生</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../../greet/">
+            
+                <a href="../../greet/">
+            
+                    
+                    晚安
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../../other/">
+            
+                <a href="../../other/">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.2.1" data-path="../../other/reminder.html">
+            
+                <a href="../../other/reminder.html">
+            
+                    
+                    倒计时提醒
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.2" data-path="../../other/anti-withdrawback-wechat.html">
+            
+                <a href="../../other/anti-withdrawback-wechat.html">
+            
+                    
+                    微信防撤回
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.3" data-path="../../other/transformation.html">
+            
+                <a href="../../other/transformation.html">
+            
+                    
+                    转型之路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.4" data-path="../../other/static.html">
+            
+                <a href="../../other/static.html">
+            
+                    
+                    历史统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.5" data-path="../../other/me.html">
+            
+                <a href="../../other/me.html">
+            
+                    
+                    关于作者
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2.6" data-path="../../other/donate.html">
+            
+                <a href="../../other/donate.html">
+            
+                    
+                    捐赠支持
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">思绪乱飞</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../../todo/">
+            
+                <a href="../../todo/">
+            
+                    
+                    TODO清单
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">开源项目</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../../opensource/gitbook/">
+            
+                <a href="../../opensource/gitbook/">
+            
+                    
+                    gitbook 插件项目
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" >
+            
+                <a target="_blank" href="https://snowdreams1006.github.io/gitbook-official/">
+            
+                    
+                    gitbook-official
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" >
+            
+                <a target="_blank" href="https://snowdreams1006.github.io/gitbook-plugin-mygitalk/">
+            
+                    
+                    gitbook-plugin-mygitalk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" >
+            
+                <a target="_blank" href="https://snowdreams1006.github.io/gitbook-plugin-readmore/">
+            
+                    
+                    gitbook-plugin-readmore
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" >
+            
+                <a target="_blank" href="https://snowdreams1006.github.io/gitbook-plugin-favicon-absolute/">
+            
+                    
+                    gitbook-plugin-favicon-absolute
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" >
+            
+                <a target="_blank" href="https://snowdreams1006.github.io/gitbook-plugin-copyright/">
+            
+                    
+                    gitbook-plugin-copyright
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.6" >
+            
+                <a target="_blank" href="https://snowdreams1006.github.io/gitbook-plugin-edit-link-plus/">
+            
+                    
+                    gitbook-plugin-edit-link-plus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.7" >
+            
+                <a target="_blank" href="https://snowdreams1006.github.io/gitbook-plugin-multilingual-index/">
+            
+                    
+                    gitbook-plugin-multilingual-index
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.8" >
+            
+                <a target="_blank" href="https://snowdreams1006.github.io/gitbook-plugin-icp/">
+            
+                    
+                    gitbook-plugin-icp
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../../opensource/hexo/">
+            
+                <a href="../../opensource/hexo/">
+            
+                    
+                    hexo 插件项目
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.2.1" >
+            
+                <a target="_blank" href="https://snowdreams1006.github.io/hexo-plugin-gitalk/">
+            
+                    
+                    hexo-plugin-gitalk
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2.2" >
+            
+                <a target="_blank" href="https://snowdreams1006.github.io/hexo-plugin-readmore/">
+            
+                    
+                    hexo-plugin-readmore
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" >
+            
+                <a target="_blank" href="https://security-plus.github.io/">
+            
+                    
+                    security-plus
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+
+    
+    <li>
+        
+        <a href="http://www.beian.miit.gov.cn/" target="blank" class="gitbook-link" style="color:#f72b07">
+        浙ICP备18042346号
+        </a>
+    </li>
+    
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >再谈接口</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                
+                <div id="vip-container">
+                    <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x518D;&#x8C08;&#x63A5;&#x53E3;"><b>1. </b>&#x518D;&#x8C08;&#x63A5;&#x53E3;</a></li><ul><li><span class="title-icon "></span><a href="#&#x9886;&#x5BFC;&#x5173;&#x5FC3;&#x7ED3;&#x679C;&#x4E0B;&#x5C5E;&#x5173;&#x5FC3;&#x5B9E;&#x73B0;"><b>1.1. </b>&#x9886;&#x5BFC;&#x5173;&#x5FC3;&#x7ED3;&#x679C;,&#x4E0B;&#x5C5E;&#x5173;&#x5FC3;&#x5B9E;&#x73B0;</a></li><li><span class="title-icon "></span><a href="#&#x7406;&#x8BBA;&#x6307;&#x5BFC;&#x5B9E;&#x8DF5;&#x5B9E;&#x8DF5;&#x4E2D;&#x51FA;&#x771F;&#x77E5;"><b>1.2. </b>&#x7406;&#x8BBA;&#x6307;&#x5BFC;&#x5B9E;&#x8DF5;,&#x5B9E;&#x8DF5;&#x4E2D;&#x51FA;&#x771F;&#x77E5;</a></li><li><span class="title-icon "></span><a href="#&#x5E94;&#x5982;&#x4F55;&#x533A;&#x5206;&#x6709;&#x6CA1;&#x6709;&#x65E0;&#x5FC3;&#x63D2;&#x67F3;"><b>1.3. </b>&#x5E94;&#x5982;&#x4F55;&#x533A;&#x5206;&#x6709;&#x6CA1;&#x6709;&#x65E0;&#x5FC3;&#x63D2;&#x67F3;</a></li><li><span class="title-icon "></span><a href="#&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x5B9E;&#x73B0;&#x8005;&#x662F;&#x7279;&#x5B9A;&#x7C7B;&#x578B;"><b>1.4. </b>&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x5B9E;&#x73B0;&#x8005;&#x662F;&#x7279;&#x5B9A;&#x7C7B;&#x578B;</a></li><li><span class="title-icon "></span><a href="#&#x8001;&#x5B50;&#x53E3;&#x4E2D;&#x7684;&#x65E0;&#x4E3A;&#x800C;&#x6CBB;&#x7A7A;&#x63A5;&#x53E3;"><b>1.5. </b>&#x8001;&#x5B50;&#x53E3;&#x4E2D;&#x7684;&#x65E0;&#x4E3A;&#x800C;&#x6CBB;&#x7A7A;&#x63A5;&#x53E3;</a></li><li><span class="title-icon "></span><a href="#&#x83AB;&#x975E;&#x662F;&#x7EE7;&#x627F;&#x4E0D;&#x8DB3;&#x7A7A;&#x63A5;&#x53E3;&#x6765;&#x51D1;"><b>1.6. </b>&#x83AB;&#x975E;&#x662F;&#x7EE7;&#x627F;&#x4E0D;&#x8DB3;&#x7A7A;&#x63A5;&#x53E3;&#x6765;&#x51D1;</a></li><li><span class="title-icon "></span><a href="#&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x63A5;&#x53E3;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x603B;&#x7ED3;"><b>1.7. </b>&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x63A5;&#x53E3;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x603B;&#x7ED3;</a></li></ul></ul></div><a href="#&#x518D;&#x8C08;&#x63A5;&#x53E3;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x518D;&#x8C08;&#x63A5;&#x53E3;"><a name="&#x518D;&#x8C08;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#&#x518D;&#x8C08;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x518D;&#x8C08;&#x63A5;&#x53E3;</h1>
+<p>   &#x5982;&#x679C;&#x4F60;&#x8FD8;&#x4E86;&#x89E3;&#x7F16;&#x7A0B;&#x6982;&#x5FF5;&#x4E2D;&#x7684;&#x63A5;&#x53E3;&#x6982;&#x5FF5;,&#x90A3;&#x4E48;&#x6211;&#x5EFA;&#x8BAE;&#x4F60;&#x6700;&#x597D;&#x8FD8;&#x662F;&#x5148;&#x9605;&#x8BFB;&#x4E0A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;.&#x8BE6;&#x60C5;&#x8BF7;&#x70B9;&#x51FB; <a href="https://mp.weixin.qq.com/s/Y2ZfdFUO2QMgWQY5jP0VaA" target="_blank">go &#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x4E4B;&#x4E07;&#x4E07;&#x6CA1;&#x60F3;&#x5230;&#x5BA0;&#x7269;&#x5E97;&#x7ADF;&#x7136;&#x50AC;&#x751F;&#x51FA;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;?</a> ,&#x5426;&#x5219;&#x7684;&#x8BDD;,&#x8BF7;&#x81EA;&#x52A8;&#x5FFD;&#x7565;&#x4E0A;&#x6587;,&#x7EE7;&#x7EED;&#x63A2;&#x7D22; <code>Go</code> &#x8BED;&#x8A00;&#x7684;&#x63A5;&#x53E3;&#x6709;&#x4EC0;&#x4E48;&#x4E0D;&#x540C;&#x4E4B;&#x5904;.</p>
+<blockquote>
+<p>&#x5982;&#x65E0;&#x6CD5;&#x81EA;&#x52A8;&#x8DF3;&#x8F6C;&#x5230;&#x516C;&#x4F17;&#x53F7;&#x300C;&#x96EA;&#x4E4B;&#x68A6;&#x6280;&#x672F;&#x9A7F;&#x7AD9;&#x300D;&#x6587;&#x7AE0;,&#x53EF;&#x4EE5;&#x70B9;&#x51FB;&#x6211;&#x7684;&#x5934;&#x50CF;,&#x52A8;&#x52A8;&#x4F60;&#x7684;&#x5C0F;&#x624B;&#x7FFB;&#x7FFB;&#x5386;&#x53F2;&#x6587;&#x7AE0;,&#x76F8;&#x4FE1;&#x806A;&#x660E;&#x7684;&#x4F60;&#x4E00;&#x5B9A;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x76F8;&#x5173;&#x6587;&#x7AE0;.</p>
+</blockquote>
+<p>   &#x63A5;&#x53E3;&#x662F;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x98CE;&#x683C;&#x4E2D;&#x7EE7;<strong>&#x5C01;&#x88C5;</strong>&#x6982;&#x5FF5;&#x540E;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x6982;&#x5FF5;,&#x5C01;&#x88C5;&#x5305;&#x542B;&#x4E24;&#x65B9;&#x9762;&#x542B;&#x4E49;:<strong>&#x6570;&#x636E;&#x548C;&#x884C;&#x4E3A;</strong>&#x7684;&#x5C01;&#x88C5;.</p>
+<blockquote>
+<p>&#x5173;&#x4E8E;&#x5C01;&#x88C5;&#x7684;&#x6982;&#x5FF5;&#x8FD9;&#x91CC;&#x540C;&#x6837;&#x4E0D;&#x518D;&#x8D58;&#x8FF0;,&#x6709;&#x5174;&#x8DA3;&#x7684;&#x8BDD;,&#x53EF;&#x4EE5;&#x9605;&#x8BFB;<a href="https://mp.weixin.qq.com/s/fXIKWsPqi6m2IEV--8lBsg" target="_blank">go &#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x4E4B;&#x8BE6;&#x7EC6;&#x8BF4;&#x4E00;&#x8BF4;&#x5C01;&#x88C5;&#x662F;&#x600E;&#x4E48;&#x56DE;&#x4E8B;</a>.</p>
+</blockquote>
+<p>   &#x5F53;&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;&#x4E8B;&#x7269;&#x6216;&#x8005;&#x5B9E;&#x9645;&#x9700;&#x6C42;&#x8F6C;&#x79FB;&#x5230;&#x7F16;&#x7A0B;&#x4E16;&#x754C;&#x4E2D;&#x53BB;&#x5B9E;&#x73B0;&#x65F6;,&#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5EFA;&#x6A21;,&#x5EFA;&#x7ACB;&#x5408;&#x9002;&#x7684;&#x6A21;&#x578B;&#x6765;&#x53CD;&#x6620;&#x73B0;&#x5B9E;&#x7684;&#x4E8B;&#x7269;,&#x4E3A;&#x4E86;&#x6A21;&#x578B;&#x7684;&#x7D27;&#x51D1;&#x6027;&#x4EE5;&#x53CA;&#x66F4;&#x597D;&#x7684;&#x590D;&#x7528;&#x6027;.&#x7F16;&#x7A0B;&#x4E16;&#x754C;&#x7684;&#x524D;&#x8F88;&#x4EEC;&#x603B;&#x7ED3;&#x51FA;<strong>&#x5C01;&#x88C5;</strong>&#x7684;&#x6982;&#x5FF5;,&#x5E76;&#x5728;&#x6B64;&#x57FA;&#x7840;&#x4E0A;&#x8FDB;&#x4E00;&#x6B65;&#x884D;&#x751F;&#x51FA;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x7F16;&#x7A0B;&#x98CE;&#x683C;,&#x5176;&#x4E2D;&#x5C31;&#x5305;&#x62EC;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;<strong>&#x7EE7;&#x627F;</strong>&#x6982;&#x5FF5;.</p>
+<blockquote>
+<p>&#x5173;&#x4E8E;&#x7EE7;&#x627F;&#x7684;&#x6982;&#x5FF5;&#x8FD9;&#x91CC;&#x540C;&#x6837;&#x4E0D;&#x518D;&#x8D58;&#x8FF0;,&#x6709;&#x5174;&#x8DA3;&#x7684;&#x8BDD;,&#x53EF;&#x4EE5;&#x9605;&#x8BFB;<a href="https://mp.weixin.qq.com/s/w9ZfTAMr-mnQ9RK_Va-mEg" target="_blank">go &#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x4E4B;&#x662F;&#x5426;&#x652F;&#x6301;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7EE7;&#x627F;</a>.</p>
+</blockquote>
+<p>   &#x5C01;&#x88C5;&#x548C;&#x7EE7;&#x627F;&#x90FD;&#x662F;&#x5728;&#x63CF;&#x8FF0;&#x540C;&#x7C7B;&#x4E8B;&#x7269;&#x6A21;&#x578B;&#x5F7C;&#x6B64;&#x5171;&#x6027;,&#x6B63;&#x5982;&#x732B;&#x548C;&#x72D7;&#x90FD;&#x662F;&#x52A8;&#x7269;,&#x8FD0;&#x7528;&#x7EE7;&#x627F;&#x7684;&#x6982;&#x5FF5;&#x8868;&#x793A;&#x7684;&#x8BDD;,&#x732B;&#x548C;&#x72D7;&#x7EE7;&#x627F;&#x81EA;&#x52A8;&#x7269;.&#x732B;&#x548C;&#x72D7;&#x4E0D;&#x4EC5;&#x5177;&#x5907;&#x5404;&#x81EA;&#x7279;&#x6B8A;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x884C;&#x4E3A;,&#x8FD8;&#x5177;&#x5907;&#x4E00;&#x822C;&#x52A8;&#x7269;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x884C;&#x4E3A;.</p>
+<p>   &#x7136;&#x800C;,&#x5E76;&#x4E0D;&#x662F;&#x53EA;&#x6709;&#x540C;&#x7C7B;&#x4E8B;&#x7269;&#x624D;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7279;&#x5F81;.&#x5BB6;&#x79BD;&#x9E2D;&#x5B50;&#x662F;&#x9E2D;&#x5B50;,&#x73A9;&#x5177;&#x592A;&#x7A7A;&#x9E2D;&#x4E5F;&#x662F;&#x9E2D;&#x5B50;,&#x770B;&#x4F3C;&#x662F;&#x540C;&#x7C7B;&#x4E8B;&#x7269;&#x5B9E;&#x9645;&#x5374;&#x53EA;&#x6709;&#x67D0;&#x4E00;&#x65B9;&#x9762;&#x7684;&#x884C;&#x4E3A;&#x76F8;&#x540C;&#x800C;&#x5DF2;,&#x4E00;&#x4E2A;&#x6709;&#x751F;&#x547D;,&#x53E6;&#x4E00;&#x4E2A;&#x65E0;&#x751F;&#x547D;.</p>
+<p>   &#x9488;&#x5BF9;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x7EDF;&#x4E00;&#x5171;&#x6027;&#x884C;&#x4E3A;&#x7684;&#x65B9;&#x6CD5;&#x4E5F;&#x5C31;&#x662F;<strong>&#x63A5;&#x53E3;</strong>,&#x662F;&#x5BF9;&#x540C;&#x7C7B;&#x4E8B;&#x7269;&#x6216;&#x8005;&#x4E0D;&#x540C;&#x7C7B;&#x4E8B;&#x7269;&#x7684;&#x67D0;&#x4E00;&#x65B9;&#x9762;&#x884C;&#x4E3A;&#x7684;&#x7EDF;&#x4E00;&#x62BD;&#x8C61;,&#x6EE1;&#x8DB3;&#x8BE5;&#x884C;&#x4E3A;&#x89C4;&#x8303;&#x7684;&#x5C01;&#x88C5;&#x5BF9;&#x8C61;&#x79F0;&#x4E4B;&#x4E3A;&#x5B9E;&#x73B0;&#x4E86;&#x8BE5;&#x63A5;&#x53E3;.</p>
+<p>   &#x63A5;&#x53E3;&#x63CF;&#x8FF0;&#x7684;&#x662F;&#x89C4;&#x8303;&#x7EA6;&#x675F;&#x548C;&#x5B9E;&#x73B0;&#x7684;&#x4E00;&#x79CD;&#x89C4;&#x5219;,&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86;&#x8FD9;&#x79CD;&#x7EA6;&#x675F;&#x89C4;&#x8303;,&#x81F3;&#x4E8E;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x8FD9;&#x79CD;&#x89C4;&#x8303;,&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x8005;&#x672C;&#x8EAB;&#x5E76;&#x4E0D;&#x5173;&#x5FC3;.&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x662F;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x8005;&#x5FC5;&#x987B;&#x5173;&#x5FC3;&#x7684;,&#x5B9A;&#x4E49;&#x8005;&#x548C;&#x5B9E;&#x73B0;&#x8005;&#x4E24;&#x8005;&#x662F;&#x89E3;&#x8026;&#x7684;.</p>
+<p>   &#x4ECE;&#x8FD9;&#x70B9;&#x6765;&#x770B;,&#x63A5;&#x53E3;&#x5C31;&#x50CF;&#x662F;&#x73B0;&#x5B9E;&#x751F;&#x6D3B;&#x4E2D;&#x7684;&#x9886;&#x5BFC;&#x4E0B;&#x8FBE;&#x547D;&#x4EE4;&#x7ED9;&#x4E0B;&#x5C5E;,&#x4E0B;&#x5C5E;&#x8D1F;&#x8D23;&#x5B9E;&#x73B0;&#x76EE;&#x6807;.&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x76EE;&#x6807;,&#x9886;&#x5BFC;&#x5E76;&#x4E0D;&#x5173;&#x5FC3;,&#x6B63;&#x6240;&#x8C13;&#x6761;&#x6761;&#x5927;&#x8DEF;&#x901A;&#x7F57;&#x9A6C;,&#x624B;&#x5E95;&#x4E0B;&#x7684;&#x4EBA;&#x81EA;&#x7136;&#x662F;&#x516B;&#x4ED9;&#x8FC7;&#x6D77;&#x5404;&#x663E;&#x795E;&#x901A;.</p>
+<p><img src="../images/go-oop-interface-type-all-roads-lead-to-rome.jpeg" alt="go-oop-interface-type-all-roads-lead-to-rome.jpeg"></p>
+<h2 id="&#x9886;&#x5BFC;&#x5173;&#x5FC3;&#x7ED3;&#x679C;&#x4E0B;&#x5C5E;&#x5173;&#x5FC3;&#x5B9E;&#x73B0;"><a name="&#x9886;&#x5BFC;&#x5173;&#x5FC3;&#x7ED3;&#x679C;&#x4E0B;&#x5C5E;&#x5173;&#x5FC3;&#x5B9E;&#x73B0;" class="anchor-navigation-ex-anchor" href="#&#x9886;&#x5BFC;&#x5173;&#x5FC3;&#x7ED3;&#x679C;&#x4E0B;&#x5C5E;&#x5173;&#x5FC3;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x9886;&#x5BFC;&#x5173;&#x5FC3;&#x7ED3;&#x679C;,&#x4E0B;&#x5C5E;&#x5173;&#x5FC3;&#x5B9E;&#x73B0;</h2>
+<p>   &#x4F5C;&#x4E3A;&#x9886;&#x5BFC;&#x8D1F;&#x8D23;&#x5236;&#x5B9A;&#x5404;&#x79CD;&#x6218;&#x7565;&#x76EE;&#x6807;,&#x603B;&#x63FD;&#x5168;&#x5C40;&#x5173;&#x5FC3;&#x7ED3;&#x679C;,&#x4F5C;&#x4E3A;&#x4E0B;&#x5C5E;&#x8D1F;&#x8D23;&#x6DFB;&#x7816;&#x52A0;&#x74E6;&#x5B9E;&#x73B0;&#x5177;&#x4F53;&#x7EC6;&#x8282;&#x5173;&#x5FC3;&#x8FC7;&#x7A0B;,&#x8FD9;&#x79CD;&#x804C;&#x8D23;&#x5206;&#x79BB;&#x7684;&#x6A21;&#x5F0F;&#x5C31;&#x662F;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x4E2D;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x8005;&#x548C;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x5173;&#x7CFB;,&#x4E00;&#x65B9;&#x8D1F;&#x8D23;&#x5B9A;&#x4E49;&#x884C;&#x4E3A;&#x7EA6;&#x675F;,&#x53E6;&#x4E00;&#x65B9;&#x8D1F;&#x8D23;&#x5B9E;&#x73B0;&#x8FD9;&#x79CD;&#x884C;&#x4E3A;&#x89C4;&#x8303;.</p>
+<p>   <strong>&#x5982;&#x679C;&#x7AD9;&#x5728;&#x9886;&#x5BFC;&#x8005;&#x7684;&#x89D2;&#x5EA6;&#x4E0A;&#x770B;&#x95EE;&#x9898;</strong>,&#x81EA;&#x7136;&#x662F;&#x5E0C;&#x671B;&#x4E0B;&#x5C5E;<strong>&#x89C4;&#x89C4;&#x77E9;&#x77E9;</strong>&#x6309;&#x65F6;&#x5B8C;&#x6210;&#x81EA;&#x5DF1;&#x5E03;&#x7F6E;&#x7684;&#x4EFB;&#x52A1;,&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x51FA;&#x73B0;&#x4EFB;&#x4F55;&#x5DEE;&#x6C60;,&#x4E3A;&#x6B64;&#x751A;&#x81F3;&#x4F1A;&#x51FA;&#x53F0;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x884C;&#x4E3A;&#x51C6;&#x5219;,&#x7B7E;&#x5230;&#x6253;&#x5361;&#x7B49;&#x5F62;&#x5F0F;&#x4F9D;&#x6B21;&#x6811;&#x7ACB;&#x9886;&#x5BFC;&#x5A01;&#x671B;&#x6765;&#x6362;&#x53D6;&#x4E0B;&#x5C5E;&#x7684;&#x606A;&#x5C3D;&#x804C;&#x8D23;.</p>
+<p>   &#x4E3A;&#x4E86;&#x8FBE;&#x5230;&#x8FD9;&#x4E2A;&#x76EE;&#x6807;,&#x9886;&#x5BFC;&#x8005;&#x9996;&#x5148;&#x8981;&#x5728;&#x4E0B;&#x5C5E;&#x4E2D;&#x6811;&#x7ACB;&#x8DB3;&#x591F;&#x9AD8;&#x7684;&#x5A01;&#x4FE1;,&#x505A;&#x5230;&#x4EBA;&#x4EBA;&#x4FE1;&#x670D;&#x81EA;&#x5DF1;,&#x8FD9;&#x6837;&#x624B;&#x5E95;&#x4E0B;&#x7684;&#x4EBA;&#x624D;&#x80FD;&#x548C;&#x81EA;&#x5DF1;&#x7EDF;&#x4E00;&#x6218;&#x7EBF;&#x4E00;&#x81F4;&#x5BF9;&#x5916;,&#x56E2;&#x7ED3;&#x5728;&#x4E00;&#x8D77;&#x597D;&#x505A;&#x4E8B;.&#x5426;&#x5219;&#x7684;&#x8BDD;,&#x4E0D;&#x6EE1;&#x5AC9;&#x5992;&#x7B49;&#x8D1F;&#x9762;&#x60C5;&#x7EEA;&#x5C31;&#x4F1A;&#x5728;&#x56E2;&#x961F;&#x4E2D;&#x8513;&#x5EF6;,&#x9010;&#x6E10;&#x4FB5;&#x8680;&#x524A;&#x5F31;&#x56E2;&#x961F;&#x6218;&#x6597;&#x529B;,&#x4E0D;&#x653B;&#x81EA;&#x7834;.</p>
+<p><img src="../images/go-oop-interface-type-team-cooperation.jpeg" alt="go-oop-interface-type-team-cooperation.jpeg"></p>
+<p>   &#x4E00;&#x822C;&#x800C;&#x8A00;,&#x8FD9;&#x79CD;&#x5A01;&#x4FE1;&#x7684;&#x6811;&#x7ACB;&#x8981;&#x4E48;&#x9760;&#x7684;&#x662F;&#x80FD;&#x529B;&#x4E0A;&#x6280;&#x9AD8;&#x4E00;&#x7B79;&#x5B9E;&#x529B;&#x78BE;&#x538B;,&#x8981;&#x4E48;&#x662F;&#x77E5;&#x4EBA;&#x5584;&#x4EFB;&#x5929;&#x4E0B;&#x8D24;&#x624D;&#x7686;&#x4E3A;&#x6211;&#x6240;&#x7528;,&#x8FD8;&#x53EF;&#x4EE5;&#x72D0;&#x5047;&#x864E;&#x5A01;&#x7EFF;&#x53F6;&#x886C;&#x7EA2;&#x82B1;&#x601D;&#x60F3;&#x4E0A;&#x5974;&#x5F79;&#x7EDF;&#x6CBB;.</p>
+<p>   &#x4E0D;&#x7BA1;&#x662F;&#x4EC0;&#x4E48;&#x65B9;&#x5F0F;,&#x9886;&#x5BFC;&#x8005;&#x5728;&#x8FD9;&#x573A;&#x6E38;&#x620F;&#x4E2D;&#x5360;&#x636E;&#x7EDD;&#x5BF9;&#x9886;&#x5BFC;&#x5730;&#x4F4D;,&#x53EA;&#x8981;&#x4E0A;&#x5C42;&#x63A5;&#x53E3;&#x53D1;&#x53F7;&#x65BD;&#x4EE4;,&#x4E0B;&#x5C42;&#x5B9E;&#x73B0;&#x90FD;&#x8981;&#x968F;&#x4E4B;&#x66F4;&#x6539;.&#x5982;&#x679C;&#x4F60;&#x662F;&#x9886;&#x5BFC;,&#x76F8;&#x4FE1;&#x4F60;&#x4E5F;&#x4F1A;&#x559C;&#x6B22;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x7684;,&#x6BD5;&#x7ADF;&#x8C01;&#x5FC3;&#x91CC;&#x6CA1;&#x6709;&#x63A7;&#x5236;&#x6B32;,&#x66F4;&#x4F55;&#x51B5;&#x662F;&#x7EDD;&#x5BF9;&#x7684;&#x6743;&#x529B;!</p>
+<p>   <strong>&#x5982;&#x679C;&#x7AD9;&#x5728;&#x4E0B;&#x5C42;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x89D2;&#x5EA6;&#x601D;&#x8003;&#x95EE;&#x9898;</strong>,&#x663E;&#x7136;&#x5728;&#x8FD9;&#x573A;&#x4E0A;&#x4E0B;&#x7EA7;&#x5173;&#x7CFB;&#x4E2D;&#x5B9E;&#x73B0;&#x8005;&#x626E;&#x6F14;&#x5F31;&#x52BF;&#x89D2;&#x8272;,&#x957F;&#x671F;&#x5FCD;&#x53D7;&#x4E0D;&#x516C;&#x5E73;&#x7684;&#x5F85;&#x9047;&#x8981;&#x4E48;&#x5D29;&#x6E83;,&#x8981;&#x4E48;&#x63ED;&#x7AFF;&#x800C;&#x8D77;!</p>
+<p>   <code>Go</code> &#x8BED;&#x8A00;&#x5BF9;&#x4E8E;&#x63A5;&#x53E3;&#x7684;&#x5B9A;&#x4E49;&#x8005;&#x548C;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x5173;&#x7CFB;&#x5904;&#x7406;&#x95EE;&#x9898;&#x4E0A;,&#x9009;&#x62E9;&#x4E86;&#x63ED;&#x7AFF;&#x800C;&#x8D77;,&#x5B9E;&#x73B0;&#x4E86;&#x4E0D;&#x540C;&#x4E8E;&#x5176;&#x4ED6;&#x4F20;&#x7EDF;&#x7F16;&#x7A0B;&#x89C4;&#x8303;&#x7684;&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x98CE;&#x683C;&#x89C4;&#x8303;.</p>
+<p>   &#x8FD9;&#x79CD;&#x89C4;&#x8303;&#x5E38;&#x88AB;&#x89C6;&#x4E3A;&#x662F;&#x9E2D;&#x5B50;&#x7C7B;&#x578B; <code>duck typing</code> --- &quot;&#x5F53;&#x770B;&#x5230;&#x4E00;&#x53EA;&#x9E1F;&#x8D70;&#x8D77;&#x6765;&#x50CF;&#x9E2D;&#x5B50;,&#x6E38;&#x6CF3;&#x8D77;&#x6765;&#x50CF;&#x9E2D;&#x5B50;,&#x53EB;&#x8D77;&#x6765;&#x4E5F;&#x50CF;&#x9E2D;&#x5B50;,&#x90A3;&#x4E48;&#x8FD9;&#x53EA;&#x9E1F;&#x5C31;&#x53EF;&#x4EE5;&#x88AB;&#x79F0;&#x4E3A;&#x9E2D;&#x5B50;.&quot;</p>
+<p>   &#x5728;&#x8FD9;&#x79CD;&#x89C4;&#x8303;&#x4E2D;&#x5E76;&#x4E0D;&#x5173;&#x5FC3;&#x7ED3;&#x6784;&#x4F53;&#x5BF9;&#x8C61;&#x662F;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#x6216;&#x8005;&#x8BF4;&#x5230;&#x5E95;&#x662F;&#x4E0D;&#x662F;&#x9E2D;&#x5B50;,&#x552F;&#x4E00;&#x5173;&#x5FC3;&#x7684;&#x53EA;&#x662F;&#x884C;&#x4E3A;.&#x53EA;&#x8981;&#x6EE1;&#x8DB3;&#x7279;&#x5B9A;&#x884C;&#x4E3A;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x5C31;&#x662F;&#x9E2D;&#x5B50;&#x7C7B;&#x578B;,&#x54EA;&#x6015;&#x8FD9;&#x79CD;&#x9E2D;&#x5B50;&#x53EF;&#x80FD;&#x53EA;&#x662F;&#x4E00;&#x79CD;&#x73A9;&#x5177;&#x4E5F;&#x884C;!&#x6240;&#x4EE5;,&#x5728;&#x8FD9;&#x79CD;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x8005;&#x548C;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x5173;&#x7CFB;&#x4E2D;,&#x5B9E;&#x73B0;&#x8005;&#x53EF;&#x4EE5;&#x4E0D;&#x5FC5;&#x5411;&#x63A5;&#x53E3;&#x7279;&#x610F;&#x58F0;&#x660E;&#x5B9E;&#x73B0;,&#x53EA;&#x8981;&#x6700;&#x7EC8;&#x884C;&#x4E3A;&#x4E0A;&#x786E;&#x5B9E;&#x5B9E;&#x73B0;&#x4E86;&#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x884C;&#x4E3A;&#x89C4;&#x8303;,&#x90A3;&#x4E48;&#x5C31;&#x79F0;&#x4E3A;&#x8BE5;&#x7ED3;&#x6784;&#x4F53;&#x5B9E;&#x73B0;&#x4E86;&#x63A5;&#x53E3;.</p>
+<p>   <strong>&#x5982;&#x679C;&#x4EC5;&#x4EC5;&#x8003;&#x8651;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x8005;&#x548C;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x5173;&#x7CFB;</strong>,&#x57FA;&#x4E8E;&#x8FD9;&#x79CD;&#x5173;&#x7CFB;&#x5F88;&#x5BB9;&#x6613;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x63A8;&#x65AD;,&#x8981;&#x4E48;&#x5B9E;&#x73B0;&#x8005;&#x4E00;&#x5B9A;&#x8981;&#x58F0;&#x660E;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;,&#x968F;&#x65F6;&#x5411;&#x9886;&#x5BFC;&#x6C47;&#x62A5;&#x5DE5;&#x4F5C;&#x8FDB;&#x5EA6;,&#x8981;&#x4E48;&#x4E00;&#x5B9A;&#x4E0D;&#x58F0;&#x660E;&#x63A5;&#x53E3;,&#x53EA;&#x8981;&#x4FDD;&#x8BC1;&#x6700;&#x7EC8;&#x80FD;&#x591F;&#x5B8C;&#x6210;&#x4EFB;&#x52A1;&#x5373;&#x53EF;.&#x9664;&#x6B64;&#x4E4B;&#x5916;,&#x5F88;&#x660E;&#x663E;&#x8FD8;&#x5B58;&#x5728;&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x53EF;&#x80FD;&#x6027;,&#x90A3;&#x5C31;&#x662F;&#x5B9E;&#x73B0;&#x8005;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x62A5;&#x544A;&#x5DE5;&#x4F5C;&#x4E5F;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4E0D;&#x62A5;&#x544A;.</p>
+<p>   &#x90A3;&#x4E48;,&#x8FD9;&#x79CD;&#x4F3C;&#x662F;&#x800C;&#x975E;&#x7684;&#x5173;&#x7CFB;&#x662F;&#x5426;&#x6709;&#x5B58;&#x5728;&#x7684;&#x610F;&#x4E49;&#x5462;,&#x53C8;&#x8BE5;&#x5982;&#x4F55;&#x8868;&#x793A;&#x5462;&#x4EE5;&#x53CA;&#x6709;&#x6CA1;&#x6709;&#x73B0;&#x6210;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x57FA;&#x4E8E;&#x6B64;&#x601D;&#x8DEF;&#x5B9E;&#x73B0;&#x5462;?</p>
+<p>   &#x6309;&#x7167;&#x57FA;&#x672C;&#x8BED;&#x4E49;&#x8FDB;&#x884C;&#x7406;&#x89E3;&#x63A8;&#x6D4B;: &#x5B9E;&#x73B0;&#x8005;&#x9700;&#x8981;&#x62A5;&#x544A;&#x7ED9;&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x6CD5;&#x4E00;&#x5B9A;&#x662F;&#x4E07;&#x5206;&#x7D27;&#x6025;&#x5341;&#x5206;&#x91CD;&#x8981;&#x7684;&#x89C4;&#x8303;,&#x6B63;&#x6240;&#x8C13;&#x5927;&#x662F;&#x5927;&#x975E;&#x9762;&#x524D;&#x4E0D;&#x80FD;&#x6709;&#x4EFB;&#x4F55;&#x4E2A;&#x4EBA;&#x60C5;&#x611F;,&#x4E00;&#x65E6;&#x5B9E;&#x73B0;&#x8005;&#x65E0;&#x6CD5;&#x5B9E;&#x73B0;,&#x90A3;&#x4E48;&#x4FBF;&#x4E0D;&#x53EF;&#x9976;&#x6055;,&#x96F6;&#x5BB9;&#x5FCD;!</p>
+<p>   &#x5982;&#x679C;&#x5B9E;&#x73B0;&#x8005;&#x4E0D;&#x62A5;&#x544A;&#x7ED9;&#x63A5;&#x53E3;,&#x5219;&#x8868;&#x793A;&#x8FD9;&#x79CD;&#x89C4;&#x8303;&#x662F;&#x53EF;&#x9009;&#x89C4;&#x8303;,&#x5982;&#x679C;&#x6EE1;&#x8DB3;&#x7684;&#x8BDD;,&#x81EA;&#x7136;&#x662F;&#x597D;&#x7684;.&#x5982;&#x679C;&#x6709;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x4E00;&#x65F6;&#x6CA1;&#x80FD;&#x5B9E;&#x73B0;&#x4E5F;&#x4E0D;&#x7B97;&#x662F;&#x81F4;&#x547D;&#x7684;&#x95EE;&#x9898;,&#x8FD9;&#x7C7B;&#x89C4;&#x8303;&#x662F;&#x53EF;&#x9009;&#x89C4;&#x8303;,&#x5C5E;&#x4E8E;&#x9526;&#x4E0A;&#x6DFB;&#x82B1;&#x7684;&#x64CD;&#x4F5C;.</p>
+<p>   &#x6240;&#x4EE5;&#x8981;&#x63CF;&#x8FF0;&#x8FD9;&#x79CD;<strong>&#x53EF;&#x6709;&#x53EF;&#x65E0;</strong>&#x7684;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x8005;&#x548C;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x5173;&#x7CFB;,&#x663E;&#x800C;&#x6613;&#x89C1;&#x7684;&#x662F;,&#x7406;&#x5E94;&#x7531;<strong>&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x8005;</strong>&#x6765;&#x6307;&#x660E;&#x63A5;&#x53E3;&#x7684;&#x4F18;&#x5148;&#x7EA7;,&#x4E0D;&#x80FD;&#x7531;&#x5B9E;&#x73B0;&#x8005;&#x5B9A;&#x4E49;.&#x5426;&#x5219;&#x7684;&#x8BDD;,&#x4F60;&#x8BA4;&#x4E3A;&#x7231;&#x56FD;&#x662F;&#x5FC5;&#x9009;&#x7684;,&#x4ED6;&#x8BA4;&#x4E3A;&#x662F;&#x53EF;&#x9009;&#x7684;,&#x90A3;&#x4E48;&#x63A5;&#x53E3;&#x7684;&#x5B58;&#x5728;&#x8FD8;&#x6709;&#x4EC0;&#x4E48;&#x610F;&#x4E49;?&#x65E2;&#x7136;&#x5982;&#x6B64;,&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x5728;&#x58F0;&#x660E;&#x65F6;&#x5C31;&#x5E94;&#x8BE5;&#x58F0;&#x660E;&#x8BE5;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x662F;&#x5FC5;&#x9009;&#x7684;&#x8FD8;&#x662F;&#x53EF;&#x9009;&#x7684;,&#x8FD9;&#x6837;&#x5B9E;&#x73B0;&#x8005;&#x5B9E;&#x73B0;&#x8BE5;&#x63A5;&#x53E3;&#x65F6;&#x624D;&#x80FD;&#x6709;&#x7406;&#x53EF;&#x5FAA;,&#x5BF9;&#x4E8E;&#x5FC5;&#x9009;&#x5B9E;&#x73B0;&#x7684;&#x63A5;&#x53E3;&#x53EA;&#x8981;&#x6CA1;&#x5B9E;&#x73B0;&#x5C31;&#x4E0D;&#x7B97;&#x662F;&#x771F;&#x6B63;&#x7684;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x8005;,&#x800C;&#x53EF;&#x9009;&#x7684;&#x63A5;&#x53E3;&#x5141;&#x8BB8;&#x5B9E;&#x73B0;&#x8005;&#x53EF;&#x4EE5;&#x6682;&#x65F6;&#x4E0D;&#x5B9E;&#x73B0;.</p>
+<p>   &#x7531;&#x4E8E;&#x4E2A;&#x4EBA;&#x77E5;&#x8BC6;&#x7ECF;&#x9A8C;&#x6240;&#x9650;,&#x6682;&#x4E0D;&#x53EF;&#x77E5;&#x6709;&#x6CA1;&#x6709;&#x73B0;&#x6210;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x652F;&#x6301;&#x8FD9;&#x79CD;&#x59A5;&#x534F;&#x72B6;&#x6001;,&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x65E2;&#x53EF;&#x4EE5;&#x58F0;&#x660E;&#x5FC5;&#x9009;&#x7684;&#x4E5F;&#x53EF;&#x4EE5;&#x58F0;&#x660E;&#x53EF;&#x9009;&#x7684;.&#x4E2A;&#x4EBA;&#x89C9;&#x5F97;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x53CB;&#x597D;&#x7684;,&#x8FD8;&#x662F;&#x6709;&#x5B58;&#x5728;&#x7684;&#x4EF7;&#x503C;&#x7684;.</p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x4F60;&#x77E5;&#x9053;&#x6709;&#x4EC0;&#x4E48;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x521A;&#x597D;&#x662F;&#x8FD9;&#x79CD;&#x601D;&#x8DEF;&#x5B9E;&#x73B0;&#x4E86;&#x63A5;&#x53E3;&#x89C4;&#x8303;,&#x8FD8;&#x671B;&#x4E0D;&#x541D;&#x8D50;&#x6559;,&#x53EF;&#x4EE5;&#x7559;&#x8A00;&#x8BC4;&#x8BBA;&#x76F8;&#x4E92;&#x5B66;&#x4E60;&#x4E0B;.</p>
+</blockquote>
+<h2 id="&#x7406;&#x8BBA;&#x6307;&#x5BFC;&#x5B9E;&#x8DF5;&#x5B9E;&#x8DF5;&#x4E2D;&#x51FA;&#x771F;&#x77E5;"><a name="&#x7406;&#x8BBA;&#x6307;&#x5BFC;&#x5B9E;&#x8DF5;&#x5B9E;&#x8DF5;&#x4E2D;&#x51FA;&#x771F;&#x77E5;" class="anchor-navigation-ex-anchor" href="#&#x7406;&#x8BBA;&#x6307;&#x5BFC;&#x5B9E;&#x8DF5;&#x5B9E;&#x8DF5;&#x4E2D;&#x51FA;&#x771F;&#x77E5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x7406;&#x8BBA;&#x6307;&#x5BFC;&#x5B9E;&#x8DF5;,&#x5B9E;&#x8DF5;&#x4E2D;&#x51FA;&#x771F;&#x77E5;</h2>
+<p>   &#x867D;&#x7136;&#x731C;&#x6D4B;&#x4E2D;&#x7684;&#x7B2C;&#x4E09;&#x79CD;&#x89C4;&#x8303;&#x662F;&#x4ECB;&#x4E8E;<strong>&#x5FC5;&#x987B;&#x4E0A;&#x62A5;&#x548C;&#x5FC5;&#x987B;&#x4E0D;&#x4E0A;&#x62A5;</strong>&#x4E4B;&#x95F4;&#x7684;&#x59A5;&#x534F;&#x72B6;&#x6001;,&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x63A5;&#x53E3;&#x58F0;&#x660E;&#x65F6;&#x6709;&#x53EF;&#x9009;&#x548C;&#x5FC5;&#x9009;&#x4E4B;&#x5206;,&#x8FD9;&#x79CD;&#x533A;&#x5206;&#x9700;&#x8981;&#x6709;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x8005;&#x8FDB;&#x884C;&#x6307;&#x5B9A;,&#x56E0;&#x6B64;&#x5728;&#x63A5;&#x53E3;&#x548C;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x5173;&#x7CFB;&#x4E2D;&#x8FD8;&#x662F;<strong>&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x8005;</strong>&#x5360;&#x636E;&#x4E3B;&#x5BFC;&#x5730;&#x4F4D;.</p>
+<p>   &#x5F53;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x8005;&#x5360;&#x636E;&#x4E3B;&#x5BFC;&#x5730;&#x4F4D;&#x65F6;,&#x73B0;&#x6210;&#x7684;&#x6700;&#x4F73;&#x7F16;&#x7A0B;&#x5B9E;&#x8DF5;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#x5148;&#x5B9A;&#x4E49;&#x63A5;&#x53E3;&#x518D;&#x5199;&#x5B9E;&#x73B0;&#x7C7B;,&#x4E5F;&#x5C31;&#x662F;<strong>&#x5148;&#x6709;&#x89C4;&#x8303;&#x518D;&#x5199;&#x5B9E;&#x73B0;</strong>,&#x6240;&#x4EE5;&#x5B9E;&#x9645;&#x7F16;&#x7A0B;&#x4E2D;&#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x6307;&#x5BFC;&#x5C31;&#x662F;&#x5148;&#x62BD;&#x8C61;&#x51FA;&#x5171;&#x540C;&#x884C;&#x4E3A;,&#x5B9A;&#x4E49;&#x51FA;&#x63A5;&#x53E3;&#x89C4;&#x8303;,&#x518D;&#x53BB;&#x5199;&#x4E0D;&#x540C;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x53BB;&#x5B9E;&#x73B0;&#x8BE5;&#x63A5;&#x53E3;,&#x5F53;&#x4F7F;&#x7528;&#x63A5;&#x53E3;&#x65F6;&#x5C31;&#x53EF;&#x4EE5;&#x4E0D;&#x533A;&#x5206;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x63A5;&#x53E3;&#x672C;&#x8EAB;&#x4E86;.</p>
+<p>   &#x5982;&#x679C;&#x6709;&#x4E00;&#x53E5;&#x8BDD;&#x6765;&#x63CF;&#x8FF0;&#x8FD9;&#x79CD;&#x884C;&#x4E3A;&#x7684;&#x8BDD;,&#x90A3;&#x5C31;&#x662F;<strong>&#x7406;&#x8BBA;&#x6307;&#x5BFC;&#x5B9E;&#x8DF5;,&#x5148;&#x5199;&#x63A5;&#x53E3;&#x518D;&#x5199;&#x5B9E;&#x73B0;</strong>.</p>
+<p>   &#x540C;&#x6837;&#x7684;,&#x6211;&#x4EEC;&#x8FD8;&#x77E5;&#x9053;&#x53E6;&#x5916;&#x4E00;&#x53E5;&#x8BDD;,&#x8FD9;&#x5C31;&#x662F;<strong>&#x5B9E;&#x8DF5;&#x51FA;&#x771F;&#x77E5;</strong>,&#x8FD9;&#x79CD;&#x601D;&#x8DEF;&#x521A;&#x597D;&#x4E5F;&#x662F;&#x6BD4;&#x8F83;&#x7B26;&#x5408;&#x73B0;&#x5B9E;&#x7684;,&#x5148;&#x5199;&#x6240;&#x8C13;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;,&#x5F53;&#x8FD9;&#x79CD;&#x5B9E;&#x73B0;&#x7C7B;&#x5199;&#x7684;&#x6BD4;&#x8F83;&#x591A;&#x7684;&#x65F6;&#x5019;,&#x5C31;&#x5982;&#x7EE7;&#x627F;&#x90A3;&#x6837;,&#x81EA;&#x7136;&#x4F1A;&#x53D1;&#x73B0;&#x5F7C;&#x6B64;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x8054;&#x6027;,&#x518D;&#x62BD;&#x8C61;&#x6210;&#x63A5;&#x53E3;&#x4E5F;&#x662F;&#x6C34;&#x5230;&#x6E20;&#x6210;&#x7684;&#x4E8B;&#x60C5;,&#x4E0D;&#x5FC5;&#x5728;&#x7F16;&#x7A0B;&#x521A;&#x5F00;&#x59CB;&#x5C31;&#x8D39;&#x65F6;&#x8D39;&#x529B;&#x53BB;&#x62BD;&#x8C61;&#x5B9A;&#x4E49;&#x63A5;&#x53E3;&#x7B49;&#x9AD8;&#x7EA7;&#x529F;&#x80FD;&#x7279;&#x6027;.</p>
+<p>   &#x901A;&#x8FC7;&#x4E0A;&#x7BC7;&#x6587;&#x7AE0;&#x5173;&#x4E8E; <code>Go</code> &#x8BED;&#x8A00;&#x7684;&#x63A5;&#x53E3;&#x7684;&#x8BBE;&#x8BA1;&#x601D;&#x60F3;&#x6211;&#x4EEC;&#x77E5;&#x9053; <code>Go</code> &#x8BED;&#x8A00;&#x91C7;&#x7528;&#x7684;&#x5C31;&#x662F;&#x540E;&#x4E00;&#x79CD;: &#x5B9E;&#x8DF5;&#x4E2D;&#x51FA;&#x771F;&#x77E5;.
+&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x8005;&#x5BF9;&#x4E8E;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x9690;&#x5F0F;&#x7684;,&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x67D0;&#x4E00;&#x79CD;&#x7ED3;&#x6784;&#x4F53;&#x5F88;&#x6709;&#x53EF;&#x80FD;&#x6709;&#x610F;&#x65E0;&#x610F;&#x5B9E;&#x73B0;&#x4E86;&#x67D0;&#x79CD;&#x63A5;&#x53E3;,&#x771F;&#x7684;&#x662F;&#x6709;&#x5FC3;&#x63D2;&#x82B1;&#x82B1;&#x4E0D;&#x5F00;,&#x65E0;&#x5FC3;&#x63D2;&#x67F3;&#x67F3;&#x6210;&#x836B;.</p>
+<p><img src="../images/go-oop-interface-type-miracle-by-chance.jpeg" alt="go-oop-interface-type-miracle-by-chance.jpeg"></p>
+<h2 id="&#x5E94;&#x5982;&#x4F55;&#x533A;&#x5206;&#x6709;&#x6CA1;&#x6709;&#x65E0;&#x5FC3;&#x63D2;&#x67F3;"><a name="&#x5E94;&#x5982;&#x4F55;&#x533A;&#x5206;&#x6709;&#x6CA1;&#x6709;&#x65E0;&#x5FC3;&#x63D2;&#x67F3;" class="anchor-navigation-ex-anchor" href="#&#x5E94;&#x5982;&#x4F55;&#x533A;&#x5206;&#x6709;&#x6CA1;&#x6709;&#x65E0;&#x5FC3;&#x63D2;&#x67F3;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x5E94;&#x5982;&#x4F55;&#x533A;&#x5206;&#x6709;&#x6CA1;&#x6709;&#x65E0;&#x5FC3;&#x63D2;&#x67F3;</h2>
+<p>   <code>Go</code> &#x8BED;&#x8A00;&#x8FD9;&#x79CD;&#x4F3C;&#x662F;&#x800C;&#x975E;&#x82E5;&#x6709;&#x8FD8;&#x65E0;&#x7684;&#x6726;&#x80E7;&#x66A7;&#x6627;&#x65E2;&#x7ED9;&#x6211;&#x4EEC;&#x5E26;&#x6765;&#x4E86;&#x65B9;&#x4FBF;,&#x540C;&#x65F6;&#x4E5F;&#x7ED9;&#x6211;&#x4EEC;&#x7559;&#x4E0B;&#x4E86;&#x4E9B;&#x8BB8;&#x70E6;&#x607C;,&#x5047;&#x5982;&#x9700;&#x8981;&#x77E5;&#x9053;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x5230;&#x5E95;&#x662F;&#x4E0D;&#x662F;&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x8005;&#x65F6;,&#x53CD;&#x800C;&#x6709;&#x4E9B;&#x8D39;&#x4E8B;&#x4E86;.</p>
+<p>   &#x503C;&#x5F97;&#x5E86;&#x5E78;&#x7684;&#x662F;,&#x73B0;&#x4EE3; <code>IDE</code> &#x4E00;&#x822C;&#x90FD;&#x6BD4;&#x8F83;&#x667A;&#x80FD;,&#x8FD9;&#x79CD;&#x63A5;&#x53E3;&#x8BED;&#x6CD5;&#x867D;&#x7136;&#x6BD4;&#x8F83;&#x7075;&#x6D3B;&#x4F46;&#x8FD8;&#x662F;&#x6709;&#x89C4;&#x5F8B;&#x53EF;&#x5BFB;&#x7684;,&#x6240;&#x4EE5;&#x4E00;&#x822C; <code>IDE</code> &#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x667A;&#x80FD;&#x63A8;&#x6D4B;&#x51FA;&#x63A5;&#x53E3;&#x548C;&#x5B9E;&#x73B0;&#x7684;&#x5173;&#x7CFB;&#x7684;,&#x5E76;&#x4E0D;&#x7528;&#x6211;&#x4EEC;&#x8089;&#x773C;&#x53BB;&#x4ED4;&#x7EC6;&#x8FA8;&#x522B;.</p>
+<p><img src="../images/go-oop-interface-type-ide-instruction.png" alt="go-oop-interface-type-ide-instruction.png"></p>
+<blockquote>
+<p><code>Programmer</code> &#x63A5;&#x53E3;&#x7684;&#x5DE6;&#x4FA7;&#x6709;&#x4E2A;&#x5411;&#x4E0B;&#x7684;&#x7BAD;&#x5934;,&#x800C; <code>GoProgrammer</code> &#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x5DE6;&#x4FA7;&#x6709;&#x4E2A;&#x5411;&#x4E0A;&#x7BAD;&#x5934;.&#x6B64;&#x65F6;&#x9F20;&#x6807;&#x70B9;&#x51FB;&#x7BAD;&#x5934;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x8DF3;&#x8F6C;,&#x8FD9;&#x5C31;&#x662F; <code>IDE</code> &#x63D0;&#x4F9B;&#x7684;&#x53EF;&#x89C6;&#x5316;&#x6548;&#x679C;.</p>
+</blockquote>
+<p>   &#x5982;&#x679C;&#x771F;&#x7684;&#x9700;&#x8981;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x8FA8;&#x522B;&#x63A5;&#x53E3;&#x548C;&#x5B9E;&#x73B0;&#x7C7B;&#x7684;&#x5173;&#x7CFB;,&#x90A3;&#x4E48;&#x53EA;&#x80FD;&#x501F;&#x52A9;&#x7CFB;&#x7EDF;&#x7EA7;&#x522B;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5224;&#x65AD;&#x4E86;,&#x51C6;&#x5907;&#x73AF;&#x5883;&#x5982;&#x4E0B;:</p>
+<p>&#x9996;&#x5148;&#x5148;&#x5B9A;&#x4E49;&#x7A0B;&#x5E8F;&#x5458;&#x7684;&#x7B2C;&#x4E00;&#x8BFE; <code>Hello World</code> &#x7684;&#x63A5;&#x53E3;:</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Programmer <span class="hljs-keyword">interface</span> {
+    WriteHelloWord() <span class="hljs-keyword">string</span>
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x6309;&#x7167;&#x4E0D;&#x540C;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x5B9E;&#x73B0;&#x8BE5;&#x63A5;&#x53E3;,&#x4E3A;&#x4E86;&#x66F4;&#x52A0;&#x901A;&#x7528;&#x6027;&#x8868;&#x793A; <code>WriteHelloWord</code> &#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;,&#x8FD9;&#x91CC;&#x5C06;&#x8F93;&#x51FA;&#x7ED3;&#x679C; <code>string</code> &#x5B9A;&#x4E49;&#x6210;&#x522B;&#x540D;&#x5F62;&#x5F0F;&#x4EE5;&#x6B64;&#x8868;&#x793A;&#x8F93;&#x51FA;&#x7684;&#x662F;&#x4EE3;&#x7801; <code>Code</code>.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Code <span class="hljs-keyword">string</span>
+</code></pre>
+<p>&#x6309;&#x7167; <code>Code</code> &#x522B;&#x540D;&#x91CD;&#x65B0;&#x6574;&#x7406;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;,&#x5982;&#x4E0B;:</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Programmer <span class="hljs-keyword">interface</span> {
+    WriteHelloWord() Code
+}
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x7528; <code>Go</code> &#x8BED;&#x8A00;&#x5199;&#x7B2C;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;,&#x800C; <code>Go</code> &#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x9690;&#x5F0F;&#x7684;,&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x5173;&#x952E;&#x5B57;&#x5F3A;&#x5236;&#x58F0;&#x660E;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> GoProgrammer <span class="hljs-keyword">struct</span> {
+}
+
+<span class="hljs-keyword">func</span> (g *GoProgrammer) WriteHelloWord() Code {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;fmt.Println(\&quot;Hello World!\&quot;)&quot;</span>
+}
+</code></pre>
+<p>&#x7136;&#x540E;,&#x9009;&#x62E9; <code>Java</code> &#x7A0B;&#x5E8F;&#x5458;&#x4F5C;&#x4E3A;&#x5BF9;&#x6BD4;,&#x5176;&#x4ED6;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x7C7B;&#x4F3C;,&#x8FD9;&#x91CC;&#x4E0D;&#x518D;&#x8D58;&#x8FF0;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> JavaProgrammer <span class="hljs-keyword">struct</span> {
+}
+
+<span class="hljs-keyword">func</span> (j *JavaProgrammer) WriteHelloWord() Code {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;System.out.Println(\&quot;Hello World!\&quot;)&quot;</span>
+}
+</code></pre>
+<p>&#x5F53;&#x7528;&#x6237;&#x9700;&#x8981;&#x7A0B;&#x5E8F;&#x5458;&#x5199; <code>WriteHelloWord</code> &#x7A0B;&#x5E8F;&#x65F6;,&#x6B64;&#x65F6; <code>Go</code> &#x7A0B;&#x5E8F;&#x5458;&#x548C; <code>Java</code> &#x7A0B;&#x5E8F;&#x5458;&#x51C6;&#x5907;&#x5404;&#x663E;&#x8EAB;&#x624B;,&#x6BD4;&#x8F83;&#x7B80;&#x5355;,&#x8FD9;&#x91CC;&#x91CD;&#x70B9;&#x662F;&#x770B;&#x4E00;&#x4E0B;<strong>&#x63A5;&#x53E3;&#x53D8;&#x91CF;</strong>&#x7684;&#x7C7B;&#x578B;&#x548C;&#x503C;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> writeFirstProgram(p Programmer) {
+    fmt.Printf(<span class="hljs-string">&quot;%[1]T %[1]v %v\n&quot;</span>, p, p.WriteHelloWord())
+}
+</code></pre>
+<p>&#x6309;&#x7167;&#x63A5;&#x53E3;&#x7684;&#x8BED;&#x4E49;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06; <code>Go</code> &#x7A0B;&#x5E8F;&#x5458;&#x548C; <code>Java</code> &#x7A0B;&#x5E8F;&#x5458;&#x5168;&#x90E8;&#x6254;&#x7ED9; <code>writeFirstProgram</code> &#x65B9;&#x6CD5;&#x4E2D;,&#x6B64;&#x65F6;&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#x578B;&#x662F;<strong>&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x7C7B;&#x7684;&#x7C7B;&#x578B;</strong>,&#x63A5;&#x53E3;&#x7684;&#x503C;&#x4E5F;&#x662F;<strong>&#x5B9E;&#x73B0;&#x7C7B;&#x7684;&#x6570;&#x636E;</strong>.</p>
+<p>&#x5F53;&#x7136;,&#x4E0D;&#x8BBA;&#x662F; <code>Go</code> &#x8FD8;&#x662F; <code>Java</code> &#x90FD;&#x53EF;&#x4EE5;&#x5199;&#x51FA; <code>WriteHelloWord</code> .</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> TestPolymorphism(t *testing.T) {
+    gp := <span class="hljs-built_in">new</span>(GoProgrammer)
+    jp := <span class="hljs-built_in">new</span>(JavaProgrammer)
+
+    <span class="hljs-comment">// *polymorphism.GoProgrammer &amp;{} fmt.Println(&quot;Hello World!&quot;)</span>
+    writeFirstProgram(gp)
+    <span class="hljs-comment">// *polymorphism.JavaProgrammer &amp;{} System.out.Println(&quot;Hello World!&quot;)</span>
+    writeFirstProgram(jp)
+}
+</code></pre>
+<p>&#x4E0A;&#x8FF0;&#x4F8B;&#x5B50;&#x5F88;&#x7B80;&#x5355;,&#x6211;&#x4EEC;&#x81EA;&#x7136;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x4E00;&#x773C;&#x770B;&#x51FA;&#x63A5;&#x53E3;&#x548C;&#x5B9E;&#x73B0;&#x7C7B;&#x7684;&#x5173;&#x7CFB;,&#x5E76;&#x4E14; <code>IDE</code> &#x4E5F;&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x975E;&#x5E38;&#x76F4;&#x89C2;&#x7684;&#x6548;&#x679C;,&#x5728;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x4E2D;&#x8FD9;&#x79CD;<strong>&#x53EF;&#x89C6;&#x5316;&#x6548;&#x679C;</strong>&#x5C24;&#x4E3A;&#x91CD;&#x8981;.</p>
+<p><img src="../images/go-oop-interface-type-programer.png" alt="go-oop-interface-type-programer.png"></p>
+<p>   &#x5982;&#x679C;&#x4F60;&#x975E;&#x8981;&#x548C;&#x6211;&#x8F83;&#x771F;,&#x8BF4;&#x4F60;&#x6B63;&#x5728;&#x7528;&#x7684; <code>IDE</code> &#x65E0;&#x6CD5;&#x53EF;&#x89C6;&#x5316;&#x76F4;&#x63A5;&#x770B;&#x51FA;&#x67D0;&#x4E2A;&#x7C7B;&#x578B;&#x662F;&#x5426;&#x6EE1;&#x8DB3;&#x67D0;&#x63A5;&#x53E3;,&#x53C8;&#x8BE5;&#x600E;&#x4E48;&#x529E;?</p>
+<p><strong>&#x6211;&#x7684;&#x5EFA;&#x8BAE;&#x662F;</strong>,&#x90A3;&#x5C31;&#x6362;&#x6210;&#x548C;&#x6211;&#x4E00;&#x6837;&#x7684; <code>IDE</code> &#x4E0D;&#x5C31;&#x597D;&#x4E86;&#x5417;!</p>
+<p>   &#x54C8;&#x54C8;,&#x8FD9;&#x53EA;&#x4E0D;&#x8FC7;&#x662F;&#x6211;&#x7684;&#x4E00;&#x53A2;&#x60C5;&#x613F;&#x7F62;&#x4E86;,&#x6709;&#x4E9B;&#x4EBA;&#x662F;&#x4E0D;&#x613F;&#x610F;&#x6539;&#x53D8;&#x7684;,&#x4E0D;&#x4F1A;&#x968F;&#x968F;&#x4FBF;&#x4FBF;&#x5C31;&#x6362;&#x4E00;&#x4E2A; <code>IDE</code>,&#x90A3;&#x6211;&#x5C31;&#x544A;&#x8BC9;&#x4F60;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x6765;&#x68C0;&#x6D4B;&#x7C7B;&#x578B;&#x548C;&#x63A5;&#x53E3;&#x7684;&#x5173;&#x7CFB;.</p>
+<p>&#x8D75;&#x672C;&#x5C71;&#x8BF4;,<strong>&#x6CA1;&#x4E8B;&#x4F60;&#x5C31;&#x8D70;&#x4E24;&#x6B65;</strong>?</p>
+<p><img src="../images/go-oop-interface-type-try-to-go-walk.jpg" alt="go-oop-interface-type-try-to-go-walk.jpg"></p>
+<p>   &#x771F;&#x7684;&#x662F;&#x535A;&#x5927;&#x7CBE;&#x6DF1;,&#x8A00;&#x7B80;&#x610F;&#x8D45;!&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x6EE1;&#x8DB3;&#x7279;&#x5B9A;&#x63A5;&#x53E3;,&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x5B9E;&#x4F8B;&#x5316;&#x540E;&#x4E00;&#x5B9A;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7ED9;&#x63A5;&#x53E3;&#x7C7B;&#x578B;,&#x5982;&#x679C;&#x4E0D;&#x80FD;&#x5219;&#x8BF4;&#x660E;&#x80AF;&#x5B9A;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;!&#x8089;&#x773C;&#x770B;&#x4E0D;&#x51FA;&#x7684;&#x5173;&#x7CFB;,&#x90A3;&#x5C31;&#x62FF;&#x653E;&#x5927;&#x955C;&#x770B;,&#x7F16;&#x8BD1;&#x9519;&#x8BEF;&#x5219;&#x4E0D;&#x7B26;&#x5408;,&#x7F16;&#x8BD1;&#x901A;&#x8FC7;&#x5219;&#x6EE1;&#x8DB3;.</p>
+<p>   &#x4E3A;&#x4E86;&#x5BF9;&#x6BD4;&#x6548;&#x679C;,&#x8FD9;&#x91CC;&#x518D;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x63A5;&#x53E3; <code>MyProgrammer</code> ,&#x9664;&#x4E86;&#x540D;&#x79F0;&#x5916;,&#x63A5;&#x53E3;&#x6682;&#x65F6;&#x548C; <code>Programmer</code> &#x5B8C;&#x5168;&#x4E00;&#x6837;.</p>
+<p><img src="../images/go-oop-interface-type-myProgrammer-pass.png" alt="go-oop-interface-type-myProgrammer-pass.png"></p>
+<p><code>IDE</code> &#x5E76;&#x6CA1;&#x6709;&#x62A5;&#x9519;,&#x5DE6;&#x4FA7;&#x7684;&#x53EF;&#x89C6;&#x5316;&#x6548;&#x679C;&#x4E5F;&#x8868;&#x660E; <code>MyProgrammer</code> &#x548C; <code>Programmer</code> &#x867D;&#x7136;&#x540D;&#x79F0;&#x4E0D;&#x540C;,&#x4F46;&#x662F;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x5374;&#x4E00;&#x6A21;&#x4E00;&#x6837;,<code>GoProgrammer</code> &#x7C7B;&#x578B;&#x4E0D;&#x4EC5;&#x5B9E;&#x73B0;&#x4E86;&#x539F;&#x6765;&#x7684; <code>Programmer</code> &#x63A5;&#x53E3;&#x8FD8;&#x987A;&#x4FBF;&#x5B9E;&#x73B0;&#x4E86; <code>MyProgrammer</code>.</p>
+<p>&#x4E0D;&#x4EC5; <code>GoProgrammer</code> &#x662F;&#x8FD9;&#x6837;,<code>JavaProgrammer</code> &#x4E5F;&#x662F;&#x5982;&#x6B64;,&#x6709;&#x610F;&#x65E0;&#x610F;&#x5B9E;&#x73B0;&#x4E86;&#x65B0;&#x7684;&#x63A5;&#x53E3;,&#x8FD9;&#x4E5F;&#x5C31;&#x662F; <code>Go</code> &#x7684;&#x63A5;&#x53E3;&#x8BBE;&#x8BA1;&#x4E0D;&#x540C;&#x4E8E;&#x4F20;&#x7EDF;&#x58F0;&#x660E;&#x5F0F;&#x63A5;&#x53E3;&#x8BBE;&#x8BA1;&#x7684;&#x5730;&#x65B9;.</p>
+<p><img src="../images/go-oop-interface-type-myProgrammer-goProgrammer.png" alt="go-oop-interface-type-myProgrammer-goProgrammer.png"></p>
+<p>   &#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6539;&#x53D8;&#x4E00;&#x4E0B; <code>MyProgrammer</code> &#x63A5;&#x53E3;&#x4E2D;&#x7684; <code>WriteHelloWord</code> &#x65B9;&#x6CD5;,&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x7531;&#x522B;&#x540D; <code>Code</code> &#x66F4;&#x6539;&#x6210;&#x539F;&#x7C7B;&#x578B; <code>string</code>,&#x518D;&#x8BD5;&#x4E00;&#x4E0B;&#x5B9E;&#x9645;&#x6548;&#x679C;&#x5982;&#x4F55;.</p>
+<p>&#x7531;&#x4E8E; <code>Go</code> &#x662F;&#x5F3A;&#x7C7B;&#x578B;&#x8BED;&#x8A00;,&#x5373;&#x4F7F;&#x662F;&#x522B;&#x540D;&#x548C;&#x539F;&#x7C7B;&#x578B;&#x4E5F;&#x4E0D;&#x662F;&#x76F8;&#x540C;&#x7684;,&#x6B63;&#x5982;&#x7C7B;&#x578B;&#x4E4B;&#x95F4;&#x7684;&#x8F6C;&#x6362;&#x90FD;&#x662F;&#x5F3A;&#x5236;&#x7684;,&#x6CA1;&#x6709;&#x9690;&#x5F0F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x90A3;&#x6837;.</p>
+<p>&#x56E0;&#x6B64;,&#x53EF;&#x4EE5;&#x9884;&#x6D4B;&#x7684;&#x662F;,<code>WriteHelloWord</code> &#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x524D;&#x540E;&#x4E0D;&#x4E00;&#x81F4;,&#x662F;&#x6CA1;&#x6709;&#x7C7B;&#x578B;&#x7ED3;&#x6784;&#x4F53;&#x6EE1;&#x8DB3;&#x65B0;&#x7684;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x7684;,&#x6B64;&#x65F6;&#x7F16;&#x8BD1;&#x5668;&#x5E94;&#x8BE5;&#x4F1A;&#x62A5;&#x9519;.</p>
+<p><img src="../images/go-oop-interface-type-myProgrammer-fail.png" alt="go-oop-interface-type-myProgrammer-fail.png"></p>
+<p>   &#x4E8B;&#x5B9E;&#x80DC;&#x4E8E;&#x96C4;&#x8FA9;,&#x65E0;&#x8BBA;&#x662F; <code>GoProgrammer</code> &#x8FD8;&#x662F; <code>JavaProgrammer</code> &#x90FD;&#x6CA1;&#x6709;&#x5B9E;&#x73B0; <code>MyProgrammer</code> ,&#x56E0;&#x6B64;&#x662F;&#x4E0D;&#x80FD;&#x8D4B;&#x503C;&#x7ED9;&#x7C7B;&#x578B; <code>MyProgrammer</code> ,&#x7F16;&#x8BD1;&#x5668;&#x786E;&#x5B9E;&#x62A5;&#x9519;&#x4E86;!</p>
+<p>&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x957F;&#x5F97;&#x50CF;&#x7684;&#x90FD;&#x662F;&#x5144;&#x5F1F;,&#x4E5F;&#x4E0D;&#x662F;&#x957F;&#x5F97;&#x4E0D;&#x50CF;&#x7684;&#x5C31;&#x4E0D;&#x662F;&#x5144;&#x5F1F;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Equaler <span class="hljs-keyword">interface</span> {
+    Equal(Equaler) <span class="hljs-keyword">bool</span>
+}
+</code></pre>
+<p><code>Equaler</code> &#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86; <code>Equal</code> &#x65B9;&#x6CD5;,&#x4E0D;&#x540C;&#x4E8E;&#x4F20;&#x7EDF;&#x7684;&#x591A;&#x6001;,<code>Go</code> &#x7684;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x66F4;&#x4E3A;&#x4E25;&#x683C;,&#x5E76;&#x4E0D;&#x652F;&#x6301;&#x591A;&#x6001;&#x7279;&#x6027;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> T <span class="hljs-keyword">int</span>
+
+<span class="hljs-keyword">func</span> (t T) Equal(u T) <span class="hljs-keyword">bool</span> { <span class="hljs-keyword">return</span> t == u }
+</code></pre>
+<p>&#x5982;&#x679C;&#x5355;&#x5355;&#x770B; <code>Equal(u T) bool</code> &#x65B9;&#x6CD5;&#x58F0;&#x660E;,&#x653E;&#x5230;&#x5176;&#x4ED6;&#x4E3B;&#x6D41;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x4E2D;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53EF;&#x80FD;&#x662F;&#x6B63;&#x786E;&#x7684;,&#x4F46;&#x662F;&#x591A;&#x6001;&#x7279;&#x6027;&#x5E76;&#x4E0D;&#x9002;&#x5408; <code>Go</code> &#x8BED;&#x8A00;.</p>
+<p><img src="../images/go-oop-interface-type-equal-fail.png" alt="go-oop-interface-type-equal-fail.png"></p>
+<blockquote>
+<p>&#x4E0D;&#x4EC5;&#x4EC5; <code>IDE</code> &#x6CA1;&#x6709;&#x5DE6;&#x4FA7;<strong>&#x53EF;&#x89C6;&#x5316;&#x7684;&#x7BAD;&#x5934;&#x6548;&#x679C;</strong>,&#x786C;&#x751F;&#x751F;&#x7684;&#x5C06;&#x7C7B;&#x578B;&#x58F0;&#x660E;&#x6210;&#x63A5;&#x53E3;&#x7C7B;&#x578B;&#x4E5F;&#x4F1A;&#x62A5;&#x9519;,&#x8BF4;&#x660E;&#x7684;&#x786E;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;.</p>
+</blockquote>
+<p>   &#x900F;&#x8FC7;&#x73B0;&#x8C61;&#x770B;&#x672C;&#x8D28;,<code>T.Equal</code> &#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x662F;<code>T</code> ,&#x800C;&#x4E0D;&#x662F;&#x5B57;&#x9762;&#x4E0A;&#x6240;&#x9700;&#x7684;&#x7C7B;&#x578B;<code>Equaler</code>,&#x6240;&#x4EE5;&#x5E76;&#x6CA1;&#x6709;&#x5B9E;&#x73B0; <code>Equaler</code> &#x63A5;&#x53E3;&#x4E2D;&#x89C4;&#x5B9A;&#x7684; <code>Equal</code> &#x65B9;&#x6CD5;.</p>
+<p>   &#x662F;&#x4E0D;&#x662F;&#x5F88;&#x610F;&#x5916;?</p>
+<p><img src="../images/go-oop-interface-type-surprise.png" alt="go-oop-interface-type-surprise.png"></p>
+<p>  &#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x770B;&#x5230;&#x4E86;&#x8FD9;&#x91CC;,&#x76F8;&#x4FE1;&#x4F60;&#x73B0;&#x5728;&#x4E0D;&#x4EC5;&#x57FA;&#x672C;&#x7406;&#x89E3;&#x4E86;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x4E09;&#x5927;&#x7279;&#x6027;,&#x8FD8;&#x77E5;&#x9053;&#x4E86; <code>GO</code> &#x8BBE;&#x8BA1;&#x7684;&#x662F;&#x591A;&#x4E48;&#x4E0E;&#x4F17;&#x4E0D;&#x540C;!</p>
+<p>  &#x8FD9;&#x79CD;&#x4E0E;&#x4F17;&#x4E0D;&#x540C;&#x4E4B;&#x5904;,&#x4E0D;&#x4EC5;&#x4EC5;&#x4F53;&#x73B0;&#x5728;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x63A5;&#x53E3;&#x4E2D;,&#x6700;&#x57FA;&#x7840;&#x7684;&#x8BED;&#x6CD5;&#x7EC6;&#x8282;&#x4E0A;&#x65E0;&#x4E00;&#x4E0D;&#x4F53;&#x73B0;&#x51FA;&#x8BBE;&#x8BA1;&#x8005;&#x7684;&#x5320;&#x5FC3;&#x72EC;&#x8FD0;,&#x6B63;&#x662F;&#x8FD9;&#x79CD;&#x521B;&#x65B0;&#x4E5F;&#x4FC3;&#x8FDB;&#x6211;&#x4EEC;&#x91CD;&#x65B0;&#x601D;&#x8003;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x672C;&#x8D28;,&#x771F;&#x7684;&#x9700;&#x8981;&#x5FAA;&#x89C4;&#x8E48;&#x77E9;&#x6309;&#x7167;&#x73B0;&#x6709;&#x7684;&#x601D;&#x8DEF;&#x53BB;&#x8BBE;&#x8BA1;&#x65B0;&#x8BED;&#x8A00;&#x5417;?</p>
+<p>  <code>Go</code> &#x8BED;&#x8A00;&#x7684;&#x8BED;&#x6CD5;&#x7CBE;&#x7B80;,&#x8BBE;&#x8BA1;&#x7B80;&#x5355;&#x4F18;&#x96C5;,&#x629B;&#x5F03;&#x4E86;&#x67D0;&#x4E9B;&#x770B;&#x8D77;&#x6765;&#x6BD4;&#x8F83;&#x9AD8;&#x7EA7;&#x4F46;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#x53EF;&#x80FD;&#x4F1A;&#x6BD4;&#x8F83;&#x4EE4;&#x4EBA;&#x56F0;&#x60D1;&#x7684;&#x90E8;&#x5206;,&#x5BF9;&#x4E8E;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x820D;&#x5F03;,&#x786E;&#x5B9E;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x7B80;&#x5316;&#x4E86;&#x6574;&#x4F53;&#x7684;&#x8BBE;&#x8BA1;.</p>
+<p>   &#x4F46;&#x662F;&#x53E6;&#x4E00;&#x65B9;&#x9762;,&#x5982;&#x679C;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x8FD9;&#x79CD;&#x88AB;&#x4E22;&#x5F03;&#x7684;&#x7F16;&#x7A0B;&#x4E60;&#x60EF;&#x65F6;,&#x53EA;&#x80FD;&#x7531;&#x5F00;&#x53D1;&#x8005;&#x624B;&#x52A8;&#x5B9E;&#x73B0;,&#x4ECE;&#x8FD9;&#x70B9;&#x770B;&#x5C31;&#x4E0D;&#x592A;&#x65B9;&#x4FBF;&#x4E86;,&#x6240;&#x4EE5;&#x53EA;&#x80FD;&#x5C3D;&#x53EF;&#x80FD;&#x9760;&#x8FD1;&#x8BBE;&#x8BA1;&#x8005;&#x7684;&#x610F;&#x56FE;,&#x5199;&#x51FA;&#x771F;&#x6B63;&#x7684; <code>Go</code> &#x7A0B;&#x5E8F;.</p>
+<p>   &#x63A7;&#x5236;&#x6743;&#x7684;&#x8F6C;&#x79FB;&#x610F;&#x5473;&#x7740;<strong>&#x5F00;&#x53D1;&#x8005;</strong>&#x627F;&#x62C5;&#x4E86;&#x66F4;&#x591A;&#x7684;&#x8D23;&#x4EFB;,&#x6BD4;&#x5982;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E2D;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x548C;&#x9690;&#x5F0F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E4B;&#x5206;,<code>Go</code> &#x4EC5;&#x4EC5;&#x652F;&#x6301;<strong>&#x663E;&#x5F0F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</strong>,&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x5E2E;&#x4F60;&#x8FDB;&#x884C;&#x9690;&#x5F0F;&#x8F6C;&#x6362;,&#x4E5F;&#x6CA1;&#x6709;&#x4E3A;&#x4E86;&#x517C;&#x987E;&#x9690;&#x5F0F;&#x7C7B;&#x578B;&#x7684;&#x8F6C;&#x6362;&#x800C;&#x5F15;&#x5165;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x7684;<strong>&#x5305;&#x88C5;&#x7C7B;&#x578B;</strong>,&#x4E5F;&#x5C31;&#x6CA1;&#x6709;<strong>&#x81EA;&#x52A8;&#x62C6;&#x7BB1;&#x548C;&#x81EA;&#x52A8;&#x88C5;&#x7BB1;</strong>&#x7B49;&#x590D;&#x6742;&#x6982;&#x5FF5;.</p>
+<p>   &#x6240;&#x4EE5;&#x5982;&#x679C;&#x8981;&#x5B9E;&#x73B0; <code>Equal</code> &#x63A5;&#x53E3;&#x65B9;&#x6CD5;,&#x90A3;&#x4E48;&#x5C31;&#x5E94;&#x8BE5;&#x5F00;&#x53D1;&#x8005;&#x81EA;&#x5DF1;&#x4FDD;&#x8BC1;&#x4E25;&#x683C;&#x5B9E;&#x73B0;,&#x8FD9;&#x91CC;&#x53EA;&#x9700;&#x8981;&#x7A0D;&#x5FAE;&#x4FEE;&#x6539;&#x4E0B;&#x5C31;&#x80FD;&#x771F;&#x6B63;&#x5B9E;&#x73B0;&#x8BE5;&#x65B9;&#x6CD5;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> T2 <span class="hljs-keyword">int</span>
+
+<span class="hljs-keyword">func</span> (t T2) Equal(u Equaler) <span class="hljs-keyword">bool</span> { <span class="hljs-keyword">return</span> t == u.(T2) }
+</code></pre>
+<p><code>Equal(Equaler) bool</code> &#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x4E2D;&#x8981;&#x6C42; <code>Equaler</code> &#x63A5;&#x53E3;,&#x56E0;&#x6B64; <code>Equal(u Equaler) bool</code> &#x65B9;&#x6CD5;&#x624D;&#x662F;&#x771F;&#x6B63;&#x5B9E;&#x73B0;&#x4E86;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;.</p>
+<p><img src="../images/go-oop-interface-type-equal-pass.png" alt="go-oop-interface-type-equal-pass.png"></p>
+<p>&#x53EA;&#x6709;&#x65B9;&#x6CD5;&#x540D;&#x79F0;&#x548C;&#x7B7E;&#x540D;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#x624D;&#x662F;&#x5B9E;&#x73B0;&#x4E86;&#x63A5;&#x53E3;,&#x5426;&#x5219;&#x770B;&#x4F3C;&#x5B9E;&#x73B0;&#x5B9E;&#x5219;&#x662F;&#x5176;&#x4ED6;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x7684;&#x903B;&#x8F91;,&#x653E;&#x5230;<code>Go</code> &#x8BED;&#x8A00;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;.</p>
+<h2 id="&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x5B9E;&#x73B0;&#x8005;&#x662F;&#x7279;&#x5B9A;&#x7C7B;&#x578B;"><a name="&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x5B9E;&#x73B0;&#x8005;&#x662F;&#x7279;&#x5B9A;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x5B9E;&#x73B0;&#x8005;&#x662F;&#x7279;&#x5B9A;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x5982;&#x4F55;&#x4FDD;&#x8BC1;&#x5B9E;&#x73B0;&#x8005;&#x662F;&#x7279;&#x5B9A;&#x7C7B;&#x578B;</h2>
+<p>   &#x4F46;&#x662F;&#x4E0D;&#x77E5;&#x9053;&#x4F60;&#x662F;&#x5426;&#x53D1;&#x73B0;,&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x5B9E;&#x73B0;&#x7684;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x548C;&#x6211;&#x4EEC;&#x719F;&#x6089;&#x7684;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#x8FD8;&#x662F;&#x6709;&#x6240;&#x4E0D;&#x540C;,&#x4EFB;&#x4F55;&#x6EE1;&#x8DB3;&#x63A5;&#x53E3; <code>Equaler</code> &#x65B9;&#x6CD5;&#x7684;&#x7C7B;&#x578B;&#x90FD;&#x53EF;&#x4EE5;&#x88AB;&#x4F20;&#x5165;&#x5230; <code>T2.Equal</code> &#x7684;&#x53C2;&#x6570;,&#x800C;&#x6211;&#x4EEC;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#x5374;&#x4E0D;&#x4F1A;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x7ED9;&#x51FA;&#x63D0;&#x793A;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> T3 <span class="hljs-keyword">int</span>
+
+<span class="hljs-keyword">func</span> (t T3) Equal(u Equaler) <span class="hljs-keyword">bool</span> { <span class="hljs-keyword">return</span> t == u.(T3) }
+</code></pre>
+<p>&#x4EFF;&#x9020; <code>T2</code> &#x5B9E;&#x73B0; <code>T3</code> &#x7C7B;&#x578B;,&#x540C;&#x6837;&#x4E5F;&#x5B9E;&#x73B0;&#x4E86; <code>Equaler</code> &#x63A5;&#x53E3;&#x6240;&#x8981;&#x6C42;&#x7684; <code>Equal</code> &#x65B9;&#x6CD5;.</p>
+<p><code>T2</code> &#x548C; <code>T3</code> &#x660E;&#x663E;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x7C7B;&#x578B;,&#x7F16;&#x8BD1;&#x671F;&#x95F4; <code>T3</code> &#x662F;&#x53EF;&#x4EE5;&#x4F20;&#x7ED9; <code>T2</code> &#x7684;,&#x53CD;&#x4E4B;&#x4EA6;&#x7136;, <code>T2</code> &#x4E5F;&#x53EF;&#x4EE5;&#x4F20;&#x7ED9; <code>T3</code> .</p>
+<p><img src="../images/go-oop-interface-type-equal-error-pass.png" alt="go-oop-interface-type-equal-error-pass.png"></p>
+<p>   &#x7F16;&#x8BD1;&#x6B63;&#x5E38;&#x800C;&#x8FD0;&#x884C;&#x51FA;&#x9519;&#x610F;&#x5473;&#x7740;&#x540E;&#x671F;&#x6355;&#x6349;&#x95EE;&#x9898;&#x7684;&#x96BE;&#x5EA6;&#x52A0;&#x5927;&#x4E86;,&#x4E2A;&#x4EBA;&#x6BD4;&#x8F83;&#x4E60;&#x60EF;&#x4E8E;&#x7F16;&#x8BD1;&#x671F;&#x95F4;&#x62A5;&#x9519;&#x800C;&#x4E0D;&#x662F;&#x8FD0;&#x884C;&#x62A5;&#x9519;,<code>Go</code> &#x8BED;&#x8A00;&#x5C31;&#x662F;&#x7F16;&#x8BD1;&#x578B;&#x8BED;&#x8A00;&#x4E3A;&#x4EC0;&#x4E48;&#x9020;&#x6210;&#x4E86;&#x7F16;&#x8BD1;&#x671F;&#x95F4;&#x65E0;&#x6CD5;&#x6355;&#x6349;&#x9519;&#x8BEF;&#x800C;&#x53EA;&#x80FD;&#x653E;&#x5230;&#x8FD0;&#x884C;&#x671F;&#x95F4;&#x4E86;?</p>
+<p><img src="../images/go-oop-interface-type-equal-error-panic.png" alt="go-oop-interface-type-equal-error-panic.png"></p>
+<p>   &#x7531;&#x6B64;&#x53EF;&#x89C1;,<code>t == u.(T3)</code> &#x53EF;&#x80FD;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;,&#x5F02;&#x5E38;&#x673A;&#x5236;&#x4E5F;&#x662F;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x901A;&#x7528;&#x7684;&#x4E00;&#x79CD;&#x81EA;&#x6211;&#x4FDD;&#x62A4;&#x673A;&#x5236;,<code>Go</code> &#x8BED;&#x8A00;&#x5E94;&#x8BE5;&#x4E5F;&#x6709;&#x4E00;&#x5957;&#x673A;&#x5236;,&#x540E;&#x7EED;&#x518D;&#x7814;&#x7A76;&#x5F02;&#x5E38;&#x673A;&#x5236;,&#x6682;&#x65F6;&#x4E0D;&#x6D89;&#x53CA;.</p>
+<p>   &#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x786E;&#x5B9E;&#x770B;&#x5230;&#x4E86; <code>u.(T3)</code> &#x5224;&#x65AD;&#x7C7B;&#x578B;&#x7684;&#x5C40;&#x9650;&#x6027;,&#x60F3;&#x8981;&#x786E;&#x4FDD;&#x7A0B;&#x5E8F;&#x826F;&#x597D;&#x8FD0;&#x884C;,&#x5E94;&#x8BE5;&#x7814;&#x7A76;&#x4E00;&#x4E0B;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x5230;&#x5E95;&#x662F;&#x4EC0;&#x4E48;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x5224;&#x65AD;&#x7C7B;&#x578B;&#x548C;&#x63A5;&#x53E3;&#x7684;&#x5173;&#x7CFB;.</p>
+<p>   &#x7F16;&#x8BD1;&#x671F;&#x95F4;&#x7684;&#x5224;&#x65AD;&#x5173;&#x7CFB;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; ide &#x7684;&#x667A;&#x80FD;&#x63D0;&#x793A;&#x4E5F;&#x53EF;&#x4EE5;&#x5C06;&#x7C7B;&#x578B;&#x58F0;&#x660E;&#x7ED9;&#x63A5;&#x53E3;&#x770B;&#x770B;&#x662F;&#x5426;&#x7F16;&#x8BD1;&#x9519;&#x8BEF;,&#x4F46;&#x8FD9;&#x4E9B;&#x90FD;&#x662F;&#x7F16;&#x8BD1;&#x671F;&#x95F4;&#x7684;&#x5224;&#x65AD;,&#x65E0;&#x6CD5;&#x89E3;&#x51B3;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x671F;&#x95F4;&#x7684;&#x9519;&#x8BEF;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> TestEqualType(t *testing.T) {
+    <span class="hljs-keyword">var</span> t2 Equaler = <span class="hljs-built_in">new</span>(T2)
+    <span class="hljs-keyword">var</span> t3 Equaler = <span class="hljs-built_in">new</span>(T3)
+
+    t.Logf(<span class="hljs-string">&quot;%[1]T %[1]v\n&quot;</span>,t2)
+    t.Logf(<span class="hljs-string">&quot;%[1]T %[1]v\n&quot;</span>,t3)
+    t.Logf(<span class="hljs-string">&quot;%[1]T %[1]v %v\n&quot;</span>,t2,t2.Equal(t3))
+}
+</code></pre>
+<blockquote>
+<p><code>%T %V</code> &#x6253;&#x5370;&#x51FA;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x503C;,&#x4ECE;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E0A;&#x770B; <code>*polymorphism.T2 0xc0000921d0</code>,&#x6211;&#x4EEC;&#x5F97;&#x77E5;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5B9E;&#x73B0;&#x4E86;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;,&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x5C31;&#x662F;&#x8BE5;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x503C;.</p>
+</blockquote>
+<p><code>t2</code> &#x548C; <code>t3</code> &#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x56E0;&#x6B64;&#x662F;&#x4E0D;&#x540C;&#x7684;,&#x8FD0;&#x884C;&#x65F6;&#x4E5F;&#x5C31;&#x81EA;&#x7136;&#x62A5;&#x9519;&#x4E86;.</p>
+<p>&#x8BF4;&#x5B8C;&#x73B0;&#x8C61;&#x627E;&#x539F;&#x56E0;: <code>Go</code> &#x8BED;&#x8A00;&#x7684;&#x63A5;&#x53E3;&#x5E76;&#x6CA1;&#x6709;&#x4FDD;&#x8BC1;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#x578B;&#x5177;&#x6709;&#x591A;&#x6001;&#x6027;,&#x4EC5;&#x4EC5;&#x662F;&#x7EA6;&#x675F;&#x4E86;&#x7EDF;&#x4E00;&#x7684;&#x884C;&#x4E3A;&#x89C4;&#x8303;,<code>t2</code> &#x548C; <code>t3</code> &#x90FD;&#x6EE1;&#x8DB3;&#x4E86; <code>Equal</code> &#x8FD9;&#x79CD;&#x89C4;&#x8303;,&#x6240;&#x4EE5;&#x5BF9;&#x4E8E;&#x63A5;&#x53E3;&#x7684;&#x8BBE;&#x8BA1;&#x6548;&#x679C;&#x6765;&#x8BF4;,&#x5DF2;&#x7ECF;&#x8FBE;&#x5230;&#x76EE;&#x6807;&#x4E86;.</p>
+<p>   &#x4F46;&#x662F;&#x8FD9;&#x79CD;&#x63A5;&#x53E3;&#x8BBE;&#x8BA1;&#x7684;&#x7406;&#x5FF5;&#x548C;&#x6211;&#x4EEC;&#x6240;&#x719F;&#x6089;&#x7684;&#x5176;&#x4ED6;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x7684;&#x591A;&#x6001;&#x6027;&#x662F;&#x4E0D;&#x540C;&#x7684;,<code>Go</code> &#x5E76;&#x6CA1;&#x6709;&#x591A;&#x6001;&#x6B63;&#x5982;&#x6CA1;&#x6709;&#x7EE7;&#x627F;&#x7279;&#x6027;&#x4E00;&#x6837;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> TestInterfaceTypeDeduce(t *testing.T) {
+    <span class="hljs-keyword">var</span> t2 Equaler = <span class="hljs-built_in">new</span>(T2)
+    <span class="hljs-keyword">var</span> t3 Equaler = <span class="hljs-built_in">new</span>(T3)
+
+    t.Logf(<span class="hljs-string">&quot;%[1]T %[1]v %[2]T %[2]v\n&quot;</span>,t2,t2.(*T2))
+    t.Logf(<span class="hljs-string">&quot;%[1]T %[1]v %[2]T %[2]v\n&quot;</span>,t3,t3.(*T3))
+}
+</code></pre>
+<p><img src="../images/go-oop-interface-type-equal-type-deduce.png" alt="go-oop-interface-type-equal-type-deduce.png"></p>
+<p>   &#x5F53; <code>t2.(*T2)</code> &#x6216; <code>t3.(*T3)</code> &#x65F6;,&#x5747;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;,&#x4E00;&#x65E6; <code>t2.(*T3)</code> &#x5219;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;,&#x56E0;&#x6B64;&#x9700;&#x8981;&#x7279;&#x6B8A;&#x5904;&#x7406;&#x4E0B;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;.</p>
+<p>   &#x6839;&#x636E;&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#x5F97;&#x77E5;,<code>t2.(*T2)</code> &#x7684;&#x7C7B;&#x578B;&#x548C;&#x503C;&#x6070;&#x5DE7;&#x5C31;&#x662F;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x503C;,&#x5982;&#x679C;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x4E0D;&#x80FD;&#x8F6C;&#x6362;&#x6210;&#x6307;&#x5B9A;&#x63A5;&#x53E3;&#x7684;&#x8BDD;,&#x5219;&#x53EF;&#x80FD;&#x629B;&#x51FA;&#x5F02;&#x5E38;.</p>
+<p>   &#x56E0;&#x6B64;,&#x731C;&#x6D4B;&#x8FD9;&#x79CD;&#x5F62;&#x5F0F;&#x7684;&#x6548;&#x679C;&#x4E0A;&#x7C7B;&#x4F3C;&#x4E8E;&#x5F3A;&#x5236;&#x7C7B;&#x578B;&#x8F6C;&#x6362;,&#x5C06;&#x63A5;&#x53E3;&#x53D8;&#x91CF; <code>t2</code> &#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x6210;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;,&#x52A8;&#x4E0D;&#x52A8;&#x5C31;&#x62A5;&#x9519;&#x6216;&#x8005;&#x8BF4;&#x5FC5;&#x987B;&#x6307;&#x5B9A;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x548C;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x7684;&#x524D;&#x63D0;,&#x6709;&#x70B9;&#x50CF;&#x5176;&#x4ED6;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x7684;&#x65AD;&#x8A00;&#x673A;&#x5236;.</p>
+<p>   &#x5355;&#x72EC;&#x7814;&#x7A76;&#x4E00;&#x4E0B;&#x8FD9;&#x79CD;&#x65AD;&#x8A00;&#x673A;&#x5236;,&#x6309;&#x7167; <code>Go</code> &#x8BED;&#x8A00;&#x51FD;&#x6570;&#x8BBE;&#x8BA1;&#x7684;&#x601D;&#x60F3;,&#x8FD9;&#x79CD;&#x53EF;&#x80FD;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x7684;&#x5199;&#x6CD5;&#x5E76;&#x4E0D;&#x662F;&#x8BBE;&#x8BA1;&#x8005;&#x7684;&#x95EE;&#x9898;,&#x800C;&#x662F;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x8005;&#x7684;&#x8D23;&#x4EFB;,&#x5C5E;&#x4E8E;&#x4F7F;&#x7528;&#x4E0D;&#x5F53;,&#x6CA1;&#x6709;&#x68C0;&#x67E5;&#x80FD;&#x5426;&#x8F6C;&#x6362;&#x6210;&#x529F;.</p>
+<pre><code class="lang-go">v2,ok2 := t2.(*T2)
+</code></pre>
+<p>   &#x4ECE;&#x5B9E;&#x9645;&#x8FD0;&#x884C;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x53EF;&#x4EE5;&#x770B;&#x51FA;,&#x63A5;&#x53E3;&#x53D8;&#x91CF; <code>t2</code> &#x7ECF;&#x8FC7;&#x65AD;&#x8A00;&#x4E3A; <code>*T2</code> &#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x540E;&#x5F97;&#x5230;&#x7684;&#x53D8;&#x91CF;&#x548C;&#x63A5;&#x53E3;&#x53D8;&#x91CF; <code>t2</code> &#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x6837;&#x7684;,&#x56E0;&#x4E3A;&#x4ED6;&#x4FE9;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x503C;&#x5B8C;&#x5168;&#x4E00;&#x6837;.</p>
+<p>   &#x5F53;&#x8FD9;&#x79CD;&#x8F6C;&#x6362;&#x5931;&#x8D25;&#x65F6;,<code>ok</code> &#x7684;&#x503C;&#x662F; <code>false</code> ,&#x6B64;&#x65F6;&#x5F97;&#x5230;&#x7684;&#x8F6C;&#x6362;&#x7ED3;&#x679C;&#x5C31;&#x662F; <code>nil</code> .</p>
+<p><img src="../images/go-oop-interface-type-type-deduce.png" alt="go-oop-interface-type-type-deduce.png"></p>
+<h2 id="&#x8001;&#x5B50;&#x53E3;&#x4E2D;&#x7684;&#x65E0;&#x4E3A;&#x800C;&#x6CBB;&#x7A7A;&#x63A5;&#x53E3;"><a name="&#x8001;&#x5B50;&#x53E3;&#x4E2D;&#x7684;&#x65E0;&#x4E3A;&#x800C;&#x6CBB;&#x7A7A;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#&#x8001;&#x5B50;&#x53E3;&#x4E2D;&#x7684;&#x65E0;&#x4E3A;&#x800C;&#x6CBB;&#x7A7A;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. &#x8001;&#x5B50;&#x53E3;&#x4E2D;&#x7684;&#x65E0;&#x4E3A;&#x800C;&#x6CBB;&#x7A7A;&#x63A5;&#x53E3;</h2>
+<p>   &#x63A5;&#x53E3;&#x65E2;&#x7136;&#x662F;&#x5B9E;&#x73B0;&#x89C4;&#x8303;&#x7684;&#x65B9;&#x5F0F;,&#x6309;&#x7167;&#x4EE5;&#x5F80;&#x7684;&#x7F16;&#x7A0B;&#x7ECF;&#x9A8C;&#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;,&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x63A5;&#x53E3;&#x6700;&#x597D;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x7EC6;&#x5316;,&#x6700;&#x597D;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;,&#x8DB3;&#x591F;&#x7EC6;&#x5206;&#x63A5;&#x53E3;&#x5373;&#x51CF;&#x8F7B;&#x4E86;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x8D1F;&#x62C5;&#x4E5F;&#x65B9;&#x4FBF;&#x590D;&#x6742;&#x63A5;&#x53E3;&#x7684;&#x7EC4;&#x5408;&#x4F7F;&#x7528;.</p>
+<p>   &#x6709;&#x610F;&#x601D;&#x7684;&#x662F;,<code>Go</code> &#x7684;&#x63A5;&#x53E3;&#x8FD8;&#x53EF;&#x4EE5;&#x5B58;&#x5728;<strong>&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;</strong>&#x7684;&#x7A7A;&#x63A5;&#x53E3;,&#x8FD9;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x63A5;&#x53E3;&#x53EB;&#x505A;<strong>&#x7A7A;&#x63A5;&#x53E3;</strong>,&#x65E0;&#x4E3A;&#x800C;&#x6CBB;,&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x89C4;&#x8303;&#x7EA6;&#x675F;,&#x8FD9;&#x4E0D;&#x5C31;&#x662F;&#x8001;&#x5B50;&#x53E3;&#x4E2D;&#x7684;<strong>&#x987A;&#x5176;&#x81EA;&#x7136;,&#x65E0;&#x4E3A;&#x800C;&#x6CBB;</strong>&#x5417;?</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> EmptyInterface <span class="hljs-keyword">interface</span> {
+}
+</code></pre>
+<p>   &#x9053;&#x5BB6;&#x7684;&#x601D;&#x60F3;&#x4E3B;&#x8981;&#x9760;&#x9886;&#x609F;,&#x6709;&#x70B9;&#x54F2;&#x5B66;&#x7684;&#x5473;&#x9053;,&#x8FD9;&#x4E00;&#x70B9;&#x4E0D;&#x50CF;&#x7406;&#x79D1;&#x77E5;&#x8BC6;&#x90A3;&#x6837;&#x4E25;&#x8C28;,&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x5DF2;&#x77E5;&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x7684;&#x903B;&#x8F91;&#x63A8;&#x6D4B;&#x51FA;&#x672A;&#x77E5;,&#x751A;&#x81F3;&#x9884;&#x8A00;&#x51FA;&#x8D85;&#x65F6;&#x4EE3;&#x7684;&#x65B0;&#x7406;&#x8BBA;&#x4E5F;&#x4E0D;&#x662F;&#x6CA1;&#x6709;&#x53EF;&#x80FD;&#x7684;.</p>
+<p>   &#x7136;&#x800C;,&#x9053;&#x5BB6;&#x8BF4;<strong>&#x4E00;&#x751F;&#x4E8C;,&#x4E8C;&#x751F;&#x4E09;,&#x4E09;&#x751F;&#x4E07;&#x7269;</strong>,&#x8FD9;&#x53E5;&#x8BDD;&#x770B;&#x4F3C;&#x5341;&#x5206;&#x5BCC;&#x6709;&#x54F2;&#x7406;&#x6027;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x5374;&#x5F88;&#x96BE;&#x64CD;&#x4F5C;,&#x53EA;&#x8BB2;&#x4E86;&#x5F00;&#x5934;&#x548C;&#x7ED3;&#x5C3E;,&#x5E76;&#x6CA1;&#x6709;&#x8BB2;&#x89E3;&#x5982;&#x4F55;&#x751F;&#x4E07;&#x7269;,&#x5FFD;&#x7565;&#x4E86;&#x8FC7;&#x7A0B;,&#x5168;&#x9760;&#x4E2A;&#x4EBA;&#x9886;&#x609F;,&#x8FD9;&#x5C31;&#x5F88;&#x96BE;&#x8BB2;&#x89E3;&#x4E86;.</p>
+<p><img src="../images/go-oop-interface-type-dao-empty.jpg" alt="go-oop-interface-type-dao-empty.jpg"></p>
+<p>   &#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x7684;&#x7A7A;&#x63A5;&#x53E3;&#x548C;&#x4E00;&#x822C;&#x63A5;&#x53E3;&#x4E4B;&#x95F4;&#x662F;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;?</p>
+<p>&#x7A7A;&#x63A5;&#x53E3;&#x662F;&#x4E00;,&#x662F;&#x63A5;&#x53E3;&#x4E2D;&#x6700;&#x57FA;&#x7840;&#x7684;&#x5B58;&#x5728;,&#x6709;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x662F;&#x4E8C;,&#x6709;&#x4E8C;&#x5C31;&#x4F1A;&#x6709;&#x4E09;,&#x81EA;&#x7136;&#x5C31;&#x4F1A;&#x6709;&#x5343;&#x5343;&#x4E07;&#x4E07;&#x7684;&#x63A5;&#x53E3;,&#x4ECE;&#x800C;&#x6784;&#x9020;&#x51FA;&#x63A5;&#x53E3;&#x4E16;&#x754C;&#x89C2;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> TestEmptyInterfaceTypeDeduce(t *testing.T) {
+    <span class="hljs-keyword">var</span> _ Programmer = <span class="hljs-built_in">new</span>(GoProgrammer)
+    <span class="hljs-keyword">var</span> _ EmptyInterface = <span class="hljs-built_in">new</span>(GoProgrammer)
+}
+</code></pre>
+<p><code>GoProgrammer</code> &#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x4E0D;&#x4EC5;&#x5B9E;&#x73B0;&#x4E86; <code>Programmer</code> &#x63A5;&#x53E3;,&#x4E5F;&#x5B9E;&#x73B0;&#x7A7A;&#x63A5;&#x53E3;,&#x81F3;&#x5C11;&#x7F16;&#x8BD1;&#x7EA7;&#x522B;&#x6CA1;&#x6709;&#x62A5;&#x9519;.</p>
+<p>   &#x4F46;&#x662F;,<code>Go</code> &#x8BED;&#x8A00;&#x7684;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x662F;<strong>&#x4E25;&#x683C;&#x5B9E;&#x73B0;</strong>,&#x7A7A;&#x63A5;&#x53E3;&#x6CA1;&#x6709;&#x63A5;&#x53E3;,&#x56E0;&#x6B64;&#x6CA1;&#x6709;<strong>&#x4EFB;&#x4F55;&#x7ED3;&#x6784;&#x4F53;&#x90FD;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x7A7A;&#x63A5;&#x53E3;</strong>,&#x7B26;&#x5408;&#x4E00;&#x8D2F;&#x7684;&#x8BBE;&#x8BA1;&#x7406;&#x5FF5;,&#x5E76;&#x6CA1;&#x6709;&#x7279;&#x6B8A;&#x5904;&#x7406;&#x6210;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x7A7A;&#x63A5;&#x53E3;.</p>
+<p><img src="../images/go-oop-interface-type-empty-interface-not-implement.png" alt="go-oop-interface-type-empty-interface-not-implement.png"></p>
+<p>   &#x6240;&#x4EE5;&#x6211;&#x56F0;&#x60D1;&#x4E86;,&#x4E00;&#x65B9;&#x9762;,&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7ED9;&#x7A7A;&#x63A5;&#x53E3;&#x53D8;&#x91CF;,&#x800C;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x5374;&#x53C8;&#x6CA1;&#x6CD5;&#x5B9E;&#x73B0;&#x7A7A;&#x63A5;&#x53E3;,&#x8FD9;&#x4E0D;&#x662F;&#x6709;&#x79CD;<strong>&#x81EA;&#x76F8;&#x77DB;&#x76FE;</strong>&#x7684;&#x5730;&#x65B9;&#x5417;?</p>
+<h2 id="&#x83AB;&#x975E;&#x662F;&#x7EE7;&#x627F;&#x4E0D;&#x8DB3;&#x7A7A;&#x63A5;&#x53E3;&#x6765;&#x51D1;"><a name="&#x83AB;&#x975E;&#x662F;&#x7EE7;&#x627F;&#x4E0D;&#x8DB3;&#x7A7A;&#x63A5;&#x53E3;&#x6765;&#x51D1;" class="anchor-navigation-ex-anchor" href="#&#x83AB;&#x975E;&#x662F;&#x7EE7;&#x627F;&#x4E0D;&#x8DB3;&#x7A7A;&#x63A5;&#x53E3;&#x6765;&#x51D1;"><i class="fa fa-link" aria-hidden="true"></i></a>1.6. &#x83AB;&#x975E;&#x662F;&#x7EE7;&#x627F;&#x4E0D;&#x8DB3;&#x7A7A;&#x63A5;&#x53E3;&#x6765;&#x51D1;</h2>
+<p>   &#x660E;&#x660E;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x7A7A;&#x63A5;&#x53E3;&#x5374;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7ED9;&#x7A7A;&#x63A5;&#x53E3;,&#x96BE;&#x4E0D;&#x6210;&#x662F;&#x4E3A;&#x4E86;&#x5F25;&#x8865;&#x8BED;&#x8A00;&#x8BBE;&#x8BA1;&#x7684;&#x4E0D;&#x8DB3;?</p>
+<p>&#x56E0;&#x4E3A; <code>Go</code> &#x8BED;&#x8A00;&#x4E0D;&#x652F;&#x6301;&#x7EE7;&#x627F;,&#x81EA;&#x7136;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x4E2D;&#x7684;<strong>&#x57FA;&#x7C7B;</strong>&#x6982;&#x5FF5;,&#x800C;&#x5B9E;&#x9645;&#x5DE5;&#x4F5C;&#x4E2D;&#x6709;&#x65F6;&#x5019;&#x786E;&#x5B9E;&#x9700;&#x8981;&#x4E00;&#x79CD;&#x901A;&#x7528;&#x7684;&#x5C01;&#x88C5;&#x7ED3;&#x6784;,&#x96BE;&#x9053;&#x662F;&#x7EE7;&#x627F;&#x4E0D;&#x8DB3;,&#x63A5;&#x53E3;&#x6765;&#x51D1;?</p>
+<p>&#x6240;&#x4EE5;&#x8BBE;&#x8BA1;&#x51FA;&#x7A7A;&#x63A5;&#x53E3;&#x8FD9;&#x79CD;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x6765;&#x5F25;&#x8865;&#x6CA1;&#x6709;&#x7EE7;&#x627F;&#x7279;&#x6027;&#x7684;&#x4E0D;&#x8DB3;?&#x6709;&#x4E86;&#x7A7A;&#x63A5;&#x53E3;&#x5C31;&#x6709;&#x4E86; <code>Go</code> &#x8BED;&#x8A00;&#x4E2D;&#x7684; <code>Object</code> &#x548C;&#x6CDB;&#x578B; <code>T</code> ,&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x79CD;&#x7406;&#x89E3;&#x5BF9;&#x4E0D;&#x5BF9;?</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> TestEmptyInterface(t *testing.T) {
+    <span class="hljs-keyword">var</span> _ Programmer = <span class="hljs-built_in">new</span>(GoProgrammer)
+    <span class="hljs-keyword">var</span> _ EmptyInterface = <span class="hljs-built_in">new</span>(GoProgrammer)
+    <span class="hljs-keyword">var</span> p EmptyInterface = <span class="hljs-built_in">new</span>(GoProgrammer)
+
+    v, ok := p.(GoProgrammer)
+    t.Logf(<span class="hljs-string">&quot;%[1]T %[1]v %v\n&quot;</span>, v, ok)
+}
+</code></pre>
+<p>   &#x7A7A;&#x63A5;&#x53E3;&#x7684;&#x8FD9;&#x79CD;&#x7279;&#x6B8A;&#x6027;&#x503C;&#x5F97;&#x6211;&#x4EEC;&#x82B1;&#x65F6;&#x95F4;&#x53BB;&#x7814;&#x7A76;&#x4E00;&#x4E0B;,&#x56E0;&#x4E3A;&#x4EFB;&#x4F55;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x90FD;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7ED9;&#x7A7A;&#x63A5;&#x53E3;,&#x90A3;&#x4E48;&#x6B64;&#x65F6;&#x7684;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x65AD;&#x8A00;&#x51FA;&#x7ED3;&#x6784;&#x4F53;&#x53D8;&#x91CF;&#x662F;&#x5426;&#x4E5F;&#x6709;&#x914D;&#x5957;&#x7684;&#x7279;&#x6B8A;&#x4E4B;&#x5904;&#x5462;?</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> TestEmptyInterfaceTypeDeduce(t *testing.T) {
+    <span class="hljs-keyword">var</span> gpe EmptyInterface = <span class="hljs-built_in">new</span>(GoProgrammer)
+
+    v, ok := gpe.(Programmer)
+    t.Logf(<span class="hljs-string">&quot;%[1]T %[1]v %v\n&quot;</span>, v, ok)
+
+    v, ok = gpe.(*GoProgrammer)
+    t.Logf(<span class="hljs-string">&quot;%[1]T %[1]v %v\n&quot;</span>, v, ok)
+
+    <span class="hljs-keyword">switch</span> v := gpe.(<span class="hljs-keyword">type</span>) {
+    <span class="hljs-keyword">case</span> <span class="hljs-keyword">int</span>:
+        t.Log(<span class="hljs-string">&quot;int&quot;</span>, v)
+    <span class="hljs-keyword">case</span> <span class="hljs-keyword">string</span>:
+        t.Log(<span class="hljs-string">&quot;string&quot;</span>, v)
+    <span class="hljs-keyword">case</span> Programmer:
+        t.Log(<span class="hljs-string">&quot;Programmer&quot;</span>, v)
+    <span class="hljs-keyword">case</span> EmptyInterface:
+        t.Log(<span class="hljs-string">&quot;EmptyInterface&quot;</span>, v)
+    <span class="hljs-keyword">default</span>:
+        t.Log(<span class="hljs-string">&quot;unknown&quot;</span>, v)
+    }
+}
+</code></pre>
+<p>   &#x867D;&#x7136;&#x63A5;&#x6536;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;,&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#x5FC5;&#x987B;&#x6E05;&#x695A;&#x77E5;&#x9053;&#x5177;&#x4F53;&#x7C7B;&#x578B;&#x624D;&#x80FD;&#x8C03;&#x7528;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;,&#x56E0;&#x800C;&#x8FD9;&#x79CD;<strong>&#x65AD;&#x8A00;</strong>&#x673A;&#x5236;&#x5341;&#x5206;&#x91CD;&#x8981;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> doSomething(p <span class="hljs-keyword">interface</span>{}) {
+    <span class="hljs-keyword">if</span> i, ok := p.(<span class="hljs-keyword">int</span>); ok {
+        fmt.Println(<span class="hljs-string">&quot;int&quot;</span>, i)
+        <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">if</span> s, ok := p.(<span class="hljs-keyword">string</span>); ok {
+        fmt.Println(<span class="hljs-string">&quot;string&quot;</span>, s)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;unknown type&quot;</span>, p)
+}
+
+<span class="hljs-keyword">func</span> TestDoSomething(t *testing.T) {
+    doSomething(<span class="hljs-number">10</span>)
+    doSomething(<span class="hljs-string">&quot;10&quot;</span>)
+    doSomething(<span class="hljs-number">10.0</span>)
+}
+</code></pre>
+<p>&#x5F53;&#x7136;&#x4E0A;&#x8FF0; <code>doSomething</code> &#x53EF;&#x4EE5;&#x91C7;&#x7528; <code>switch</code> &#x8BED;&#x53E5;&#x8FDB;&#x884C;&#x7B80;&#x5316;,&#x5982;&#x4E0B;:</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> doSomethingBySwitch(p <span class="hljs-keyword">interface</span>{}) {
+    <span class="hljs-keyword">switch</span> v := p.(<span class="hljs-keyword">type</span>) {
+    <span class="hljs-keyword">case</span> <span class="hljs-keyword">int</span>:
+        fmt.Println(<span class="hljs-string">&quot;int&quot;</span>, v)
+    <span class="hljs-keyword">case</span> <span class="hljs-keyword">string</span>:
+        fmt.Println(<span class="hljs-string">&quot;string&quot;</span>, v)
+    <span class="hljs-keyword">default</span>:
+        fmt.Println(<span class="hljs-string">&quot;unknown type&quot;</span>, v)
+    }
+}
+
+<span class="hljs-keyword">func</span> TestDoSomethingBySwitch(t *testing.T) {
+    doSomethingBySwitch(<span class="hljs-number">10</span>)
+    doSomethingBySwitch(<span class="hljs-string">&quot;10&quot;</span>)
+    doSomethingBySwitch(<span class="hljs-number">10.0</span>)
+}
+</code></pre>
+<h2 id="&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x63A5;&#x53E3;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x603B;&#x7ED3;"><a name="&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x63A5;&#x53E3;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x63A5;&#x53E3;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>1.7. &#x4E0D;&#x4E00;&#x6837;&#x7684;&#x63A5;&#x53E3;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x603B;&#x7ED3;</h2>
+<ul>
+<li>&#x7C7B;&#x578B;&#x522B;&#x540D;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Code <span class="hljs-keyword">string</span>
+</code></pre>
+<blockquote>
+<p><code>Code</code> &#x7C7B;&#x578B;&#x662F;&#x539F;&#x59CB;&#x7C7B;&#x578B; <code>string</code> &#x7684;&#x522B;&#x540D;,&#x4F46; <code>Code</code> &#x548C; <code>string</code> &#x5374;&#x4E0D;&#x662F;&#x5B8C;&#x5168;&#x76F8;&#x7B49;&#x7684;,&#x56E0;&#x4E3A; <code>Go</code> &#x4E0D;&#x5B58;&#x5728;&#x9690;&#x5F0F;&#x7C7B;&#x578B;&#x8F6C;&#x6362;,<code>Go</code> &#x4E0D;&#x8BA4;&#x4E3A;&#x8FD9;&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x662F;&#x4E00;&#x6837;&#x7684;.</p>
+</blockquote>
+<ul>
+<li>&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x8005;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Programmer <span class="hljs-keyword">interface</span> {
+    WriteHelloWord() Code
+}
+</code></pre>
+<blockquote>
+<p><code>Programmer</code> &#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x4E86; <code>WriteHelloWord()</code> &#x7684;&#x65B9;&#x6CD5;.</p>
+</blockquote>
+<ul>
+<li>&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x8005;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> GoProgrammer <span class="hljs-keyword">struct</span> {
+}
+
+<span class="hljs-keyword">func</span> (g *GoProgrammer) WriteHelloWord() Code {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;fmt.Println(\&quot;Hello World!\&quot;)&quot;</span>
+}
+</code></pre>
+<blockquote>
+<p><code>Go</code> &#x5F00;&#x53D1;&#x8005;&#x5B9E;&#x73B0;&#x4E86; <code>WriteHelloWord</code> &#x63A5;&#x53E3;&#x65B9;&#x6CD5;,&#x800C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x521A;&#x597D;&#x662F; <code>Programmer</code> &#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x552F;&#x4E00;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;,&#x56E0;&#x6B64; <code>GoProgrammer</code> &#x4E5F;&#x5C31;&#x662F; <code>Programmer</code> &#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x8005;.</p>
+</blockquote>
+<p>&#x8FD9;&#x79CD;<strong>&#x57FA;&#x4E8E;&#x65B9;&#x6CD5;&#x63A8;&#x65AD;</strong>&#x51FA;&#x5B9E;&#x73B0;&#x8005;&#x548C;&#x5B9A;&#x4E49;&#x8005;&#x7684;&#x5F62;&#x5F0F;&#x548C;&#x5176;&#x4ED6;&#x4E3B;&#x6D41;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x6709;&#x5F88;&#x5927;&#x7684;&#x4E0D;&#x540C;,&#x8FD9;&#x91CC;&#x5E76;&#x6CA1;&#x6709;&#x663E;&#x793A;&#x58F0;&#x660E;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4EC0;&#x4E48;&#x63A5;&#x53E3;,&#x800C;&#x662F;&#x8BF4;&#x5E72;&#x5C31;&#x5E72;,&#x53EF;&#x80FD;<strong>&#x4E00;&#x4E0D;&#x5C0F;&#x5FC3;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x67D0;&#x79CD;&#x63A5;&#x53E3;</strong>&#x90FD;&#x6709;&#x53EF;&#x80FD;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> JavaProgrammer <span class="hljs-keyword">struct</span> {
+}
+
+<span class="hljs-keyword">func</span> (j *JavaProgrammer) WriteHelloWord() Code {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;System.out.Println(\&quot;Hello World!\&quot;)&quot;</span>
+}
+</code></pre>
+<blockquote>
+<p>&#x6B64;&#x65F6;,&#x5F53;&#x7136;&#x662F;&#x6211;&#x4EEC;&#x6545;&#x610F;&#x5B9E;&#x73B0;&#x4E86; <code>Programmer</code> &#x63A5;&#x53E3;,&#x4EE5;&#x4FBF;&#x63A5;&#x4E0B;&#x6765;&#x65B9;&#x4FBF;&#x6F14;&#x793A;&#x63A5;&#x53E3;&#x7684;&#x57FA;&#x4E8E;&#x7528;&#x6CD5;.</p>
+</blockquote>
+<ul>
+<li>&#x63A5;&#x53E3;&#x7684;&#x4F7F;&#x7528;&#x8005;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> writeFirstProgram(p Programmer) {
+    fmt.Printf(<span class="hljs-string">&quot;%[1]T %[1]v %v\n&quot;</span>, p, p.WriteHelloWord())
+}
+</code></pre>
+<blockquote>
+<p>&#x5B9A;&#x4E49;&#x4E86; <code>writeFirstProgram</code> &#x7684;&#x51FD;&#x6570;,&#x63A5;&#x6536; <code>Programmer</code> &#x63A5;&#x53E3;&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;,&#x800C;&#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86; <code>WriteHelloWord</code> &#x7684;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;.</p>
+</blockquote>
+<p>&#x6240;&#x4EE5;&#x4E0D;&#x7BA1;&#x662F; <code>GoProgrammer</code> &#x8FD8;&#x662F; <code>JavaProgrammer</code> &#x90FD;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9; <code>writeFirstProgram</code> &#x51FD;&#x6570;,&#x8FD9;&#x5C31;&#x662F;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;,&#x5E76;&#x4E0D;&#x5728;&#x4E4E;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x8005;,&#x53EA;&#x5173;&#x5FC3;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x8DB3;&#x77E3;.</p>
+<ul>
+<li>&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> TestPolymorphism(t *testing.T) {
+    gp := <span class="hljs-built_in">new</span>(GoProgrammer)
+    jp := <span class="hljs-built_in">new</span>(JavaProgrammer)
+
+    <span class="hljs-comment">// *polymorphism.GoProgrammer &amp;{} fmt.Println(&quot;Hello World!&quot;)</span>
+    writeFirstProgram(gp)
+    <span class="hljs-comment">// *polymorphism.JavaProgrammer &amp;{} System.out.Println(&quot;Hello World!&quot;)</span>
+    writeFirstProgram(jp)
+}
+</code></pre>
+<blockquote>
+<p>&#x4F20;&#x9012;&#x7ED9; <code>writeFirstProgram</code> &#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x4E2D;&#x5982;&#x679C;&#x662F; <code>GoProgrammer</code> &#x5219;&#x5B9E;&#x73B0; <code>Go</code> &#x8BED;&#x8A00;&#x7248;&#x672C;&#x7684; <code>Hello World!</code>,&#x5982;&#x679C;&#x662F; <code>JavaProgrammer</code> &#x5219;&#x662F; <code>Java</code> &#x7248;&#x672C;&#x7684; <code>System.out.Println(&quot;Hello World!&quot;)</code></p>
+</blockquote>
+<ul>
+<li>&#x770B;&#x4F3C;&#x677E;&#x6563;&#x5B9E;&#x5219;&#x4F9D;&#x65E7;&#x4E25;&#x683C;&#x7684;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x89C4;&#x5219;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> MyProgrammer <span class="hljs-keyword">interface</span> {
+    WriteHelloWord() <span class="hljs-keyword">string</span>
+}
+</code></pre>
+<p><img src="../images/go-oop-interface-type-alias-not-implement.png" alt="go-oop-interface-type-alias-not-implement.png"></p>
+<blockquote>
+<p><code>MyProgrammer</code> &#x548C; <code>Programmer</code> &#x4E2D;&#x7684; <code>WriteHelloWord</code> &#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x53EA;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#x4E0D;&#x4E00;&#x6837;,&#x867D;&#x7136;<code>Code</code> &#x7C7B;&#x578B;&#x662F; <code>string</code> &#x7C7B;&#x578B;&#x7684;&#x522B;&#x540D;,&#x4F46;&#x662F; <code>Go</code> &#x4F9D;&#x65E7;&#x4E0D;&#x8BA4;&#x4E3A;&#x4E24;&#x8005;&#x76F8;&#x540C;,&#x6240;&#x4EE5; <code>JavaProgrammer</code> &#x4E0D;&#x80FD;&#x8D4B;&#x503C;&#x7ED9; <code>MyProgrammer</code> &#x63A5;&#x53E3;&#x7C7B;&#x578B;.</p>
+</blockquote>
+<ul>
+<li>&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x809A;&#x5B50;&#x91CC;&#x662F;&#x85CF;&#x4E86;&#x5565;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> GoProgrammer <span class="hljs-keyword">struct</span> {
+    name <span class="hljs-keyword">string</span>
+}
+
+<span class="hljs-keyword">type</span> JavaProgrammer <span class="hljs-keyword">struct</span> {
+    name <span class="hljs-keyword">string</span>
+}
+</code></pre>
+<blockquote>
+<p>&#x7ED9;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x8005;&#x6DFB;&#x52A0; <code>name</code> &#x5C5E;&#x6027;,&#x5176;&#x4F59;&#x4E0D;&#x505A;&#x6539;&#x53D8;.</p>
+</blockquote>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> interfaceContent(p Programmer) {
+    fmt.Printf(<span class="hljs-string">&quot;%[1]T %[1]v\n&quot;</span>, p)
+}
+
+<span class="hljs-keyword">func</span> TestInterfaceContent(t *testing.T) {
+    <span class="hljs-keyword">var</span> gp Programmer = &amp;GoProgrammer{
+        name:<span class="hljs-string">&quot;Go&quot;</span>,
+    }
+    <span class="hljs-keyword">var</span> jp Programmer = &amp;JavaProgrammer{
+        name:<span class="hljs-string">&quot;Java&quot;</span>,
+    }
+
+    <span class="hljs-comment">// *polymorphism.GoProgrammer &amp;{Go}</span>
+    interfaceContent(gp)
+    <span class="hljs-comment">// *polymorphism.JavaProgrammer &amp;{Java}</span>
+    interfaceContent(jp)
+}
+</code></pre>
+<blockquote>
+<p>&#x8F93;&#x51FA;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x503C;,&#x7ED3;&#x679C;&#x663E;&#x793A;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x5C31;&#x662F;&#x7ED3;&#x6784;&#x4F53;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x7C7B;&#x578B;,&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x5C31;&#x662F;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x503C;.</p>
+</blockquote>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (g GoProgrammer) PrintName()  {
+    fmt.Println(g.name)
+}
+
+<span class="hljs-keyword">func</span> (j JavaProgrammer) PrintName()  {
+    fmt.Println(j.name)
+}
+</code></pre>
+<p>&#x73B0;&#x5728;&#x7EE7;&#x7EED;&#x6DFB;&#x52A0;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x7684;&#x65B9;&#x6CD5;,&#x53EF;&#x80FD; <code>PrintName</code> &#x65B9;&#x6CD5;&#x6709;&#x610F;&#x65E0;&#x610F;&#x5B9E;&#x73B0;&#x4E86;&#x67D0;&#x79CD;&#x63A5;&#x53E3;,&#x4E0D;&#x8FC7;&#x5728;&#x6F14;&#x793A;&#x9879;&#x76EE;&#x4E2D;&#x80AF;&#x5B9A;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;.</p>
+<p>&#x4ECE;&#x5B9E;&#x9A8C;&#x4E2D;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x503C;&#x90FD;&#x662F;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x503C;,&#x90A3;&#x4E48;&#x80FD;&#x5426;&#x901A;&#x8FC7;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x8BBF;&#x95EE;&#x5230;&#x5B9E;&#x73B0;&#x8005;&#x5462;?</p>
+<p>&#x60F3;&#x8981;&#x5B8C;&#x6210;&#x8BBF;&#x95EE;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x76EE;&#x6807;,&#x9996;&#x5148;&#x9700;&#x8981;&#x77E5;&#x9053;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x7C7B;&#x578B;,&#x7136;&#x540E;&#x624D;&#x80FD;&#x56E0;&#x5730;&#x5236;&#x5B9C;&#x8BBF;&#x95EE;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#x7B49;.</p>
+<ul>
+<li>&#x65AD;&#x8A00;&#x5224;&#x65AD;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x7684;&#x5B9E;&#x73B0;&#x8005;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> TestInterfaceTypeImplMethod(t *testing.T) {
+    <span class="hljs-keyword">var</span> gp Programmer = &amp;GoProgrammer{
+        name: <span class="hljs-string">&quot;Go&quot;</span>,
+    }
+
+    <span class="hljs-comment">// *polymorphism.GoProgrammer &amp;{Go}</span>
+    fmt.Printf(<span class="hljs-string">&quot;%[1]T %[1]v\n&quot;</span>, gp)
+
+    <span class="hljs-keyword">if</span> v, ok := gp.(*GoProgrammer); ok {
+        <span class="hljs-comment">// Go</span>
+        v.PrintName()
+    }<span class="hljs-keyword">else</span>{
+        fmt.Println(<span class="hljs-string">&quot;gp is not *GoProgrammer&quot;</span>)
+    }
+}
+</code></pre>
+<blockquote>
+<p><code>v, ok := gp.(*GoProgrammer)</code> &#x5C06;&#x63A5;&#x53E3;&#x53D8;&#x91CF;&#x8F6C;&#x6362;&#x6210;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;,&#x5982;&#x679C;&#x8F6C;&#x6362;&#x6210;&#x529F;&#x610F;&#x5473;&#x7740;&#x65AD;&#x8A00;&#x6210;&#x529F;,&#x5219;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x76F8;&#x5E94;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;.&#x5982;&#x679C;&#x65AD;&#x8A00;&#x5931;&#x8D25;,&#x5219;&#x4E0D;&#x53EF;&#x4EE5;.</p>
+</blockquote>
+<ul>
+<li>&#x7A7A;&#x63A5;&#x53E3;&#x5B9A;&#x4E49;&#x548C;&#x4F7F;&#x7528;</li>
+</ul>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> EmptyInterface <span class="hljs-keyword">interface</span> {
+
+}
+</code></pre>
+<blockquote>
+<p>&#x4EFB;&#x4F55;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;&#x90FD;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7ED9;&#x7A7A;&#x63A5;&#x53E3;,&#x6B64;&#x65F6;&#x7A7A;&#x63A5;&#x53E3;&#x4F9D;&#x65E7;&#x548C;&#x4E00;&#x822C;&#x63A5;&#x53E3;&#x4E00;&#x6837;&#x7684;&#x662F;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x65AD;&#x8A00;&#x673A;&#x5236;&#x786E;&#x5B9A;&#x76EE;&#x6807;&#x7ED3;&#x6784;&#x4F53;&#x7C7B;&#x578B;.</p>
+</blockquote>
+<p>&#x4F46;&#x8FD9;&#x5E76;&#x4E0D;&#x662F;&#x6700;&#x5E38;&#x7528;&#x7684;&#x64CD;&#x4F5C;,&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;&#x505A;&#x6CD5;&#x8FD8;&#x662F;&#x7528;&#x6765;&#x5145;&#x5F53;&#x7C7B;&#x4F3C;&#x4E8E; <code>Object</code> &#x6216;&#x8005;&#x6CDB;&#x578B;&#x7684;&#x89D2;&#x8272;,&#x7A7A;&#x63A5;&#x53E3;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> emptyInterfaceParam(p <span class="hljs-keyword">interface</span>{}){
+    fmt.Printf(<span class="hljs-string">&quot;%[1]T %[1]v&quot;</span>,p)
+
+    <span class="hljs-keyword">switch</span> v := p.(<span class="hljs-keyword">type</span>) {
+    <span class="hljs-keyword">case</span> <span class="hljs-keyword">int</span>:
+        fmt.Println(<span class="hljs-string">&quot;int&quot;</span>, v)
+    <span class="hljs-keyword">case</span> <span class="hljs-keyword">string</span>:
+        fmt.Println(<span class="hljs-string">&quot;string&quot;</span>, v)
+    <span class="hljs-keyword">case</span> Programmer:
+        fmt.Println(<span class="hljs-string">&quot;Programmer&quot;</span>, v)
+    <span class="hljs-keyword">case</span> EmptyInterface:
+        fmt.Println(<span class="hljs-string">&quot;EmptyInterface&quot;</span>, v)
+    <span class="hljs-keyword">default</span>:
+        fmt.Println(<span class="hljs-string">&quot;unknown&quot;</span>, v)
+    }
+}
+
+<span class="hljs-keyword">func</span> TestEmptyInterfaceParam(t *testing.T) {
+    <span class="hljs-keyword">var</span> gp Programmer = <span class="hljs-built_in">new</span>(GoProgrammer)
+    <span class="hljs-keyword">var</span> ge EmptyInterface = <span class="hljs-built_in">new</span>(GoProgrammer)
+
+    <span class="hljs-comment">// *polymorphism.GoProgrammer &amp;{}Programmer &amp;{}</span>
+    emptyInterfaceParam(gp)
+
+    <span class="hljs-comment">// *polymorphism.GoProgrammer &amp;{}Programmer &amp;{}</span>
+    emptyInterfaceParam(ge)
+}
+</code></pre>
+<p>&#x597D;&#x4E86;,&#x5173;&#x4E8E; <code>Go</code> &#x8BED;&#x8A00;&#x7684;&#x63A5;&#x53E3;&#x90E8;&#x5206;&#x6682;&#x65F6;&#x7ED3;&#x675F;&#x4E86;,&#x5173;&#x4E8E;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x98CE;&#x683C;&#x7684;&#x63A2;&#x7D22;&#x4E5F;&#x544A;&#x4E00;&#x6BB5;&#x843D;,&#x63A5;&#x4E0B;&#x6765;&#x5C06;&#x5F00;&#x59CB;&#x63A2;&#x7D22; <code>Go</code> &#x7684;&#x4E00;&#x7B49;&#x516C;&#x6C11;&#x51FD;&#x6570;&#x4EE5;&#x53CA;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;.&#x656C;&#x8BF7;&#x671F;&#x5F85;,&#x5E0C;&#x671B;&#x5B66;&#x4E60;&#x8DEF;&#x4E0A;,&#x4E0E;&#x4F60;&#x540C;&#x884C;!</p>
+<p><img src="../images/go-oop-interface-type-thank_you.png" alt="go-oop-interface-type-thank_you.png"></p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/l-nqzYjcre2g__BrVptR9A" target="_blank">&#x731C;&#x731C;&#x770B;go&#x662F;&#x4E0D;&#x662F;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;&#xFF1F;&#x80FD;&#x4E0D;&#x80FD;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#xFF1F;</a></li>
+<li><a href="https://mp.weixin.qq.com/s/fXIKWsPqi6m2IEV--8lBsg" target="_blank">go &#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x4E4B;&#x8BE6;&#x7EC6;&#x8BF4;&#x4E00;&#x8BF4;&#x5C01;&#x88C5;&#x662F;&#x600E;&#x4E48;&#x56DE;&#x4E8B;</a></li>
+<li><a href="https://mp.weixin.qq.com/s/w9ZfTAMr-mnQ9RK_Va-mEg" target="_blank">go &#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x4E4B;&#x662F;&#x5426;&#x652F;&#x6301;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7EE7;&#x627F;</a></li>
+<li><a href="https://mp.weixin.qq.com/s/Y2ZfdFUO2QMgWQY5jP0VaA" target="_blank">go &#x5B66;&#x4E60;&#x7B14;&#x8BB0;&#x4E4B;&#x4E07;&#x4E07;&#x6CA1;&#x60F3;&#x5230;&#x5BA0;&#x7269;&#x5E97;&#x7ADF;&#x7136;&#x50AC;&#x751F;&#x51FA;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;?</a></li>
+</ul>
+<blockquote>
+<p>&#x4E0A;&#x8FF0;&#x5217;&#x8868;&#x662F;&#x5173;&#x4E8E; <code>Go</code> &#x8BED;&#x8A00;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5168;&#x90E8;&#x7CFB;&#x5217;&#x6587;&#x7AE0;,&#x8BE6;&#x60C5;&#x89C1;&#x5FAE;&#x4FE1;&#x516C;&#x4F17;&#x53F7;&#x300C;&#x96EA;&#x4E4B;&#x68A6;&#x6280;&#x672F;&#x9A7F;&#x7AD9;&#x300D;,&#x5982;&#x679C;&#x672C;&#x6587;&#x5BF9;&#x4F60;&#x6709;&#x6240;&#x5E2E;&#x52A9;,&#x6B22;&#x8FCE;&#x8F6C;&#x53D1;&#x5206;&#x4EAB;,&#x5982;&#x6709;&#x63CF;&#x8FF0;&#x4E0D;&#x5F53;&#x4E4B;&#x5904;,&#x8BF7;&#x4E00;&#x5B9A;&#x8981;&#x7559;&#x8A00;&#x8BC4;&#x8BBA;&#x544A;&#x8BC9;&#x6211;,&#x611F;&#x8C22;~</p>
+</blockquote>
+<script type="text/javascript">var targetUl = document.getElementsByClassName('page-inner')[0].getElementsByTagName('ul')[0];if(targetUl.getElementsByTagName('a').length>0){targetUl.className='toc';}</script>
+
+<pre><code class="lang-html">&#x4F5C;&#x8005;: &#x96EA;&#x4E4B;&#x68A6;&#x6280;&#x672F;&#x9A7F;&#x7AD9;
+&#x94FE;&#x63A5;: https://snowdreams1006.github.io/go/oop/interface-type.html
+&#x6765;&#x6E90;: &#x96EA;&#x4E4B;&#x68A6;&#x6280;&#x672F;&#x9A7F;&#x7AD9;
+&#x672C;&#x6587;&#x539F;&#x521B;&#x53D1;&#x5E03;&#x4E8E;&#x300C;&#x96EA;&#x4E4B;&#x68A6;&#x6280;&#x672F;&#x9A7F;&#x7AD9;&#x300D;,&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;,&#x8C22;&#x8C22;&#x5408;&#x4F5C;!
+</code></pre>
+<p><img src="https://snowdreams1006.github.io/snowdreams1006-wechat-open.png" alt="https://snowdreams1006.github.io/snowdreams1006-wechat-open.png"> </p>
+<p><footer class="page-footer"><span class="copyright">&#xA9; snowdreams1006 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;: 
+2019-11-01 19:34:36
+</span></footer></p>
+<div id="gitalk-container"></div>
+                </div>
+                <script src="https://my.openwrite.cn/js/readmore.js"></script>
+                <script>
+                    var enablePlugin = false;
+                    var allowDomain = "localhost";
+                    if(allowDomain){
+                        var currentDomain = location.hostname;
+                        if ($.isArray(allowDomain)) {
+                            $.each(allowDomain, function(index, item) {
+                                if (currentDomain == item) {
+                                    enablePlugin = true;
+                                    return false;
+                                }
+                            });
+                        }else{
+                           if (currentDomain == allowDomain) {
+                                enablePlugin = true;
+                            }
+                        }
+                    }else{
+                        enablePlugin = true;
+                    }
+                    
+                    if(enablePlugin){
+                        var isMobile = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i);
+                        if (!isMobile) {
+                            var btw = new BTWPlugin();
+                            btw.init({"allowDomain":"localhost","blogId":"15702-1569305559839-744","name":"雪之梦技术驿站","qrcode":"https://snowdreams1006.github.io/snowdreams1006-wechat-public.jpeg","keyword":"vip","id":"vip-container"});
+                        }
+                    }
+                </script>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="interface.html" class="navigation navigation-prev " aria-label="Previous page: 初识接口">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../functional/about.html" class="navigation navigation-next " aria-label="Next page: 函数式编程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"再谈接口","level":"3.1.3.4","depth":3,"next":{"title":"函数式编程","level":"3.1.4","depth":2,"path":"go/functional/about.md","ref":"go/functional/about.md","articles":[{"title":"斐波那契数列","level":"3.1.4.1","depth":3,"path":"go/functional/fib.md","ref":"go/functional/fib.md","articles":[]},{"title":"简要理解闭包","level":"3.1.4.2","depth":3,"path":"go/functional/closure.md","ref":"go/functional/closure.md","articles":[]}]},"previous":{"title":"初识接口","level":"3.1.3.3","depth":3,"path":"go/oop/interface.md","ref":"go/oop/interface.md","articles":[]},"dir":"ltr"},"config":{"plugins":["toc","pageview-count","mermaid-gb3","-lunr","-search","search-plus","splitter","-sharing","sharing-plus","expandable-chapters-small","anchor-navigation-ex","edit-link-plus","copy-code-button","chart","favicon-absolute","github-buttons","advanced-emoji","rss","sitemap-general","readmore","copyright","tbfed-pagefooter","mygitalk","donate","icp"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"&copy snowdreams1006","modify_label":"文件修订时间: ","modify_format":"YYYY-MM-DD HH:mm:ss"},"splitter":{},"copyright":{"site":"https://snowdreams1006.github.io/","author":"雪之梦技术驿站","website":"雪之梦技术驿站","image":"https://snowdreams1006.github.io/snowdreams1006-wechat-open.png"},"toc":{"addClass":true,"className":"toc"},"edit-link-plus":{"label":"编辑本页","base":{"snowdreams1006.github.io":"https://github.com/snowdreams1006/snowdreams1006.github.io/edit/master","snowdreams1006.gitlab.io":"https://gitlab.com/snowdreams1006/snowdreams1006.gitlab.io/edit/master","snowdreams1006.gitee.io":"https://gitee.com/snowdreams1006/snowdreams1006/edit/master"},"defaultBase":"https://github.com/snowdreams1006/snowdreams1006.github.io/edit/master"},"readmore":{"allowDomain":"localhost","blogId":"15702-1569305559839-744","name":"雪之梦技术驿站","qrcode":"https://snowdreams1006.github.io/snowdreams1006-wechat-public.jpeg","keyword":"vip"},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"donate":{"alipay":"/alipay.jpg","alipayText":"支付宝","button":"赏","title":"","wechat":"/wechat.jpg","wechatText":"微信"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"/apple-touch-icon-precomposed-152.png","appleTouchIconPrecomposedMore":{},"favicon":"/favicon.ico"},"sitemap-general":{"prefix":"https://snowdreams1006.github.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"rss":{"categories":["markdown","git","github","gitbook","java","php"],"title":"雪之梦技术驿站","description":"雪之梦技术驿站静态网站,源码托管于 https://github.com/snowdreams1006/snowdreams1006.github.io","author":"snowdreams1006","site_url":"https://snowdreams1006.github.io/","feed_url":"https://snowdreams1006.github.io/rss","managingEditor":"snowdreams1006@163.com","webMaster":"snowdreams1006@163.com"},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"icp":{"link":"http://www.beian.miit.gov.cn/","number":"浙ICP备18042346号"},"pageview-count":{},"github-buttons":{"buttons":[{"user":"snowdreams1006","repo":"snowdreams1006.github.io","type":"star","size":"small"}]},"expandable-chapters-small":{},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"3f62415a283d19cbd696","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["snowdreams1006"],"createIssueManually":false,"distractionFreeMode":false,"repo":"snowdreams1006.github.io","owner":"snowdreams1006","enableHotKey":true,"clientSecret":"aed0e1db0620bf5d0e3a3f0225f801997ad74e58","pagerDirection":"last","labels":["Gitalk"]},"advanced-emoji":{"embedEmojis":false},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","instapaper","linkedin","pocket","stumbleupon"],"douban":true,"facebook":false,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"chart":{"type":"c3"},"search-plus":{}},"theme":"default","author":"snowdreams1006","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"雪之梦技术驿站","language":"zh-hans","links":{"sidebar":{"技术博客":"https://snowdreams1006.tech/"}},"gitbook":"3.2.3","description":"雪之梦技术驿站,snowdreams1006 搭建的 Gitbook 个人博客,详情请访问 https://snowdreams1006.github.io/"},"file":{"path":"go/oop/interface-type.md","mtime":"2019-11-01T11:34:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-16T04:36:02.869Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link-plus/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-rss/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copyright/copyright.js"></script>
+        
+    
+        
+        <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+        
+    
+        
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mygitalk/mygitalk.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    <script src="../../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+
+    </body>
+</html>
+
