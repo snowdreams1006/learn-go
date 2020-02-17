@@ -38,18 +38,18 @@
         "github-buttons": {
             "buttons": [{
                 "user": "snowdreams1006",
-                "repo": "learn-python",
+                "repo": "learn-go",
                 "type": "star",
                 "size": "small"
             }]
         },
         "edit-link-plus": {
             "base": {
-              "snowdreams1006.github.io":"https://github.com/snowdreams1006/learn-python/edit/master/docs",
-              "snowdreams1006.gitlab.io":"https://gitlab.com/snowdreams1006/learn-python/edit/master/docs",
-              "snowdreams1006.gitee.io":"https://gitee.com/snowdreams1006/learn-python/edit/master/docs"
+              "snowdreams1006.github.io":"https://github.com/snowdreams1006/learn-go/edit/master/docs",
+              "snowdreams1006.gitlab.io":"https://gitlab.com/snowdreams1006/learn-go/edit/master/docs",
+              "snowdreams1006.gitee.io":"https://gitee.com/snowdreams1006/learn-go/edit/master/docs"
             },
-            "defaultBase": "https://github.com/snowdreams1006/learn-python/edit/master/docs",
+            "defaultBase": "https://github.com/snowdreams1006/learn-go/edit/master/docs",
             "label": "Edit This Page"
         },
         "readmore": {
@@ -59,7 +59,7 @@
             "keyword": "vip"
         },
         "copyright": {
-            "site": "https://snowdreams1006.github.io/learn-python",
+            "site": "https://snowdreams1006.github.io/learn-go",
             "author": "雪之梦技术驿站",
             "website": "雪之梦技术驿站",
             "image": "https://snowdreams1006.github.io/snowdreams1006-wechat-open.png"
@@ -67,7 +67,7 @@
         "mygitalk": {
             "clientID": "3f62415a283d19cbd696",
             "clientSecret": "aed0e1db0620bf5d0e3a3f0225f801997ad74e58",
-            "repo": "learn-python",
+            "repo": "learn-go",
             "owner": "snowdreams1006",
             "admin": ["snowdreams1006"],
             "distractionFreeMode": false
