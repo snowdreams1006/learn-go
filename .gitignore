@@ -76,3 +76,33 @@ $RECYCLE.BIN/
 *.out
 .idea/compiler.xml
 .idea/workspace.xml
+
+## Dependency directory
+## Commenting this out is preferred by some people, see
+## https://docs.npmjs.com/misc/faq#should-i-check-my-node_modules-folder-into-git
+node_modules
+_book
+gitbook
+*.epub
+*.mobi
+*.pdf
+
+# package-lock.json
+package-lock.json
+
+## docs dependency directory
+docs/node_modules
+docs/_book
+docs/gitbook
+docs/*.epub
+docs/*.mobi
+docs/*.pdf
+
+## example dependency directory
+example/node_modules
+example/_book
+example/gitbook
+example/*.epub
+example/*.mobi
+example/*.pdf
+
